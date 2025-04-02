@@ -5,7 +5,7 @@ const constructionUserSchema = new mongoose.Schema({
     site: { type: mongoose.Schema.Types.ObjectId, ref: "Site"},
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
-    role: {type: String, enum: ['manager', 'worker'], require: true},
+    role: {type: String, enum: ['parent', 'nurse'], require: true},
     createAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now}
 })

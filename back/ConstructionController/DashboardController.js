@@ -44,25 +44,4 @@ const getSummary = async (req, res) => {
 
 
 
-const getWorkerAndSalaryStats = async (req, res) => {
-    try {
-        const totalWorkers = await ConstructionWorkers.countDocuments();
-        const totalSalary = await ConstructionSalaries.aggregate([
-            { $group: { _id: null, total: { $sum: "$netSalary" } } },
-        ]);
-
-        res.status(200).json({
-            success: true,
-            totalWorkers,
-            totalSalary: totalSalary[0]?.total || 0,
-        });
-    } catch (error) {
-        res.status(500).json({ success: false, error: "Error fetching stats" });
-    }
-};
-
-
-
-
-
-export {getSummary,getWorkerAndSalaryStats}
+export {getSummary}

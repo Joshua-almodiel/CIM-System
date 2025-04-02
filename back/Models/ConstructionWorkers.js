@@ -6,11 +6,6 @@ const workersSchema = new Schema({
     workerId: { type: String, required: true, unique: true },
     dob: { type: Date },
     gender: { type: String },
-    birthWeight: { type: Number },
-    bloodType: { type: String, enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', null]},
-
-
-
     maritalStatus: { type: String },
     nationality: { type: String },
     site: { type: Schema.Types.ObjectId, ref: "Site", required: true },
