@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Add = () => {
   const [formData, setFormData] = useState({
+    name: "",
     familyNumber: "",
     lastName: "",
     firstName: "",
@@ -77,7 +78,6 @@ const Add = () => {
     fothers: "",
     fnone: "",
     fbloodPressure: "",
-
     smoking: "",
     packsPerYear: "",
     alcohol: "",
@@ -86,24 +86,21 @@ const Add = () => {
     illicitDrugsDetails: "",
     sexualHistory: "",
     sexualHistoryDetails: "",
-
     menarche: "",
     pregnancyHistory: "",
     menopause: "",
     gravida: "",
     ageOfMenopause: "",
     para: "",
-
-
     lmp: "",
-    obstetricHistory: "",
-    obstetricHistoryDetails: "",
-    contraceptiveMethod: "",
-    contraceptiveMethodDetails: "",
-    familyPlanning: "",
-
-
-
+    fullTerm: "",
+    preTerm: "",
+    abortion: "",
+    living: "",
+    intervalOfMenstruation: "",
+    duration: "",
+    padsPerDay: "",
+    dateComplaints: "",
     chiefComplaints: "",
     bp: "",
     hr: "",
@@ -112,6 +109,7 @@ const Add = () => {
     temp: "",
     rr: "",
     ht: "",
+    email: "",
     password: "",
     role: "parent",
   });
@@ -127,7 +125,7 @@ const Add = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/worker/add",
+        "http://localhost:5000/api/parent/add",
         formData,
         {
           headers: {
@@ -136,7 +134,7 @@ const Add = () => {
         }
       );
       if (response.data.success) {
-        navigate("/manager-dashboard/workers");
+        navigate("/healthWorker-dashboard/parents");
       }
     } catch (error) {
       if (error.response && !error.response.data.success) {
@@ -201,6 +199,19 @@ const Add = () => {
               onChange={handleChange}
               className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
               required
+            />
+          </div>
+
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium mb-2">
+              Nickname
+            </label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter Nickname"
+              onChange={handleChange}
+              className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
             />
           </div>
 
@@ -400,10 +411,7 @@ const Add = () => {
           </div>
 
           <div>
-            <label
-              htmlFor="address"
-              className="block text-sm font-medium mb-2"
-            >
+            <label htmlFor="address" className="block text-sm font-medium mb-2">
               Address
             </label>
             <input
@@ -542,399 +550,1123 @@ const Add = () => {
             </select>
           </div>
 
-
           <div>
-          <h2>Past Medical History</h2>
-          <table>
-            
-            <tr>
+            <h2>Past Medical History</h2>
+            <table>
+              <tr>
                 <th>Condition</th>
                 <th>Yes</th>
                 <th>No</th>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td>Allergy</td>
-                <td><input type="radio" name="pallergy" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="pallergy" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="pallergy"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="pallergy"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Asthma</td>
-                <td><input type="radio" name="pasthma" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="pasthma" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="pasthma"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="pasthma"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>&emsp;Specify Allergy:</td>
-                <td colspan="2"><input type="text" name="pspecifyAllergy" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    name="pspecifyAllergy"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Cancer</td>
-                <td><input type="radio" name="pcancer" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="pcancer" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="pcancer"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="pcancer"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>&emsp;Specify Organ with Cancer:</td>
-                <td colspan="2"><input type="text" name="porganCancer" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    name="porganCancer"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Cerebrovascular Disease</td>
-                <td><input type="radio" name="pcerebrovascular" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="pcerebrovascular" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="pcerebrovascular"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="pcerebrovascular"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Coronary Artery Disease</td>
-                <td><input type="radio" name="pcoronaryArtery" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="pcoronaryArtery" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="pcoronaryArtery"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="pcoronaryArtery"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Diabetes Mellitus</td>
-                <td><input type="radio" name="pdiabetes" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="pdiabetes" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="pdiabetes"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="pdiabetes"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Emphysema</td>
-                <td><input type="radio" name="pemphysema" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="pemphysema" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="pemphysema"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="pemphysema"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Epilepsy / Seizure Disorder</td>
-                <td><input type="radio" name="pepilepsy" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="pepilepsy" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="pepilepsy"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="pepilepsy"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Hepatitis</td>
-                <td><input type="radio" name="phepatitis" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="phepatitis" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="phepatitis"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="phepatitis"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Hyperlipidemia</td>
-                <td><input type="radio" name="phyperlipidemia" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="phyperlipidemia" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="phyperlipidemia"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="phyperlipidemia"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Hypertension</td>
-                <td><input type="radio" name="phypertension" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="phypertension" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="phypertension"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="phypertension"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Peptic Ulcer</td>
-                <td><input type="radio" name="ppepticUlcer" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="ppepticUlcer" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="ppepticUlcer"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="ppepticUlcer"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Pneumonia</td>
-                <td><input type="radio" name="ppneumonia" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="ppneumonia" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="ppneumonia"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="ppneumonia"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Thyroid Disease</td>
-                <td><input type="radio" name="pthyroid" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="pthyroid" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="pthyroid"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="pthyroid"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Pulmonary Tuberculosis</td>
-                <td><input type="radio" name="ppulmonaryTb" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="ppulmonaryTb" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="ppulmonaryTb"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="ppulmonaryTb"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>&emsp;Specify Pulmonary Tuberculosis Category:</td>
-                <td colspan="2"><input type="text" name="ppulmonaryTbCategory" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    name="ppulmonaryTbCategory"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Extrapulmonary Tuberculosis</td>
-                <td><input type="radio" name="pextrapulmonaryTb" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="pextrapulmonaryTb" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="pextrapulmonaryTb"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="pextrapulmonaryTb"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>&emsp;Specify Extrapulmonary Tuberculosis Category:</td>
-                <td colspan="2"><input type="text" name="pextrapulmonaryTbCategory" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    name="pextrapulmonaryTbCategory"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Urinary Tract Infection</td>
-                <td><input type="radio" name="puti" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="puti" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="puti"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="puti"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Mental Illness</td>
-                <td><input type="radio" name="pmentalIllness" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="pmentalIllness" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="pmentalIllness"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="pmentalIllness"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Others (please specify):</td>
-                <td colspan="2"><input type="text" name="pothers" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td colspan="2">
+                  <input type="text" name="pothers" onChange={handleChange} />
+                </td>
+              </tr>
+              <tr>
                 <td>None</td>
-                <td><input type="radio" name="pnone" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="pnone" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="pnone"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="pnone"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Highest Blood Pressure:</td>
-                <td colspan="2"><input type="text" name="pbloodPressure" onChange={handleChange} /></td>
-            </tr>
-        </table>
-        </div>
-
+                <td colspan="2">
+                  <input
+                    type="text"
+                    name="pbloodPressure"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+            </table>
+          </div>
 
           <div>
-          <h2>Family History</h2>
-          <table>
-            
-            <tr>
+            <h2>Family History</h2>
+            <table>
+              <tr>
                 <th>Condition</th>
                 <th>Yes</th>
                 <th>No</th>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td>Allergy</td>
-                <td><input type="radio" name="fallergy" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fallergy" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fallergy"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fallergy"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Asthma</td>
-                <td><input type="radio" name="fasthma" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fasthma" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fasthma"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fasthma"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>&emsp;Specify Allergy:</td>
-                <td colspan="2"><input type="text" name="fspecifyAllergy" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    name="fspecifyAllergy"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Cancer</td>
-                <td><input type="radio" name="fcancer" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fcancer" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fcancer"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fcancer"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>&emsp;Specify Organ with Cancer:</td>
-                <td colspan="2"><input type="text" name="forganCancer" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    name="forganCancer"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Cerebrovascular Disease</td>
-                <td><input type="radio" name="fcerebrovascular" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fcerebrovascular" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fcerebrovascular"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fcerebrovascular"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Coronary Artery Disease</td>
-                <td><input type="radio" name="fcoronaryArtery" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fcoronaryArtery" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fcoronaryArtery"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fcoronaryArtery"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Diabetes Mellitus</td>
-                <td><input type="radio" name="fdiabetes" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fdiabetes" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fdiabetes"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fdiabetes"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Emphysema</td>
-                <td><input type="radio" name="femphysema" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="femphysema" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="femphysema"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="femphysema"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Epilepsy / Seizure Disorder</td>
-                <td><input type="radio" name="fepilepsy" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fepilepsy" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fepilepsy"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fepilepsy"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Hepatitis</td>
-                <td><input type="radio" name="fhepatitis" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fhepatitis" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fhepatitis"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fhepatitis"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Hyperlipidemia</td>
-                <td><input type="radio" name="fhyperlipidemia" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fhyperlipidemia" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fhyperlipidemia"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fhyperlipidemia"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Hypertension</td>
-                <td><input type="radio" name="fhypertension" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fhypertension" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fhypertension"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fhypertension"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Peptic Ulcer</td>
-                <td><input type="radio" name="fpepticUlcer" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fpepticUlcer" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fpepticUlcer"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fpepticUlcer"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Pneumonia</td>
-                <td><input type="radio" name="fpneumonia" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fpneumonia" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fpneumonia"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fpneumonia"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Thyroid Disease</td>
-                <td><input type="radio" name="fthyroid" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fthyroid" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fthyroid"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fthyroid"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Pulmonary Tuberculosis</td>
-                <td><input type="radio" name="fpulmonaryTb" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fpulmonaryTb" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fpulmonaryTb"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fpulmonaryTb"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>&emsp;Specify Pulmonary Tuberculosis Category:</td>
-                <td colspan="2"><input type="text" name="fpulmonaryTbCategory" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    name="fpulmonaryTbCategory"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Extrapulmonary Tuberculosis</td>
-                <td><input type="radio" name="fextrapulmonaryTb" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fextrapulmonaryTb" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fextrapulmonaryTb"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fextrapulmonaryTb"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>&emsp;Specify Extrapulmonary Tuberculosis Category:</td>
-                <td colspan="2"><input type="text" name="fextrapulmonaryTbCategory" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    name="fextrapulmonaryTbCategory"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Urinary Tract Infection</td>
-                <td><input type="radio" name="futi" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="futi" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="futi"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="futi"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Mental Illness</td>
-                <td><input type="radio" name="fmentalIllness" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fmentalIllness" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fmentalIllness"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fmentalIllness"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Others (please specify):</td>
-                <td colspan="2"><input type="text" name="fothers" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td colspan="2">
+                  <input type="text" name="fothers" onChange={handleChange} />
+                </td>
+              </tr>
+              <tr>
                 <td>None</td>
-                <td><input type="radio" name="fnone" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="fnone" value="no" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="fnone"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="fnone"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Highest Blood Pressure:</td>
-                <td colspan="2"><input type="text" name="fbloodPressure" onChange={handleChange} /></td>
-            </tr>
-        </table>
-        </div>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    name="fbloodPressure"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+            </table>
+          </div>
 
-        <div>
-        <h2>Personal/Social History</h2>
-        <table>
-            <tr>
+          <div>
+            <h2>Personal/Social History</h2>
+            <table>
+              <tr>
                 <th>Category</th>
                 <th>Yes</th>
                 <th>No</th>
                 <th>Quit</th>
                 <th>Additional Information</th>
-            </tr>
-            <tr>
+              </tr>
+              <tr>
                 <td>Smoking</td>
-                <td><input type="radio" name="smoking" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="smoking" value="no" onChange={handleChange} /></td>
-                <td><input type="radio" name="smoking" value="quit" onChange={handleChange} /></td>
-                <td>No. of Packs per year: <input type="text" name="packsPerYear" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="radio"
+                    name="smoking"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="smoking"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="smoking"
+                    value="quit"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  No. of Packs per year:{" "}
+                  <input
+                    type="text"
+                    name="packsPerYear"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Alcohol</td>
-                <td><input type="radio" name="alcohol" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="alcohol" value="no" onChange={handleChange} /></td>
+                <td>
+                  <input
+                    type="radio"
+                    name="alcohol"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="alcohol"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
                 <td></td>
-                <td>No. of Bottles per day: <input type="text" name="bottlesPerDay" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  No. of Bottles per day:{" "}
+                  <input
+                    type="text"
+                    name="bottlesPerDay"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Illicit Drugs</td>
-                <td><input type="radio" name="illicitDrugs" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="illicitDrugs" value="no" onChange={handleChange} /></td>
+                <td>
+                  <input
+                    type="radio"
+                    name="illicitDrugs"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="illicitDrugs"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
                 <td></td>
-                <td><input type="text" name="illicitDrugsDetails" placeholder="Specify drug use" onChange={handleChange} /></td>
-            </tr>
-            <tr>
+                <td>
+                  <input
+                    type="text"
+                    name="illicitDrugsDetails"
+                    placeholder="Specify drug use"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
                 <td>Sexual History Screening</td>
-                <td><input type="radio" name="sexualHistory" value="yes" onChange={handleChange} /></td>
-                <td><input type="radio" name="sexualHistory" value="no" onChange={handleChange} /></td>
+                <td>
+                  <input
+                    type="radio"
+                    name="sexualHistory"
+                    value="yes"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="radio"
+                    name="sexualHistory"
+                    value="no"
+                    onChange={handleChange}
+                  />
+                </td>
                 <td></td>
-                <td><input type="text" name="sexualHistoryDetails" placeholder="Additional details" onChange={handleChange} /></td>
-            </tr>
-        </table>
-        </div>
+                <td>
+                  <input
+                    type="text"
+                    name="sexualHistoryDetails"
+                    placeholder="Additional details"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+            </table>
+          </div>
 
+          <div>
+            <h1>Obstetrics/Menstrual History</h1>
 
-        <div>
-        <h1>Obstetrics/Menstrual History</h1>
-    
-    <table>
-        <tr>
-            <td>
-                <strong>Menarche</strong>
-                <input type="text" name="menarche" onChange={handleChange} />
-            </td>
-            <td>
-                <strong>Pregnancy History</strong>
-                <input type="text" name="pregnancyHistory" onChange={handleChange} />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Menopause</strong>
-                <span>
-                    <input type="radio" id="menopauseYes" name="menopause" value="yes" onChange={handleChange} />
+            <table>
+              <tr>
+                <td>
+                  <strong>Menarche</strong>
+                  <input type="text" name="menarche" onChange={handleChange} />
+                </td>
+                <td>
+                  <strong>Pregnancy History</strong>
+                  <input
+                    type="text"
+                    name="pregnancyHistory"
+                    onChange={handleChange}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Menopause</strong>
+                  <span>
+                    <input
+                      type="radio"
+                      id="menopauseYes"
+                      name="menopause"
+                      value="yes"
+                      onChange={handleChange}
+                    />
                     <label for="menopause">Yes</label>
-                </span>
-                <span>
-                    <input type="radio" id="menopauseNo" name="menopause" value="no" onChange={handleChange} />
+                  </span>
+                  <span>
+                    <input
+                      type="radio"
+                      id="menopauseNo"
+                      name="menopause"
+                      value="no"
+                      onChange={handleChange}
+                    />
                     <label for="menopause">No</label>
-                </span>
-            </td>
-            <td>
-                <strong>Gravida</strong>
-                <input type="text" name="gravida" onChange={handleChange} />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Age of Menopause</strong>
-                <input type="text" name="ageOfMenopause" onChange={handleChange} />
-            </td>
-            <td>
-                <strong>Para</strong>
-                <input type="text" name="para" onChange={handleChange} />
-            </td>
-            <td>
-                <strong>Gravida</strong>
-                <input type="text" name="gravida" onChange={handleChange} />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>LMP</strong>
-                <input type="text" name="lmp" onChange={handleChange} />
-            </td>
-            <td>
-                <strong>Full Term :</strong>
-                <input type="text" name="fullTerm" onChange={handleChange} />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Interval of Menstruation</strong>
-                <input type="text" name="intervalOfMenstruation" onChange={handleChange} />
-            </td>
-            <td>
-                <strong>Preterm</strong>
-                <input type="text" name="preterm" onChange={handleChange} />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Duration</strong>
-                <input type="number" name="duration" min="0" onChange={handleChange} /> days
-            </td>
-            <td>
-                <strong>Abortion</strong>
-                <input type="text" name="abortion" onChange={handleChange} />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Pads per day</strong>
-                <input type="number" name="padsPerDay" min="0" onChange={handleChange} />
-            </td>
-            <td>
-                <strong>Living</strong>
-                <input type="text" name="living" onChange={handleChange} />
-            </td>
-        </tr>
-    </table>
-        </div>
+                  </span>
+                </td>
+                <td>
+                  <strong>Gravida</strong>
+                  <input type="text" name="gravida" onChange={handleChange} />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Age of Menopause</strong>
+                  <input
+                    type="text"
+                    name="ageOfMenopause"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <strong>Para</strong>
+                  <input type="text" name="para" onChange={handleChange} />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>LMP</strong>
+                  <input type="text" name="lmp" onChange={handleChange} />
+                </td>
+                <td>
+                  <strong>Full Term :</strong>
+                  <input type="text" name="fullTerm" onChange={handleChange} />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Interval of Menstruation</strong>
+                  <input
+                    type="text"
+                    name="intervalOfMenstruation"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <strong>Preterm</strong>
+                  <input type="text" name="preterm" onChange={handleChange} />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Duration</strong>
+                  <input
+                    type="number"
+                    name="duration"
+                    min="0"
+                    onChange={handleChange}
+                  />{" "}
+                  days
+                </td>
+                <td>
+                  <strong>Abortion</strong>
+                  <input type="text" name="abortion" onChange={handleChange} />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Pads per day</strong>
+                  <input
+                    type="number"
+                    name="padsPerDay"
+                    min="0"
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  <strong>Living</strong>
+                  <input type="text" name="living" onChange={handleChange} />
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter Email"
+              onChange={handleChange}
+              required
+            />
+          </div>
 
           <div>
             <label
@@ -953,12 +1685,15 @@ const Add = () => {
           </div>
 
           <div>
-            <label htmlFor="date" className="block text-sm font-medium mb-2">
+            <label
+              htmlFor="dateComplaints"
+              className="block text-sm font-medium mb-2"
+            >
               Date
             </label>
             <input
               type="date"
-              name="date"
+              name="dateComplaints"
               onChange={handleChange}
               className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
               required
@@ -992,7 +1727,12 @@ const Add = () => {
             </div>
             <div>
               <label for="o2sat">O2Sat</label>
-              <input type="text" id="o2sat" name="o2sat" onChange={handleChange} />
+              <input
+                type="text"
+                id="o2sat"
+                name="o2sat"
+                onChange={handleChange}
+              />
             </div>
             <div>
               <label for="wt">Wt</label>
@@ -1002,7 +1742,12 @@ const Add = () => {
           <div>
             <div>
               <label for="temp">Temp</label>
-              <input type="text" id="temp" name="temp" onChange={handleChange} />
+              <input
+                type="text"
+                id="temp"
+                name="temp"
+                onChange={handleChange}
+              />
             </div>
             <div>
               <label for="rr">RR</label>
@@ -1013,8 +1758,6 @@ const Add = () => {
               <input type="text" id="ht" name="ht" onChange={handleChange} />
             </div>
           </div>
-
-          
         </div>
 
         <div className="mt-6">
