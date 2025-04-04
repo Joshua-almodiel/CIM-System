@@ -1541,7 +1541,7 @@ const Edit = () => {
                       type="radio"
                       name="fextrapulmonaryTb"
                       value="yes"
-                      checked={parent.fpulmonaryTb === "yes"}
+                      checked={parent.fextrapulmonaryTb === "yes"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1550,7 +1550,7 @@ const Edit = () => {
                       type="radio"
                       name="fextrapulmonaryTb"
                       value="no"
-                      checked={parent.fpulmonaryTb === "no"}
+                      checked={parent.fextrapulmonaryTb === "no"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1594,6 +1594,7 @@ const Edit = () => {
                       type="radio"
                       name="fmentalIllness"
                       value="yes"
+                      checked={parent.fmentalIllness === "yes"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1602,6 +1603,7 @@ const Edit = () => {
                       type="radio"
                       name="fmentalIllness"
                       value="no"
+                      checked={parent.fmentalIllness === "no"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1609,7 +1611,7 @@ const Edit = () => {
                 <tr>
                   <td>Others (please specify):</td>
                   <td colspan="2">
-                    <input type="text" name="fothers" onChange={handleChange} />
+                    <input type="text" name="fothers" value={parent.fothers} onChange={handleChange} />
                   </td>
                 </tr>
                 <tr>
@@ -1619,6 +1621,7 @@ const Edit = () => {
                       type="radio"
                       name="fnone"
                       value="yes"
+                      checked={parent.fnone === "yes"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1627,6 +1630,7 @@ const Edit = () => {
                       type="radio"
                       name="fnone"
                       value="no"
+                      checked={parent.fnone === "no"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1637,6 +1641,7 @@ const Edit = () => {
                     <input
                       type="text"
                       name="fbloodPressure"
+                      value={parent.fbloodPressure}
                       onChange={handleChange}
                     />
                   </td>
@@ -1661,6 +1666,7 @@ const Edit = () => {
                       type="radio"
                       name="smoking"
                       value="yes"
+                      checked={parent.smoking === "yes"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1669,6 +1675,7 @@ const Edit = () => {
                       type="radio"
                       name="smoking"
                       value="no"
+                      checked={parent.smoking === "no"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1677,6 +1684,7 @@ const Edit = () => {
                       type="radio"
                       name="smoking"
                       value="quit"
+                      checked={parent.smoking === "quit"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1685,6 +1693,7 @@ const Edit = () => {
                     <input
                       type="text"
                       name="packsPerYear"
+                      value={parent.packsPerYear}
                       onChange={handleChange}
                     />
                   </td>
@@ -1696,6 +1705,7 @@ const Edit = () => {
                       type="radio"
                       name="alcohol"
                       value="yes"
+                      checked={parent.alcohol === "yes"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1704,6 +1714,7 @@ const Edit = () => {
                       type="radio"
                       name="alcohol"
                       value="no"
+                      checked={parent.alcohol === "no"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1713,6 +1724,7 @@ const Edit = () => {
                     <input
                       type="text"
                       name="bottlesPerDay"
+                      value={parent.bottlesPerDay}
                       onChange={handleChange}
                     />
                   </td>
@@ -1724,6 +1736,7 @@ const Edit = () => {
                       type="radio"
                       name="illicitDrugs"
                       value="yes"
+                      checked={parent.illicitDrugs === "yes"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1732,6 +1745,7 @@ const Edit = () => {
                       type="radio"
                       name="illicitDrugs"
                       value="no"
+                      checked={parent.illicitDrugs === "no"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1740,6 +1754,7 @@ const Edit = () => {
                     <input
                       type="text"
                       name="illicitDrugsDetails"
+                      value={parent.illicitDrugsDetails}
                       placeholder="Specify drug use"
                       onChange={handleChange}
                     />
@@ -1752,6 +1767,7 @@ const Edit = () => {
                       type="radio"
                       name="sexualHistory"
                       value="yes"
+                      checked={parent.sexualHistory === "yes"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1760,6 +1776,7 @@ const Edit = () => {
                       type="radio"
                       name="sexualHistory"
                       value="no"
+                      checked={parent.sexualHistory === "no"}
                       onChange={handleChange}
                     />
                   </td>
@@ -1768,6 +1785,7 @@ const Edit = () => {
                     <input
                       type="text"
                       name="sexualHistoryDetails"
+                      value={parent.sexualHistoryDetails}
                       placeholder="Additional details"
                       onChange={handleChange}
                     />
@@ -1783,13 +1801,14 @@ const Edit = () => {
                 <tr>
                   <td>
                     <strong>Menarche</strong>
-                    <input type="text" name="menarche" onChange={handleChange} />
+                    <input type="text" name="menarche" value={parent.menarche} onChange={handleChange} />
                   </td>
                   <td>
                     <strong>Pregnancy History</strong>
                     <input
                       type="text"
                       name="pregnancyHistory"
+                      value={parent.pregnancyHistory}
                       onChange={handleChange}
                     />
                   </td>
@@ -1803,6 +1822,7 @@ const Edit = () => {
                         id="menopauseYes"
                         name="menopause"
                         value="yes"
+                        checked={parent.menopause === "yes"}
                         onChange={handleChange}
                       />
                       <label for="menopause">Yes</label>
@@ -1813,6 +1833,7 @@ const Edit = () => {
                         id="menopauseNo"
                         name="menopause"
                         value="no"
+                        checked={parent.menopause === "no"}
                         onChange={handleChange}
                       />
                       <label for="menopause">No</label>
@@ -1820,7 +1841,7 @@ const Edit = () => {
                   </td>
                   <td>
                     <strong>Gravida</strong>
-                    <input type="text" name="gravida" onChange={handleChange} />
+                    <input type="text" name="gravida" value={parent.gravida} onChange={handleChange} />
                   </td>
                 </tr>
                 <tr>
@@ -1829,22 +1850,23 @@ const Edit = () => {
                     <input
                       type="text"
                       name="ageOfMenopause"
+                      value={parent.ageOfMenopause}
                       onChange={handleChange}
                     />
                   </td>
                   <td>
                     <strong>Para</strong>
-                    <input type="text" name="para" onChange={handleChange} />
+                    <input type="text" name="para" value={parent.para} onChange={handleChange} />
                   </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>LMP</strong>
-                    <input type="text" name="lmp" onChange={handleChange} />
+                    <input type="text" name="lmp" value={parent.lmp} onChange={handleChange} />
                   </td>
                   <td>
                     <strong>Full Term :</strong>
-                    <input type="text" name="fullTerm" onChange={handleChange} />
+                    <input type="text" name="fullTerm" value={parent.fullTerm} onChange={handleChange} />
                   </td>
                 </tr>
                 <tr>
@@ -1853,12 +1875,13 @@ const Edit = () => {
                     <input
                       type="text"
                       name="intervalOfMenstruation"
+                      value={parent.intervalOfMenstruation}
                       onChange={handleChange}
                     />
                   </td>
                   <td>
                     <strong>Preterm</strong>
-                    <input type="text" name="preterm" onChange={handleChange} />
+                    <input type="text" name="preterm" value={parent.preterm} onChange={handleChange} />
                   </td>
                 </tr>
                 <tr>
@@ -1867,6 +1890,7 @@ const Edit = () => {
                     <input
                       type="number"
                       name="duration"
+                      value={parent.duration}
                       min="0"
                       onChange={handleChange}
                     />{" "}
@@ -1874,7 +1898,7 @@ const Edit = () => {
                   </td>
                   <td>
                     <strong>Abortion</strong>
-                    <input type="text" name="abortion" onChange={handleChange} />
+                    <input type="text" name="abortion" value={parent.abortion} onChange={handleChange} />
                   </td>
                 </tr>
                 <tr>
@@ -1883,45 +1907,19 @@ const Edit = () => {
                     <input
                       type="number"
                       name="padsPerDay"
+                      value={parent.padsPerDay}
                       min="0"
                       onChange={handleChange}
                     />
                   </td>
                   <td>
                     <strong>Living</strong>
-                    <input type="text" name="living" onChange={handleChange} />
+                    <input type="text" name="living" value={parent.living} onChange={handleChange} />
                   </td>
                 </tr>
               </table>
             </div>
-  
-            <div>
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter Email"
-                onChange={handleChange}
-                required
-              />
-            </div>
-  
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium mb-2"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                name="password"
-                onChange={handleChange}
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
-                required
-              />
-            </div>
-  
+
             <div>
               <label
                 htmlFor="dateComplaints"
@@ -1932,6 +1930,7 @@ const Edit = () => {
               <input
                 type="date"
                 name="dateComplaints"
+                value={parent.dateComplaints}
                 onChange={handleChange}
                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
                 required
@@ -1948,6 +1947,7 @@ const Edit = () => {
               <input
                 type="text"
                 name="chiefComplaints"
+                value={parent.chiefComplaints}
                 onChange={handleChange}
                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
                 required
@@ -1957,11 +1957,11 @@ const Edit = () => {
             <div>
               <div>
                 <label for="bp">BP</label>
-                <input type="text" id="bp" name="bp" onChange={handleChange} />
+                <input type="text" id="bp" name="bp" value={parent.bp} onChange={handleChange} />
               </div>
               <div>
                 <label for="hr">HR</label>
-                <input type="text" id="hr" name="hr" onChange={handleChange} />
+                <input type="text" id="hr" name="hr" value={parent.hr} onChange={handleChange} />
               </div>
               <div>
                 <label for="o2sat">O2Sat</label>
@@ -1969,12 +1969,13 @@ const Edit = () => {
                   type="text"
                   id="o2sat"
                   name="o2sat"
+                  value={parent.o2sat}
                   onChange={handleChange}
                 />
               </div>
               <div>
                 <label for="wt">Wt</label>
-                <input type="text" id="wt" name="wt" onChange={handleChange} />
+                <input type="text" id="wt" name="wt" value={parent.wt} onChange={handleChange} />
               </div>
             </div>
             <div>
@@ -1984,16 +1985,17 @@ const Edit = () => {
                   type="text"
                   id="temp"
                   name="temp"
+                  value={parent.temp}
                   onChange={handleChange}
                 />
               </div>
               <div>
                 <label for="rr">RR</label>
-                <input type="text" id="rr" name="rr" onChange={handleChange} />
+                <input type="text" id="rr" name="rr" value={parent.rr} onChange={handleChange} />
               </div>
               <div>
                 <label for="ht">Ht</label>
-                <input type="text" id="ht" name="ht" onChange={handleChange} />
+                <input type="text" id="ht" name="ht" value={parent.ht} onChange={handleChange} />
               </div>
             </div>
           </div>

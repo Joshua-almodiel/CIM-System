@@ -4,24 +4,34 @@ import { useNavigate } from "react-router-dom";
 
 export const columns = [
     {
-        name: "ID",
-        selector: (row) => row.sno,
+        name: "Family Number",
+        selector: (row) => row.familyNumber,
+        sortable: true,
         width: "135px",
     },
     {
-        name: "Name",
-        selector: (row) => row.name,
+        name: "Last Name",
+        selector: (row) => row.lastName,
         width: "250px",
     },
     {
-        name: "Sites",
-        selector: (row) => row.site_name,
+        name: "First Name",
+        selector: (row) => row.firstName,
         width: "175px",
     },
     {
-        name: "Date of Birth",
-        selector: (row) => row.dob,
-        sortable: true,
+        name: "Middle Name",
+        selector: (row) => row.middleName,
+        width: "175px",
+    },
+    {
+        name: "Gender",
+        selector: (row) => row.sex,
+        width: "175px",
+    },
+    {
+        name: "Birthday",
+        selector: (row) => row.birthday,
         width: "190px",
     },
     {
@@ -68,7 +78,7 @@ export const getWorkers = async (id) => {
     return [];
 };
 
-export const WorkerButtons = ({ _id }) => {
+export const ParentButtons = ({ _id }) => {
     const navigate = useNavigate()
 
     return (

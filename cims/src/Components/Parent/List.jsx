@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { columns, WorkerButtons } from "../../Utilities/WorkerHelper.jsx";
+import { columns, ParentButtons } from "../../Utilities/ParentHelper.jsx";
 import axios from "axios";
 import DataTable from "react-data-table-component";
 
 const List = () => {
-  const [workers, setWorkers] = useState([]);
-  const [searchWorker, setSearchWorker] = useState();
+  const [parents, setParents] = useState([]);
+  const [searchParent, setSearchParent] = useState();
 
   const noRecord = {
     display: "flex",
@@ -22,38 +22,38 @@ const List = () => {
   };
 
   useEffect(() => {
-    const fetchWorkers = async () => {
+    const fetchParents = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/worker", {
+        const response = await axios.get("http://localhost:5000/api/parent", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
         console.log("API Response: ", response.data);
         if (response.data.success) {
-          let sno = 1;
-          const data = response.data.workers.map((work) => ({
-            _id: work._id,
-            sno: sno++,
-            site_name: work.site ? work.site.site_name : "No Sites",
-            name: work.userId ? work.userId.name : "Unknown",
-            dob: work.dob ? new Date(work.dob).toLocaleDateString() : "N/A",
-            action: <WorkerButtons _id={work._id} />,
+          const data = response.data.parents.map((care) => ({
+            familyNumber: care.familyNumber,
+            lastName: care.lastName,
+            firstName: care.firstName,
+            middleName: care.middleName,
+            sex: care.sex,
+            birthday: care.dob ? new Date(care.dob).toLocaleDateString() : "N/A",
+            action: <ParentButtons _id={care._id} />,
           }));
 
-          console.log("Formatted Worker Data: ", data);
+          console.log("Formatted Parent Data: ", data);
 
-          setWorkers(data);
-          setSearchWorker(data);
+          setParents(data);
+          setSearchParent(data);
         }
-        console.log(response.data.workers);
+        console.log(response.data.parents);
       } catch (error) {
         if (error.response && !error.response.data.success) {
           alert(error.response.data.error);
         }
       }
     };
-    fetchWorkers();
+    fetchParents();
   }, []);
 
   const customStyles = {
@@ -80,10 +80,10 @@ const List = () => {
   };
 
   const handleFilter = (e) => {
-    const records = workers.filter((work) => {
-      return work.name.toLowerCase().includes(e.target.value.toLowerCase());
+    const records = parents.filter((care) => {
+      return care.name.toLowerCase().includes(e.target.value.toLowerCase());
     });
-    setSearchWorker(records);
+    setSearchParent(records);
   };
 
   return (
