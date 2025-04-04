@@ -81,18 +81,18 @@ const List = () => {
 
   const handleFilter = (e) => {
     const records = parents.filter((care) => {
-      return care.name.toLowerCase().includes(e.target.value.toLowerCase());
+      return care.lastName.toLowerCase().includes(e.target.value.toLowerCase());
     });
     setSearchParent(records);
   };
 
   return (
     <>
-      {searchWorker ? (
+      {searchParent ? (
         <div className="p-6 bg-gray-900 text-white">
         <div className="mb-6">
           <h3 className="text-2xl font-semibold">
-            Manage Construction Workers
+            Manage Records
           </h3>
         </div>
 
@@ -100,22 +100,22 @@ const List = () => {
           <input
             type="text"
             onChange={handleFilter}
-            placeholder="Search workers name"
+            placeholder="Search by Last Name"
             className="px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-black-500 text-white"
           />
 
           <Link
-            to="/manager-dashboard/add-worker"
+            to="/healthWorker-dashboard/add-parent"
             className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
           >
-            Add New Worker
+            Add New Record
           </Link>
         </div>
         <div>
-          {searchWorker.length > 0 ? (
+          {searchParent.length > 0 ? (
             <DataTable
               columns={columns}
-              data={searchWorker}
+              data={searchParent}
               customStyles={customStyles}
               pagination
               highlightOnHover
@@ -143,7 +143,7 @@ const List = () => {
             />
           </svg>
           <h3 className="mt-4 text-lg font-medium text-gray-300">
-            Loading Workers...
+            Loading Records...
           </h3>
         </div>
       )}

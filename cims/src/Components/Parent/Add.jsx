@@ -177,10 +177,10 @@ const Add = () => {
               required
             >
               <option value="">Select</option>
-              <option value="regKonsulta">
+              <option value="Register to a Konsulta Package Provider">
                 Register to a Konsulta Package Provider
               </option>
-              <option value="regDeclared">
+              <option value="Registered all my declared minor depentdents">
                 Registered all my declared minor depentdents
               </option>
             </select>
@@ -325,8 +325,8 @@ const Add = () => {
               required
             >
               <option value="">Select Client Type</option>
-              <option value="member">Member</option>
-              <option value="dependent">Dependent</option>
+              <option value="Member">Member</option>
+              <option value="Dependent">Dependent</option>
             </select>
           </div>
 
@@ -344,8 +344,8 @@ const Add = () => {
               required
             >
               <option value="">Select If Member</option>
-              <option value="formal">Formal</option>
-              <option value="informal">Informal</option>
+              <option value="Formal">Formal</option>
+              <option value="Informal">Informal</option>
             </select>
           </div>
 
@@ -360,8 +360,8 @@ const Add = () => {
               required
             >
               <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
             </select>
           </div>
 
@@ -437,12 +437,12 @@ const Add = () => {
               required
             >
               <option value="">Select Status</option>
-              <option value="single">Single</option>
-              <option value="widowed">Widow/er</option>
-              <option value="separated">Separated</option>
-              <option value="married">Married</option>
-              <option value="annulled">Annulled</option>
-              <option value="engaged">Co habitation</option>
+              <option value="Single">Single</option>
+              <option value="Widow/er">Widow/er</option>
+              <option value="Separated">Separated</option>
+              <option value="Married">Married</option>
+              <option value="Annulled">Annulled</option>
+              <option value="Co habitation">Co habitation</option>
             </select>
           </div>
 
@@ -520,12 +520,12 @@ const Add = () => {
               required
             >
               <option value="">Select Attainment</option>
-              <option value="noFormalEduc">No Formal Education</option>
-              <option value="elem">Elementary</option>
-              <option value="hs">High School</option>
-              <option value="college">College</option>
-              <option value="voca">Vocational</option>
-              <option value="postGrad">Post Graduate</option>
+              <option value="No Formal Education">No Formal Education</option>
+              <option value="Elementary">Elementary</option>
+              <option value="High School">High School</option>
+              <option value="College">College</option>
+              <option value="Vocational">Vocational</option>
+              <option value="Post Graduate">Post Graduate</option>
             </select>
           </div>
 
@@ -543,10 +543,10 @@ const Add = () => {
               required
             >
               <option value="">Select Employment Status</option>
-              <option value="student">Student</option>
-              <option value="employed">Employed</option>
-              <option value="unemployed">Unemployed</option>
-              <option value="retired">Retired</option>
+              <option value="Student">Student</option>
+              <option value="Employed">Employed</option>
+              <option value="Unemployed">Unemployed</option>
+              <option value="Retired">Retired</option>
             </select>
           </div>
 
