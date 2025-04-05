@@ -32,12 +32,12 @@ const View = () => {
 
   useEffect(() => {
     fetchSalaries();
-  }, []);
+  });
 
   const filterSalaries = (e) => {
     const query = e.target.value.toLowerCase();
     const filteredRecords = salaries.filter((salary) =>
-      salary.workerId.workerId.toLowerCase().includes(query)
+      salary.familyNumber.familyNumber.toLowerCase().includes(query)
     );
     setFilteredSalaries(filteredRecords);
   };
@@ -64,7 +64,7 @@ const View = () => {
               <table className="w-full">
                 <thead className="bg-gray-700">
                   <tr>
-                    <th className="px-4 py-2 text-left">Worker ID</th>
+                    <th className="px-4 py-2 text-left">Parent ID</th>
                     <th className="px-4 py-2 text-left">Salary</th>
                     <th className="px-4 py-2 text-left">Bunos</th>
                     <th className="px-4 py-2 text-left">Advance Salary</th>
@@ -78,7 +78,7 @@ const View = () => {
                       key={salary.id}
                       className="border-b border-gray-700 hover:bg-gray-700 transition duration-200"
                     >
-                      <td className="px-4 py-2">{salary.workerId.workerId}</td>
+                      <td className="px-4 py-2">{salary.familyNumber.familyNumber}</td>
                       <td className="px-4 py-2">{salary.basicSalary}</td>
                       <td className="px-4 py-2">{salary.bunos}</td>
                       <td className="px-4 py-2">{salary.advanceSalary}</td>

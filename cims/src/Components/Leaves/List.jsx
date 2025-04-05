@@ -32,18 +32,18 @@ const List = () => {
 
     useEffect(() => {
         fetchLeaves();
-    }, []);
+    });
 
     return (
         <div className="p-6 bg-gray-900 text-white w-full overflow-hidden">
             <div className="mb-6">
-                <h3 className="text-2xl font-semibold">Manage Workers Leaves</h3>
+                <h3 className="text-2xl font-semibold">Manage Parents Leaves</h3>
             </div>
 
             <div className="flex items-center justify-between mb-6">
-                {user.role === "worker" && (
+                {user.role === "parent" && (
                     <Link
-                        to="/worker-dashboard/add-leave"
+                        to="/parent-dashboard/add-leave"
                         className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
                     >
                         Appy for leave
@@ -106,9 +106,9 @@ const List = () => {
                         </svg>
                         <h3 className="mt-4 text-lg font-medium text-gray-300">No Leaves Found</h3>
                         <p className="mt-1 text-gray-400">
-                            {user.role === "worker"
+                            {user.role === "parent"
                                 ? "You haven't applied for any leaves yet."
-                                : "This worker hasn't applied for any leaves yet."}
+                                : "This parent hasn't applied for any leaves yet."}
                         </p>
                     </div>
                 )}

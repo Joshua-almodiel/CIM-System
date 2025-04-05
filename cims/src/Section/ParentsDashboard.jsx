@@ -1,9 +1,9 @@
 import React from 'react'
-import Sidebar from '../Components/WorkerDashboard/Sidebar.jsx'
-import NavBar from '../Components/ManagerDashboard/Navbar.jsx'
+import Sidebar from '../Components/ParentDashboard/Sidebar.jsx'
+import NavBar from '../Components/HealthWorkerDashboard/Navbar.jsx'
 import { Outlet } from 'react-router-dom'
 
-const WorkersDashboard = () => {
+const ParentsDashboard = () => {
 
     return (
         <div className="flex min-h-screen">
@@ -16,4 +16,4 @@ const WorkersDashboard = () => {
     )
 }
 
-export default WorkersDashboard
+export default ParentsDashboard

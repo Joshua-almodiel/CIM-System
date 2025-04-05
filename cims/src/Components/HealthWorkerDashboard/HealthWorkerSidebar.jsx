@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { FaBuilding, FaCalendarAlt, FaCogs, FaMoneyBillAlt, FaMoneyBillWave, FaTachometerAlt, FaUser, FaUsers } from 'react-icons/fa'
 import { useAuth } from '../../Context/AuthContext.jsx'
 
-const ManagerSidebar = () => {
+const HealthWorkerSidebar = () => {
 
   const { logout } = useAuth()
 
@@ -11,12 +11,12 @@ const ManagerSidebar = () => {
   return (
     <div className="fixed inset-y-0 flex flex-col bg-gray-800 text-white w-64">
       <div className="p-4 border-gray-700">
-        <h3 className="text-lg text-center font-semibold">CW Management</h3>
+        <h3 className="text-lg text-center font-semibold">CIM System</h3>
       </div>
       <div className="flex flex-col p-8 space-y-6">
 
         <NavLink
-          to="/manager-dashboard"
+          to="/healthWorker-dashboard"
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"
@@ -29,20 +29,7 @@ const ManagerSidebar = () => {
         </NavLink>
 
         <NavLink
-          to="/manager-dashboard/sites"
-          className={({ isActive }) =>
-            `flex items-center p-2 rounded transition duration-200 ${isActive
-              ? "bg-blue-500 text-white"
-              : "hover:bg-gray-700"
-            }`
-          }
-        >
-          <FaBuilding className="mr-2" />
-          <span>Construction Sites</span>
-        </NavLink>
-
-        <NavLink
-          to="/manager-dashboard/workers"
+          to="/healthWorker-dashboard/parents"
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"
@@ -51,11 +38,11 @@ const ManagerSidebar = () => {
           }
         >
           <FaUsers className="mr-2" />
-          <span>Workers</span>
+          <span>Child Records</span>
         </NavLink>
 
         <NavLink
-          to="/manager-dashboard/leaves"
+          to="/healthWorker-dashboard/leaves"
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"
@@ -68,7 +55,7 @@ const ManagerSidebar = () => {
         </NavLink>
 
         <NavLink
-          to="/manager-dashboard/salary/add"
+          to="/healthWorker-dashboard/salary/add"
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"
@@ -81,7 +68,7 @@ const ManagerSidebar = () => {
         </NavLink>
 
         <NavLink
-          to="/manager-dashboard/setting"
+          to="/healthWorker-dashboard/setting"
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"
@@ -105,4 +92,4 @@ const ManagerSidebar = () => {
   );
 }
 
-export default ManagerSidebar
+export default HealthWorkerSidebar

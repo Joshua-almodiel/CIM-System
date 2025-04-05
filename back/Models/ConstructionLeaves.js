@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
 const constructionLeaveSchema = new Schema({
-    workerId: {type: Schema.Types.ObjectId, ref: "ConstructionWorkers", required: true},
+    familyNumber: {type: Schema.Types.ObjectId, ref: "Parents", required: true},
     leaveType: {type: String, enum: ["Sick Leave", "Casual Leave", "Annual Leave"], required: true},
     startDate: {type: Date, required: true},
     endDate: {type: Date, required: true},

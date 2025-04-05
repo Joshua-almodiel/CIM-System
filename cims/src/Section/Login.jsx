@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../Context/AuthContext.jsx'
 
-function ConstructionLogin() {
+function Login() {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const [error, setError] = useState(null)
@@ -17,10 +17,10 @@ function ConstructionLogin() {
             if (response.data.success) {
                 login(response.data.user)
                 localStorage.setItem("token", response.data.token)
-                if (response.data.user.role === "manager") {
-                    navigate('/manager-dashboard')
+                if (response.data.user.role === "healthWorker") {
+                    navigate('/healthWorker-dashboard')
                 } else {
-                    navigate('/worker-dashboard')
+                    navigate('/parent-dashboard')
                 }
             }
         } catch (error) {
@@ -36,7 +36,7 @@ function ConstructionLogin() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
             <div className="bg-gray-800 p-12 rounded-lg shadow-lg w-full max-w-md">
-                <h2 className="text-2xl font-bold mb-6 text-center">Construction Workers Management System</h2>
+                <h2 className="text-2xl font-bold mb-6 text-center">Child Immunization Monitoring System</h2>
                 <div className="bg-gray-700 p-6 rounded-lg">
                     <h2 className="text-xl font-semibold mb-4 text-center">Login</h2>
                     {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
@@ -96,4 +96,4 @@ function ConstructionLogin() {
     )
 }
 
-export default ConstructionLogin
+export default Login

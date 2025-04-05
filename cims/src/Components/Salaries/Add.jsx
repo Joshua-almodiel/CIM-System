@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { fetchSites, getWorkers } from "../../Utilities/WorkerHelper.jsx";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -11,36 +10,10 @@ const Add = () => {
     advanceSalary: 0,
     payDate: null,
   });
-  const [sites, setSites] = useState(null);
-  const [workers, setWorkers] = useState([]);
+  const [parents, setParents] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const getSites = async () => {
-      const sites = await fetchSites();
-      setSites(sites);
-    };
 
-    getSites();
-  }, []);
-
-  const handleSite = async (e) => {
-    const siteId = e.target.value;
-    if (!siteId) {
-      setWorkers([]);
-      return;
-    }
-
-    try {
-      const works = await getWorkers(siteId);
-      console.log("Fetched Workers:", works); 
-      setWorkers(works);
-      setSalary((prev) => ({ ...prev, workerId: null }));
-    } catch (error) {
-      console.error("Failed to fetch workers:", error);
-      setWorkers([]);
-    }
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -61,7 +34,7 @@ const Add = () => {
       );
       console.log(response.data);
       if (response.data.success) {
-        navigate("/manager-dashboard/workers");
+        navigate("/healthWorker-dashboard/parents");
       }
     } catch (error) {
       if (error.response && !error.response.data.success) {
@@ -72,7 +45,7 @@ const Add = () => {
 
   return (
     <>
-      {sites ? (
+      {parents ? (
         <div className="p-6 bg-gray-900 text-white">
           <h2 className="text-2xl font-semibold mb-6">Add Salary</h2>
           <form
@@ -80,50 +53,29 @@ const Add = () => {
             onSubmit={handleSubmit}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label
-                  htmlFor="site"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Sites
-                </label>
-                <select
-                  name="site"
-                  onChange={handleSite}
-                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
-                  required
-                >
-                  <option value="">Select Sites</option>
-                  {sites.map((site) => (
-                    <option key={site._id} value={site._id}>
-                      {site.site_name}
-                    </option>
-                  ))}
-                </select>
-              </div>
 
               <div>
                 <label
-                  htmlFor="worker"
+                  htmlFor="familyNumber"
                   className="block text-sm font-medium mb-2"
                 >
-                  Construction Worker ID
+                  Family Number
                 </label>
                 <select
-                  name="workerId"
+                  name="familyNumber"
                   onChange={handleChange}
                   className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
                   required
                 >
-                  <option value="">Select Workers</option>
-                  {workers.length > 0 ? (
-                    workers.map((work) => (
-                      <option key={work._id} value={work._id}>
-                        {work.workerId}
+                  <option value="">Select Parents</option>
+                  {parents.length > 0 ? (
+                    parents.map((care) => (
+                      <option key={care._id} value={care._id}>
+                        {care.familyNumber}
                       </option>
                     ))
                   ) : (
-                    <option disabled>No workers available</option>
+                    <option disabled>No parents available</option>
                   )}
                 </select>
               </div>

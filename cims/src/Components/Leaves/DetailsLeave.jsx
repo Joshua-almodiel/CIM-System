@@ -35,7 +35,7 @@ const DetailsLeave = () => {
             }
         };
         fetchLeaves();
-    }, []);
+    });
 
 
     const changeStatus = async (id, status) => {
@@ -47,7 +47,7 @@ const DetailsLeave = () => {
                     },
                 })
             if (response.data.success) {
-                navigate('/manager-dashboard/leaves')
+                navigate('/healthWorker-dashboard/leaves')
             }
         } catch (error) {
             if (error.response && !error.response.data.success) {
@@ -72,8 +72,8 @@ const DetailsLeave = () => {
                             <div className="flex items-center space-x-4">
                                 <FaUser className="text-2xl text-white" />
                                 <div>
-                                    <p className="text-sm text-gray-200">Name</p>
-                                    <p className="text-lg font-semibold">{leave.workerId.userId.name}</p>
+                                    <p className="text-sm text-gray-200">Nickname</p>
+                                    <p className="text-lg font-semibold">{leave.familyNumber.userId.name}</p>
                                 </div>
                             </div>
                         </div>
@@ -82,8 +82,8 @@ const DetailsLeave = () => {
                             <div className="flex items-center space-x-4">
                                 <FaIdCard className="text-2xl text-white" />
                                 <div>
-                                    <p className="text-sm text-gray-200">Construction Worker ID</p>
-                                    <p className="text-lg font-semibold">{leave.workerId.workerId}</p>
+                                    <p className="text-sm text-gray-200">Family Number</p>
+                                    <p className="text-lg font-semibold">{leave.familyNumber.familyNumber}</p>
                                 </div>
                             </div>
                         </div>
@@ -110,15 +110,6 @@ const DetailsLeave = () => {
                     </div>
 
                     <div className="space-y-6">
-                        <div className="bg-gradient-to-r from-gray-600 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div className="flex items-center space-x-4">
-                                <FaHardHat className="text-2xl text-white" />
-                                <div>
-                                    <p className="text-sm text-gray-200">Site</p>
-                                    <p className="text-lg font-semibold">{leave.workerId.site.site_name}</p>
-                                </div>
-                            </div>
-                        </div>
 
                         <div className="bg-gradient-to-r from-gray-600 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                             <div className="flex items-center space-x-4">

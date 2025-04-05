@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
 
-const constructionUserSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    site: { type: mongoose.Schema.Types.ObjectId, ref: "Site"},
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     role: {type: String, enum: ['healthWorker', 'parent'], require: true},
@@ -10,5 +9,5 @@ const constructionUserSchema = new mongoose.Schema({
     updatedAt: {type: Date, default: Date.now}
 })
 
-const ConstructionUser = mongoose.model("ConstructionUser", constructionUserSchema)
-export default ConstructionUser;
+const User = mongoose.model("User", UserSchema)
+export default User;

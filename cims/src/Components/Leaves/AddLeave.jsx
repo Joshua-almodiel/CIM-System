@@ -19,7 +19,7 @@ const AddLeave = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const fetchWorkers = async () => {
+        const fetchParents = async () => {
             try {
                 const response = await axios.post(`http://localhost:5000/api/leave/add`, leave,
                     {
@@ -28,7 +28,7 @@ const AddLeave = () => {
                         },
                     })
                 if (response.data.success) {
-                    navigate(`/worker-dashboard/leaves/${user._id}`)
+                    navigate(`/parent-dashboard/leaves/${user._id}`)
                 }
             } catch (error) {
                 if (error.response && !error.response.data.success) {
@@ -36,7 +36,7 @@ const AddLeave = () => {
                 }
             }
         };
-        fetchWorkers();
+        fetchParents();
     }
 
     return (

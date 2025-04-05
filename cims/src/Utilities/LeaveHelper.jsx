@@ -4,23 +4,18 @@ import { useNavigate } from 'react-router-dom'
 
 export const columns = [
     {
-      name: "Worker ID",
-      selector: (row) => row.workerId,
+      name: "Family Number",
+      selector: (row) => row.familyNumber,
       width: "150px",
     },
     {
-      name: "Name",
+      name: "Nickname",
       selector: (row) => row.name,
       width: "200px",
     },
     {
       name: "Leave Type",
       selector: (row) => row.leaveType,
-      width: "200px",
-    },
-    {
-      name: "Sites",
-      selector: (row) => row.site,
       width: "200px",
     },
     {
@@ -46,7 +41,7 @@ export const LeaveButtons = ({_id}) => {
     const navigate = useNavigate()
 
     const handleView = (id) => {
-        navigate(`/manager-dashboard/leaves/${id}`)
+        navigate(`/healthWorker-dashboard/leaves/${id}`)
     }
 
   return (

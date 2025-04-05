@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import WorkerSalaryGraph from "../Graph/WorkerSalaryGraph.jsx";
 import SummaryCard from "./SummaryCard";
 
 import {
@@ -13,7 +12,7 @@ import {
 } from "react-icons/fa";
 import axios from "axios";
 
-const ManagerOverview = () => {
+const HealthWorkerOverview = () => {
   const [summary, setSummary] = useState(null);
 
   useEffect(() => {
@@ -64,7 +63,7 @@ const ManagerOverview = () => {
   return (
     <div className="p-6 sm:p-8 bg-gray-900 text-white overflow-hidden">
       <h3 className="text-2xl sm:text-3xl font-semibold mb-6">
-        Manager Dashboard Overview
+        Health Worker Dashboard Overview
       </h3>
 
       <div className="mt-6 p-6 sm:p-6 bg-gray-800 rounded-lg shadow-md">
@@ -105,13 +104,9 @@ const ManagerOverview = () => {
             />
           </div>
         </div>
-
-        <div className="mt-6">
-          <WorkerSalaryGraph />
-        </div>
       </div>
     </div>
   );
 };
 
-export default ManagerOverview;
+export default HealthWorkerOverview;

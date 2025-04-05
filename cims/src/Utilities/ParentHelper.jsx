@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { useNavigate } from "react-router-dom";
 
 
@@ -41,42 +41,6 @@ export const columns = [
     },
 ]
 
-export const fetchSites = async () => {
-    let sites;
-    try {
-        const response = await axios.get('http://localhost:5000/api/site', {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-        })
-        if (response.data.success) {
-            sites = response.data.sites
-        }
-    } catch (error) {
-        if (error.response && !error.response.data.success) {
-            alert(error.response.data.error)
-        }
-    }
-    return sites
-};
-
-
-export const getWorkers = async (id) => {
-    try {
-        const response = await axios.get(`http://localhost:5000/api/worker/site/${id}`, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-        });
-        console.log("API Response:", response.data); // Debugging
-        if (response.data.success) {
-            return response.data.workers;
-        }
-    } catch (error) {
-        console.error("Error fetching workers:", error);
-    }
-    return [];
-};
 
 export const ParentButtons = ({ _id }) => {
     const navigate = useNavigate()
