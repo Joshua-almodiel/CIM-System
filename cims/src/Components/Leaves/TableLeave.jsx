@@ -33,7 +33,7 @@ const TableLeave = () => {
         const data = await responnse.data.leaves.map((leave) => ({
           _id: leave._id,
           sno: sno++,
-          workerId: leave.familyNumber.familyNumber,
+          familyNumber: leave.familyNumber.familyNumber,
           name: leave.familyNumber.userId.name,
           leaveType: leave.leaveType,
           days:
