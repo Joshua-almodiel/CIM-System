@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
 const constructionSalarySchema = new Schema({
-    parentId: {type: Schema.Types.ObjectId, ref: 'Parents', required: true},
+    familyNumber: {type: Schema.Types.ObjectId, ref: 'Parents', required: true},
     basicSalary: {type: Number, required: true},
     bunos: {type: Number},
     advanceSalary: {type: Number},

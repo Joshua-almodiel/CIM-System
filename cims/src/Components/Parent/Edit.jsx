@@ -1997,6 +1997,10 @@ const Edit = () => {
                 <label for="ht">Ht</label>
                 <input type="text" id="ht" name="ht" value={parent.ht} onChange={handleChange} />
               </div>
+              <div>
+                <label for="bmi">BMI</label>
+                <input type="text" id="bmi" name="bmi" value={parent.bmi} onChange={handleChange} />
+              </div>
             </div>
           </div>
   

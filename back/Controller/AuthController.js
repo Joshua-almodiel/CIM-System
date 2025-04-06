@@ -1,13 +1,13 @@
-import ConstructionUser from '../Models/ConstructionUser.js'
+import User from '../Models/User.js'
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 const login = async (req, res) => {
     try {
         const {email, password} = req.body;
-        const user = await ConstructionUser.findOne({email})
+        const user = await User.findOne({email})
         if(!user) {
-            return res.status(404).json({success: false, error: "Construction user not found"})
+            return res.status(404).json({success: false, error: "User not found"})
         }
 
         const isMatch = await bcrypt.compare(password, user.password)

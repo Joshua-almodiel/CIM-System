@@ -1,19 +1,15 @@
-import Site from "../Models/Site.js"
-import ConstructionWorkers from "../Models/ConstructionWorkers.js"
+import Parents from "../Models/Parents.js"
 import ConstructionLeaves from "../Models/ConstructionLeaves.js"
-import ConstructionSalaries from "../Models/ConstructionSalaries.js";
 
 const getSummary = async (req, res) => {
     try{
-        const totalWorkers = await ConstructionWorkers.countDocuments()
+        const totalParents = await Parents.countDocuments()
 
-        const totalSites = await Site.countDocuments()
-
-        const totalSalaries = await ConstructionWorkers.aggregate([
+        const totalSalaries = await Parents.aggregate([
             {$group: {_id: null, totalSalary: {$sum : "$salary"}}}
         ])
 
-        const workerAppliedForLeave = await ConstructionLeaves.distinct('workerId')
+        const parentAppliedForLeave = await ConstructionLeaves.distinct('familyNumber')
 
         const leaveStatus = await ConstructionLeaves.aggregate([
             {$group: {
@@ -23,7 +19,7 @@ const getSummary = async (req, res) => {
         ])
 
         const leaveSummary = {
-            appliedFor: workerAppliedForLeave.length,
+            appliedFor: parentAppliedForLeave.length,
             approved: leaveStatus.find(item => item._id === "Approved")?.count || 0,
             rejected: leaveStatus.find(item => item._id === "Rejected")?.count || 0,
             pending: leaveStatus.find(item => item._id === "Pending")?.count || 0,
@@ -31,8 +27,7 @@ const getSummary = async (req, res) => {
 
         return res.status(200).json({
             success: true,
-            totalWorkers,
-            totalSites,
+            totalParents,
             totalSalary: totalSalaries[0]?.totalSalary || 0,
             leaveSummary
         })
