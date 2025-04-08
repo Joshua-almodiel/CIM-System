@@ -12,12 +12,12 @@ const Sidebar = () => {
   return (
     <div className="fixed inset-y-0 flex flex-col bg-gray-800 text-white w-64">
       <div className="p-4 border-gray-700">
-        <h3 className="text-lg text-center font-semibold">CW Management</h3>
+        <h3 className="text-lg text-center font-semibold">CIM System</h3>
       </div>
       <div className="flex flex-col p-8 space-y-6">
 
         <NavLink
-          to="/worker-dashboard"
+          to="/parent-dashboard"
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"
@@ -26,11 +26,11 @@ const Sidebar = () => {
           } end
         >
           <FaTachometerAlt className="mr-2" />
-          <span>Worker Dashboard</span>
+          <span>Dashboard</span>
         </NavLink>
 
         <NavLink
-          to={`/worker-dashboard/profile/${user._id}`}
+          to={`/parent-dashboard/profile/${user._id}`}
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"
@@ -39,11 +39,11 @@ const Sidebar = () => {
           }
         >
           <FaUsers className="mr-2" />
-          <span>My Profile</span>
+          <span>My Child's Records</span>
         </NavLink>
 
         <NavLink
-          to={`/worker-dashboard/leaves/${user._id}`}
+          to={`/parent-dashboard/leaves/${user._id}`}
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"
@@ -52,11 +52,11 @@ const Sidebar = () => {
           }
         >
           <FaBuilding className="mr-2" />
-          <span>Leaves</span>
+          <span>Vaccination Schedule</span>
         </NavLink>
 
         <NavLink
-          to={`/worker-dashboard/salary/${user._id}`}
+          to={`/parent-dashboard/salary/${user._id}`}
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"
@@ -65,11 +65,24 @@ const Sidebar = () => {
           }
         >
           <FaCalendarAlt className="mr-2" />
-          <span>Salary</span>
+          <span>Reminders</span>
         </NavLink>
 
         <NavLink
-          to="/worker-dashboard/setting"
+          to={``}
+          className={({ isActive }) =>
+            `flex items-center p-2 rounded transition duration-200 ${isActive
+              ? "bg-blue-500 text-white"
+              : "hover:bg-gray-700"
+            }`
+          }
+        >
+          <FaCalendarAlt className="mr-2" />
+          <span>Health Tips & Guidelines</span>
+        </NavLink>
+
+        <NavLink
+          to="/parent-dashboard/setting"
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"

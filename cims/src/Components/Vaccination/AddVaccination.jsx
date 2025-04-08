@@ -41,7 +41,7 @@ const AddLeave = () => {
 
     return (
         <div className="p-6 bg-gray-900 text-white">
-            <h2 className="text-2xl font-semibold mb-6">Request for Leave</h2>
+            <h2 className="text-2xl font-semibold mb-6">Add Vaccination Record</h2>
 
             <form className="bg-gray-800 p-6 rounded-lg shadow-md" onSubmit={handleSubmit}>
                 <div className="space-y-6">

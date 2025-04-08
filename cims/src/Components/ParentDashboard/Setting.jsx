@@ -32,7 +32,7 @@ const Setting = () => {
           },
         });
         if (response.data.success) {
-          navigate("/manager-dashboard/workers");
+          navigate("/healthWorker-dashboard/parents");
           setError("");
         }
       } catch (error) {

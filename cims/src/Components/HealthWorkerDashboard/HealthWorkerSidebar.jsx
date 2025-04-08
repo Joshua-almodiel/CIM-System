@@ -42,7 +42,7 @@ const HealthWorkerSidebar = () => {
         </NavLink>
 
         <NavLink
-          to="/healthWorker-dashboard/leaves"
+          to=""
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"
@@ -51,11 +51,11 @@ const HealthWorkerSidebar = () => {
           }
         >
           <FaCalendarAlt className="mr-2" />
-          <span>Leave</span>
+          <span>Vaccination Schedule</span>
         </NavLink>
 
         <NavLink
-          to="/healthWorker-dashboard/salary/add"
+          to=""
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"
@@ -64,7 +64,46 @@ const HealthWorkerSidebar = () => {
           }
         >
           <FaMoneyBillWave className="mr-2" />
-          <span>Salary</span>
+          <span>Notifications</span>
+        </NavLink>
+
+        <NavLink
+          to=""
+          className={({ isActive }) =>
+            `flex items-center p-2 rounded transition duration-200 ${isActive
+              ? "bg-blue-500 text-white"
+              : "hover:bg-gray-700"
+            }`
+          }
+        >
+          <FaMoneyBillWave className="mr-2" />
+          <span>Report & Analytics</span>
+        </NavLink>
+
+        <NavLink
+          to=""
+          className={({ isActive }) =>
+            `flex items-center p-2 rounded transition duration-200 ${isActive
+              ? "bg-blue-500 text-white"
+              : "hover:bg-gray-700"
+            }`
+          }
+        >
+          <FaMoneyBillWave className="mr-2" />
+          <span>User Management</span>
+        </NavLink>
+
+        <NavLink
+          to="/healthWorker-dashboard/setting"
+          className={({ isActive }) =>
+            `flex items-center p-2 rounded transition duration-200 ${isActive
+              ? "bg-blue-500 text-white"
+              : "hover:bg-gray-700"
+            }`
+          }
+        >
+          <FaCogs className="mr-2" />
+          <span>Settings</span>
         </NavLink>
 
         <NavLink
