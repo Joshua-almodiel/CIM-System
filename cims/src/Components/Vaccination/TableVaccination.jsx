@@ -3,7 +3,7 @@ import DataTable from "react-data-table-component";
 import { columns, LeaveButtons } from "../../Utilities/LeaveHelper.jsx";
 import axios from "axios";
 
-const TableLeave = () => {
+const TableVaccination = () => {
   const [leaves, setLeaves] = useState([]);
   const [searchParents, setSearchParents] = useState([]);
 
@@ -170,4 +170,4 @@ const TableLeave = () => {
   );
 };
 
-export default TableLeave;
+export default TableVaccination;

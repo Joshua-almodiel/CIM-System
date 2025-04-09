@@ -3,32 +3,32 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext.jsx";
 
-const AddLeave = () => {
+const AddVaccination = () => {
     const { user } = useAuth()
     const navigate = useNavigate()
 
-    const [leave, setLeave] = useState({
+    const [vaccination, setVaccination] = useState({
         userId: user._id,
     });
 
 
     const handleChange = (e) => {
         const { name, value } = e.target
-        setLeave((prev) => ({ ...prev, [name]: value }))
+        setVaccination((prev) => ({ ...prev, [name]: value }))
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         const fetchParents = async () => {
             try {
-                const response = await axios.post(`http://localhost:5000/api/leave/add`, leave,
+                const response = await axios.post(`http://localhost:5000/api/vaccination/add`, vaccination,
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`
                         },
                     })
                 if (response.data.success) {
-                    navigate(`/parent-dashboard/leaves/${user._id}`)
+                    navigate(`/parent-dashboard/vaccinations/${user._id}`)
                 }
             } catch (error) {
                 if (error.response && !error.response.data.success) {
@@ -46,19 +46,22 @@ const AddLeave = () => {
             <form className="bg-gray-800 p-6 rounded-lg shadow-md" onSubmit={handleSubmit}>
                 <div className="space-y-6">
                     <div>
-                        <label htmlFor="leaveType" className="block text-sm font-medium mb-2">
-                            Leave Type
+                        <label htmlFor="vaccinationType" className="block text-sm font-medium mb-2">
+                        Vaccination Type
                         </label>
                         <select
-                            name="leaveType"
+                            name="vaccinationType"
                             onChange={handleChange}
                             className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
                             required
                         >
-                            <option value="">Select Leave Type</option>
-                            <option value="Sick Leave">Sick Leave</option>
-                            <option value="Casual Leave">Casual Leave</option>
-                            <option value="Annual Leave">Annual Leave</option>
+                            <option value="">Select Vaccination</option>
+                            <option value="BCG">BCG</option>
+                            <option value="HEPATITIS B">HEPATITIS B</option>
+                            <option value="PENTAVALENT VACCINE">PENTAVALENT VACCINE</option>
+                            <option value="ORAL POLIO VACCINE">ORAL POLIO VACCINE</option>
+                            <option value="INACTIVATED POLIO VACCINE">INACTIVATED POLIO VACCINE</option>
+                            <option value="PNEUMOCOCCAL CONJUGATE VACCINE">PNEUMOCOCCAL CONJUGATE VACCINE</option>
                         </select>
                     </div>
 
@@ -70,19 +73,6 @@ const AddLeave = () => {
                             <input
                                 type="date"
                                 name="startDate"
-                                onChange={handleChange}
-                                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
-                                required
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="toDate" className="block text-sm font-medium mb-2">
-                                To Date
-                            </label>
-                            <input
-                                type="date"
-                                name="endDate"
                                 onChange={handleChange}
                                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
                                 required
@@ -110,7 +100,7 @@ const AddLeave = () => {
                         type="submit"
                         className="w-full px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
                     >
-                        Add Leave
+                        Add Vaccination
                     </button>
                 </div>
             </form>
@@ -118,4 +108,4 @@ const AddLeave = () => {
     );
 };
 
-export default AddLeave;
+export default AddVaccination;

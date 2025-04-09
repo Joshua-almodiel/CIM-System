@@ -11,22 +11,22 @@ import {
     FaTimesCircle,
 } from "react-icons/fa";
 
-const DetailsLeave = () => {
+const Detailsvaccination = () => {
     const { id } = useParams()
-    const [leave, setLeave] = useState(null)
+    const [vaccination, setVaccination] = useState(null)
     const navigate = useNavigate()
 
     useEffect(() => {
-        const fetchLeaves = async () => {
+        const fetchVaccinations = async () => {
             try {
-                const responnse = await axios.get(`http://localhost:5000/api/leave/detail/${id}`,
+                const responnse = await axios.get(`http://localhost:5000/api/vaccination/detail/${id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`
                         },
                     })
                 if (responnse.data.success) {
-                    setLeave(responnse.data.leave)
+                    setVaccination(responnse.data.vaccination)
                 }
             } catch (error) {
                 if (error.response && !error.response.data.success) {
@@ -34,20 +34,20 @@ const DetailsLeave = () => {
                 }
             }
         };
-        fetchLeaves();
+        fetchVaccinations();
     });
 
 
     const changeStatus = async (id, status) => {
         try {
-            const response = await axios.put(`http://localhost:5000/api/leave/${id}`, { status },
+            const response = await axios.put(`http://localhost:5000/api/vaccination/${id}`, { status },
                 {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     },
                 })
             if (response.data.success) {
-                navigate('/healthWorker-dashboard/leaves')
+                navigate('/healthWorker-dashboard/vaccinations')
             }
         } catch (error) {
             if (error.response && !error.response.data.success) {
@@ -56,13 +56,13 @@ const DetailsLeave = () => {
         }
     }
 
-    if (!leave) {
+    if (!vaccination) {
         return <div className="p-6 bg-gray-900 text-white">Loading...</div>;
     }
 
     return (
         <div className="p-6 bg-gray-900 text-white min-h-screen">
-            <h2 className="text-2xl font-semibold mb-6">Leave Details</h2>
+            <h2 className="text-2xl font-semibold mb-6">Vaccination Details</h2>
 
             <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -73,7 +73,7 @@ const DetailsLeave = () => {
                                 <FaUser className="text-2xl text-white" />
                                 <div>
                                     <p className="text-sm text-gray-200">Nickname</p>
-                                    <p className="text-lg font-semibold">{leave.familyNumber.userId.name}</p>
+                                    <p className="text-lg font-semibold">{vaccination.familyNumber.userId.name}</p>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +83,7 @@ const DetailsLeave = () => {
                                 <FaIdCard className="text-2xl text-white" />
                                 <div>
                                     <p className="text-sm text-gray-200">Family Number</p>
-                                    <p className="text-lg font-semibold">{leave.familyNumber.familyNumber}</p>
+                                    <p className="text-lg font-semibold">{vaccination.familyNumber.familyNumber}</p>
                                 </div>
                             </div>
                         </div>
@@ -92,8 +92,8 @@ const DetailsLeave = () => {
                             <div className="flex items-center space-x-4">
                                 <FaInfoCircle className="text-2xl text-white" />
                                 <div>
-                                    <p className="text-sm text-gray-200">Leave Type</p>
-                                    <p className="text-lg font-semibold">{leave.leaveType}</p>
+                                    <p className="text-sm text-gray-200">Vaccination Type</p>
+                                    <p className="text-lg font-semibold">{vaccination.vaccinationType}</p>
                                 </div>
                             </div>
                         </div>
@@ -102,8 +102,8 @@ const DetailsLeave = () => {
                             <div className="flex items-center space-x-4">
                                 <FaInfoCircle className="text-2xl text-white" />
                                 <div>
-                                    <p className="text-sm text-gray-200">Reason</p>
-                                    <p className="text-lg font-semibold">{leave.reason}</p>
+                                    <p className="text-sm text-gray-200">Description</p>
+                                    <p className="text-lg font-semibold">{vaccination.reason}</p>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@ const DetailsLeave = () => {
                                 <div>
                                     <p className="text-sm text-gray-200">Start Date</p>
                                     <p className="text-lg font-semibold">
-                                        {new Date(leave.startDate).toLocaleDateString()}
+                                        {new Date(vaccination.startDate).toLocaleDateString()}
                                     </p>
                                 </div>
                             </div>
@@ -125,29 +125,17 @@ const DetailsLeave = () => {
 
                         <div className="bg-gradient-to-r from-gray-600 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                             <div className="flex items-center space-x-4">
-                                <FaCalendarAlt className="text-2xl text-white" />
-                                <div>
-                                    <p className="text-sm text-gray-200">End Date</p>
-                                    <p className="text-lg font-semibold">
-                                        {new Date(leave.endDate).toLocaleDateString()}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="bg-gradient-to-r from-gray-600 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div className="flex items-center space-x-4">
-                                {leave.status === "Pending" ? (
+                                {vaccination.status === "Pending" ? (
                                     <>
                                         <button
                                             className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
-                                            onClick={() => changeStatus(leave._id, "Approved")}
+                                            onClick={() => changeStatus(vaccination._id, "Approved")}
                                         >
                                             Approve
                                         </button>
                                         <button
                                             className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-200"
-                                            onClick={() => changeStatus(leave._id, "Rejected")}
+                                            onClick={() => changeStatus(vaccination._id, "Rejected")}
                                         >
                                             Reject
                                         </button>
@@ -157,7 +145,7 @@ const DetailsLeave = () => {
                                         <FaCheckCircle className="text-2xl text-white" />
                                         <div>
                                             <p className="text-sm text-gray-200">Status</p>
-                                            <p className="text-lg font-semibold">{leave.status}</p>
+                                            <p className="text-lg font-semibold">{vaccination.status}</p>
                                         </div>
                                     </>
                                 )}
@@ -170,4 +158,4 @@ const DetailsLeave = () => {
     );
 }
 
-export default DetailsLeave
+export default Detailsvaccination

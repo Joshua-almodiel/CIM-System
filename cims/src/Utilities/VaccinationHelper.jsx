@@ -14,8 +14,8 @@ export const columns = [
       width: "200px",
     },
     {
-      name: "Leave Type",
-      selector: (row) => row.leaveType,
+      name: "Vaccination Type",
+      selector: (row) => row.vaccinationType,
       width: "200px",
     },
     {
@@ -36,12 +36,12 @@ export const columns = [
   ];
 
 
-export const LeaveButtons = ({_id}) => {
+export const VaccinationButtons = ({_id}) => {
 
     const navigate = useNavigate()
 
     const handleView = (id) => {
-        navigate(`/healthWorker-dashboard/leaves/${id}`)
+        navigate(`/healthWorker-dashboard/vaccinations/${id}`)
     }
 
   return (
