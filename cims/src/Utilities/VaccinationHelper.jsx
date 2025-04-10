@@ -9,24 +9,14 @@ export const columns = [
       width: "150px",
     },
     {
-      name: "Nickname",
-      selector: (row) => row.name,
-      width: "200px",
-    },
-    {
       name: "Vaccination Type",
       selector: (row) => row.vaccinationType,
       width: "200px",
     },
     {
-      name: "Days",
+      name: "Date",
       selector: (row) => row.days,
       width: "180px", 
-    },
-    {
-      name: "Status",
-      selector: (row) => row.status,
-      width: "150px", 
     },
     {
       name: "Action",

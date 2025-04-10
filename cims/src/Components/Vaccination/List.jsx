@@ -40,17 +40,6 @@ const List = () => {
                 <h3 className="text-2xl font-semibold">Manage Parents Vaccination</h3>
             </div>
 
-            <div className="flex items-center justify-between mb-6">
-                {user.role === "parent" && (
-                    <Link
-                        to="/parent-dashboard/add-vaccination"
-                        className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
-                    >
-                        Add Vaccination
-                    </Link>
-                )}
-            </div>
-
             <div className="bg-gray-800 rounded-lg shadow-md overflow-hidden">
                 {loading ? (
                     <div className="p-8 text-center">
@@ -74,13 +63,6 @@ const List = () => {
                                     <td className="px-4 py-2">{vaccination.vaccinationType}</td>
                                     <td className="px-4 py-2">{new Date(vaccination.startDate).toLocaleDateString()}</td>
                                     <td className="px-4 py-2">{vaccination.reason}</td>
-                                    <td className={`px-4 py-2 font-semibold ${
-                                        vaccination.status === 'approved' ? 'text-green-400' :
-                                        vaccination.status === 'rejected' ? 'text-red-400' :
-                                        'text-yellow-400'
-                                    }`}>
-                                        {vaccination.status}
-                                    </td>
                                 </tr>
                             ))}
                         </tbody>
