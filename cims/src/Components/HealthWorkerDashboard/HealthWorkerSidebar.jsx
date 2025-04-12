@@ -42,7 +42,7 @@ const HealthWorkerSidebar = () => {
         </NavLink>
 
         <NavLink
-          to=""
+          to="/healthWorker-dashboard/vaccinations"
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"
@@ -91,19 +91,6 @@ const HealthWorkerSidebar = () => {
         >
           <FaMoneyBillWave className="mr-2" />
           <span>User Management</span>
-        </NavLink>
-
-        <NavLink
-          to="/healthWorker-dashboard/setting"
-          className={({ isActive }) =>
-            `flex items-center p-2 rounded transition duration-200 ${isActive
-              ? "bg-blue-500 text-white"
-              : "hover:bg-gray-700"
-            }`
-          }
-        >
-          <FaCogs className="mr-2" />
-          <span>Settings</span>
         </NavLink>
 
         <NavLink

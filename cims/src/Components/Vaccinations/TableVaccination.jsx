@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import { columns, LeaveButtons } from "../../Utilities/VaccinationHelper.jsx";
+import { columns, VaccinationButtons } from "../../Utilities/VaccinationHelper.jsx";
 import axios from "axios";
 
 const TableVaccination = () => {
-  const [leaves, setLeaves] = useState([]);
+  const [vaccinations, setVaccinations] = useState([]);
   const [searchParents, setSearchParents] = useState([]);
 
   const noRecords = {
@@ -20,9 +20,9 @@ const TableVaccination = () => {
     borderRadius: "0.5rem",
   }
 
-  const fetchLeaves = async () => {
+  const fetchVaccinations = async () => {
     try {
-      const responnse = await axios.get("http://localhost:5000/api/leave", {
+      const responnse = await axios.get("http://localhost:5000/api/vaccination", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -30,22 +30,19 @@ const TableVaccination = () => {
       console.log(responnse);
       if (responnse.data.success) {
         let sno = 1;
-        const data = await responnse.data.leaves.map((leave) => ({
-          _id: leave._id,
+        const data = await responnse.data.vaccinations.map((vaccination) => ({
+          _id: vaccination._id,
           sno: sno++,
-          familyNumber: leave.familyNumber.familyNumber,
-          name: leave.familyNumber.userId.name,
-          leaveType: leave.leaveType,
-          days:
-            new Date(leave.endDate).getDate() -
-            new Date(leave.startDate).getDate(),
-          status: leave.status,
-          action: <LeaveButtons _id={leave._id} />,
+          familyNumber: vaccination.familyNumber.familyNumber,
+          name: vaccination.familyNumber.userId.name,
+          vaccinationType: vaccination.vaccinationType,
+          days: new Date(vaccination.startDate).getDate(),
+          action: <VaccinationButtons _id={vaccination._id} />,
         }));
-        setLeaves(data);
+        setVaccinations(data);
         setSearchParents(data);
       }
-      console.log(responnse.data.leaves);
+      console.log(responnse.data.vaccinations);
     } catch (error) {
       if (error.response && !error.response.data.success) {
         alert(error.response.data.error);
@@ -54,22 +51,16 @@ const TableVaccination = () => {
   };
 
   useEffect(() => {
-    fetchLeaves();
+    fetchVaccinations();
   }, []);
 
   const searchParent = (e) => {
-    const data = leaves.filter((leave) =>
-      leave.familyNumber.toLowerCase().includes(e.target.value.toLowerCase())
+    const data = vaccinations.filter((vaccination) =>
+      vaccination.familyNumber.toLowerCase().includes(e.target.value.toLowerCase())
     );
     setSearchParents(data);
   };
 
-  const searchByButton = (status) => {
-    const data = leaves.filter((leave) =>
-      leave.status.toLowerCase().includes(status.toLowerCase())
-    );
-    setSearchParents(data);
-  };
 
   const customStyles = {
     rows: {
@@ -99,37 +90,16 @@ const TableVaccination = () => {
       {setSearchParents ? (
         <div className="p-6 bg-gray-900 text-white overflow-hidden">
           <div className="mb-6">
-            <h3 className="text-2xl font-semibold">Manage Parents Leaves</h3>
+            <h3 className="text-2xl font-semibold">Manage Parents Records</h3>
           </div>
 
           <div className="flex items-center justify-between mb-6">
             <input
               type="text"
-              placeholder="Search by workers ID"
+              placeholder="Search by Family Number"
               onChange={searchParent}
               className="w-full max-w-md px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
             />
-
-            <div className="flex space-x-4">
-              <button
-                className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition duration-200"
-                onClick={() => searchByButton("Pending")}
-              >
-                Pending
-              </button>
-              <button
-                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
-                onClick={() => searchByButton("Approved")}
-              >
-                Approved
-              </button>
-              <button
-                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-200"
-                onClick={() => searchByButton("Rejected")}
-              >
-                Rejected
-              </button>
-            </div>
           </div>
 
           {searchParents.length > 0 ? (
@@ -162,7 +132,7 @@ const TableVaccination = () => {
             />
           </svg>
           <h3 className="mt-4 text-lg font-medium text-gray-300">
-            Loading Parents Leaves...
+            Loading Parents Records...
           </h3>
         </div>
       )}

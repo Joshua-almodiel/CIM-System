@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import {
     FaUser,
@@ -11,10 +11,9 @@ import {
     FaTimesCircle,
 } from "react-icons/fa";
 
-const Detailsvaccination = () => {
+const DetailsVaccination = () => {
     const { id } = useParams()
     const [vaccination, setVaccination] = useState(null)
-    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchVaccinations = async () => {
@@ -37,24 +36,6 @@ const Detailsvaccination = () => {
         fetchVaccinations();
     });
 
-
-    const changeStatus = async (id, status) => {
-        try {
-            const response = await axios.put(`http://localhost:5000/api/vaccination/${id}`, { status },
-                {
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem('token')}`
-                    },
-                })
-            if (response.data.success) {
-                navigate('/healthWorker-dashboard/vaccinations')
-            }
-        } catch (error) {
-            if (error.response && !error.response.data.success) {
-                alert(error.response.data.error)
-            }
-        }
-    }
 
     if (!vaccination) {
         return <div className="p-6 bg-gray-900 text-white">Loading...</div>;
@@ -115,47 +96,19 @@ const Detailsvaccination = () => {
                             <div className="flex items-center space-x-4">
                                 <FaCalendarAlt className="text-2xl text-white" />
                                 <div>
-                                    <p className="text-sm text-gray-200">Start Date</p>
+                                    <p className="text-sm text-gray-200">Date</p>
                                     <p className="text-lg font-semibold">
                                         {new Date(vaccination.startDate).toLocaleDateString()}
                                     </p>
                                 </div>
                             </div>
                         </div>
-
-                        <div className="bg-gradient-to-r from-gray-600 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div className="flex items-center space-x-4">
-                                {vaccination.status === "Pending" ? (
-                                    <>
-                                        <button
-                                            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
-                                            onClick={() => changeStatus(vaccination._id, "Approved")}
-                                        >
-                                            Approve
-                                        </button>
-                                        <button
-                                            className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-200"
-                                            onClick={() => changeStatus(vaccination._id, "Rejected")}
-                                        >
-                                            Reject
-                                        </button>
-                                    </>
-                                ) : (
-                                    <>
-                                        <FaCheckCircle className="text-2xl text-white" />
-                                        <div>
-                                            <p className="text-sm text-gray-200">Status</p>
-                                            <p className="text-lg font-semibold">{vaccination.status}</p>
-                                        </div>
-                                    </>
-                                )}
-                            </div>
-                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
     );
 }
 
-export default Detailsvaccination
+export default DetailsVaccination

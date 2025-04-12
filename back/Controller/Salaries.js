@@ -1,4 +1,3 @@
-
 import Parents from "../Models/Parents.js";
 import Salaries from "../Models/Salaries.js";
 

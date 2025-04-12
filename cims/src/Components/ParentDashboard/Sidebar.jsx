@@ -43,7 +43,7 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          to={`/parent-dashboard/leaves/${user._id}`}
+          to={`/parent-dashboard/vaccinations/${user._id}`}
           className={({ isActive }) =>
             `flex items-center p-2 rounded transition duration-200 ${isActive
               ? "bg-blue-500 text-white"

@@ -1,4 +1,3 @@
-
 import User from './Models/User.js'
 import bcrypt from 'bcryptjs'
 import connectToDatabase from './DB/Database.js'

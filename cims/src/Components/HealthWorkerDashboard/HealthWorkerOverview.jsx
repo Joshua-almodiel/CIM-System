@@ -67,40 +67,13 @@ const HealthWorkerOverview = () => {
       </h3>
 
       <div className="mt-6 p-6 sm:p-6 bg-gray-800 rounded-lg shadow-md">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          <SummaryCard
-            icon={<FaFileAlt className="text-white" />}
-            text="Leave Applied"
-            number={summary.leaveSummary.appliedFor}
-          />
-          <SummaryCard
-            icon={<FaCheckCircle className="text-white" />}
-            text="Leave Approved"
-            number={summary.leaveSummary.approved}
-          />
-          <SummaryCard
-            icon={<FaHourglassHalf className="text-white" />}
-            text="Leave Pending"
-            number={summary.leaveSummary.pending}
-          />
-          <SummaryCard
-            icon={<FaTimesCircle className="text-white" />}
-            text="Leave Rejected"
-            number={summary.leaveSummary.rejected}
-          />
-        </div>
 
         <div className="flex justify-center mt-6">
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-6">
             <SummaryCard
               icon={<FaUsers className="text-white" />}
-              text="Total Construction Workers"
-              number={summary.totalWorkers}
-            />
-            <SummaryCard
-              icon={<FaBuilding className="text-white" />}
-              text="Available Construction Sites"
-              number={summary.totalSites}
+              text="Total Parents Record"
+              number={summary.totalParents}
             />
           </div>
         </div>

@@ -13,11 +13,11 @@ import Edit from './Components/Parent/Edit.jsx'
 import AddSalary from './Components/Salaries/Add.jsx'
 import ViewSalary from './Components/Salaries/View.jsx'
 import Summary from './Components/ParentDashboard/Summary.jsx'
-import LeaveList from './Components/Leaves/List.jsx'
-import AddLeave from './Components/Leaves/AddLeave.jsx'
+import VaccinationList from './Components/Vaccinations/List.jsx'
+import AddVaccination from './Components/Vaccinations/AddVaccination.jsx'
 import Setting from './Components/ParentDashboard/Setting.jsx'
-import TableLeave from './Components/Leaves/TableLeave.jsx'
-import DetailsLeave from './Components/Leaves/DetailsLeave.jsx'
+import TableVaccination from './Components/Vaccinations/TableVaccination.jsx'
+import DetailsVaccination from './Components/Vaccinations/DetailsVaccination.jsx'
 
 function App() {
   return (
@@ -40,13 +40,13 @@ function App() {
           <Route path="/healthWorker-dashboard/parents/:id" element={<View />}></Route>
           <Route path="/healthWorker-dashboard/parents/edit/:id" element={<Edit />}></Route>
           <Route path="/healthWorker-dashboard/parents/salary/:id" element={<ViewSalary />}></Route>
-          <Route path="/healthWorker-dashboard/parents/leaves/:id" element={<LeaveList />}></Route>
+          <Route path="/healthWorker-dashboard/parents/vaccinations/:id" element={<VaccinationList />}></Route>
 
           <Route path="/healthWorker-dashboard/salary/add" element={<AddSalary />}></Route>
           <Route path="/healthWorker-dashboard/setting" element={<Setting />}></Route>
 
-          <Route path="/healthWorker-dashboard/leaves" element={<TableLeave />}></Route>
-          <Route path="/healthWorker-dashboard/leaves/:id" element={<DetailsLeave />}></Route>
+          <Route path="/healthWorker-dashboard/vaccinations" element={<TableVaccination />}></Route>
+          <Route path="/healthWorker-dashboard/vaccinations/:id" element={<DetailsVaccination />}></Route>
 
         </Route>
 
@@ -62,8 +62,8 @@ function App() {
           <Route index element={<Summary />}></Route>
 
           <Route path="/parent-dashboard/profile/:id" element={<View />}></Route>
-          <Route path="/parent-dashboard/leaves/:id" element={<LeaveList />}></Route>
-          <Route path="/parent-dashboard/add-leave" element={<AddLeave />}></Route>
+          <Route path="/parent-dashboard/vaccinations/:id" element={<VaccinationList />}></Route>
+          <Route path="/parent-dashboard/add-vaccination" element={<AddVaccination />}></Route>
           <Route path="/parent-dashboard/salary/:id" element={<ViewSalary />}></Route>
           <Route path="/parent-dashboard/setting" element={<Setting />}></Route>
 
