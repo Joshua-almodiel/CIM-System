@@ -1,23 +1,21 @@
 import express from 'express'
 import cors from 'cors'
-import UserRouter from './ConstructionRouter/UserRouter.js'
-import SiteRouter from './ConstructionRouter/SiteRouter.js'
-import WorkerRouter from './ConstructionRouter/Worker.js'
-import connectToDatabase from './DB/ConstructionDatabase.js'
-import SalaryRouter from './ConstructionRouter/Salary.js'
-import LeaveRouter from './ConstructionRouter/Leave.js'
-import SettingRouter from './ConstructionRouter/SettingRouter.js'
-import DashboardRouter from './ConstructionRouter/DashboardRouter.js'
+import UserRouter from './Router/UserRouter.js'
+import ParentRouter from './Router/Parent.js'
+import connectToDatabase from './DB/Database.js'
+import SalaryRouter from './Router/Salary.js'
+import VaccinationRouter from './Router/Vaccination.js'
+import SettingRouter from './Router/SettingRouter.js'
+import DashboardRouter from './Router/DashboardRouter.js'
 
 connectToDatabase()
 const app = express()
 app.use(cors())
 app.use(express.json())
 app.use('/api/auth', UserRouter)
-app.use('/api/site', SiteRouter)
-app.use('/api/worker', WorkerRouter)
+app.use('/api/parent', ParentRouter)
 app.use('/api/salary', SalaryRouter)
-app.use('/api/leave', LeaveRouter)
+app.use('/api/vaccination', VaccinationRouter)
 app.use('/api/setting', SettingRouter)
 app.use('/api/dashboard', DashboardRouter)
 

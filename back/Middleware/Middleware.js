@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import ConstructionUser from '../Models/User.js';
+import User from '../Models/User.js';
 
 const verifyUser = async (req, res, next) => {
     try{
@@ -13,7 +13,7 @@ const verifyUser = async (req, res, next) => {
             return res.status(404).json({success: false, error: "Token not valid"})
         }
 
-        const  user = await ConstructionUser.findById({_id: decoded._id}).select('-password')
+        const  user = await User.findById({_id: decoded._id}).select('-password')
 
         if(!user) {
             return res.status(404).json({success: false, error: "User not found"})

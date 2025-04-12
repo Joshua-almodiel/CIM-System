@@ -251,8 +251,7 @@ const addParent = async (req, res) => {
 
 const getParents = async (req, res) => {
   try {
-    const parents = await Parents.find()
-      .populate("userId", { password: 0 })
+    const parents = await Parents.find().populate("userId", { password: 0 });
     return res.status(200).json({ success: true, parents });
   } catch (error) {
     return res
@@ -284,9 +283,9 @@ const getParent = async (req, res) => {
 const updateParent = async (req, res) => {
   try {
     const { id } = req.params;
-    const { 
-        name,
-        familyNumber,
+    const {
+      name,
+      familyNumber,
       lastName,
       firstName,
       middleName,
@@ -389,8 +388,8 @@ const updateParent = async (req, res) => {
       wt,
       temp,
       rr,
-      ht
-     } = req.body;
+      ht,
+    } = req.body;
 
     const parent = await Parents.findById({ _id: id });
     if (!parent) {
@@ -410,14 +409,115 @@ const updateParent = async (req, res) => {
     const updateParent = await Parents.findByIdAndUpdate(
       { _id: id },
       {
-        maritalStatus,
-        nationality,
-        salary,
-        site,
+        name,
+        familyNumber,
+        lastName,
+        firstName,
+        middleName,
+        contact,
+        phNumber,
+        clientType,
+        ifMember,
+        sex,
+        birthday,
+        address,
+        civilStatus,
+        maidenName,
+        spouseName,
+        partnerName,
+        occupation,
+        educAttainment,
+        empStatus,
+        date,
+        kpp,
+        dependents,
+        religion,
+        age,
+        pallergy,
+        pasthma,
+        pspecifyAllergy,
+        pcancer,
+        porganCancer,
+        pcerebrovascular,
+        pcoronaryArtery,
+        pdiabetes,
+        pemphysema,
+        pepilepsy,
+        phepatitis,
+        phyperlipidemia,
+        phypertension,
+        ppepticUlcer,
+        ppneumonia,
+        pthyroid,
+        ppulmonaryTb,
+        ppulmonaryTbCategory,
+        pextrapulmonaryTb,
+        pextrapulmonaryTbCategory,
+        puti,
+        pmentalIllness,
+        pothers,
+        pnone,
+        pbloodPressure,
+        fallergy,
+        fasthma,
+        fspecifyAllergy,
+        fcancer,
+        forganCancer,
+        fcerebrovascular,
+        fcoronaryArtery,
+        fdiabetes,
+        femphysema,
+        fepilepsy,
+        fhepatitis,
+        fhyperlipidemia,
+        fhypertension,
+        fpepticUlcer,
+        fpneumonia,
+        fthyroid,
+        fpulmonaryTb,
+        fpulmonaryTbCategory,
+        fextrapulmonaryTb,
+        fextrapulmonaryTbCategory,
+        futi,
+        fmentalIllness,
+        fothers,
+        fnone,
+        fbloodPressure,
+        smoking,
+        packsPerYear,
+        alcohol,
+        bottlesPerDay,
+        illicitDrugs,
+        illicitDrugsDetails,
+        sexualHistory,
+        sexualHistoryDetails,
+        menarche,
+        pregnancyHistory,
+        menopause,
+        gravida,
+        ageOfMenopause,
+        para,
+        lmp,
+        fullTerm,
+        preTerm,
+        abortion,
+        living,
+        intervalOfMenstruation,
+        duration,
+        padsPerDay,
+        dateComplaints,
+        chiefComplaints,
+        bp,
+        hr,
+        o2sat,
+        wt,
+        temp,
+        rr,
+        ht,
       }
     );
 
-    if (!updateUser || !updateWorker) {
+    if (!updateUser || !updateParent) {
       return res.status(404).json({ success: false, error: "info not found" });
     }
 

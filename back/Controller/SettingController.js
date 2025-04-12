@@ -1,11 +1,11 @@
-import ConstructionUser from "../Models/ConstructionUser.js";
+import User from "../Models/User.js";
 import bcrypt from "bcryptjs";
 
 const changePassword = async (req, res) => {
     try{
         const {userId, oldPassword, newPassword} = req.body;
 
-        const user = await ConstructionUser.findById({_id: userId})
+        const user = await User.findById({_id: userId})
         if(!user) {
             return res.status(400).json({success: false, error: 'User not found'});
         }
@@ -16,7 +16,7 @@ const changePassword = async (req, res) => {
         }
 
         const hashPassword = await bcrypt.hash(newPassword, 10)
-        const newUser = await ConstructionUser.findByIdAndUpdate({_id: userId}, {password: hashPassword})
+        const newUser = await User.findByIdAndUpdate({_id: userId}, {password: hashPassword})
 
         return res.status(200).json({success: true, message: 'Password changed successfully'})
 

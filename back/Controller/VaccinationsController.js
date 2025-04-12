@@ -1,5 +1,5 @@
 
-import ConstructionLeaves from "../Models/ConstructionLeaves.js";
+import Vaccinations from "../Models/Vaccinations.js";
 import Parents from "../Models/Parents.js";
 
 const addLeave = async (req, res) => {
@@ -8,7 +8,7 @@ const addLeave = async (req, res) => {
         const parent = await Parents.findOne({ userId });
 
         const newLeave = new ConstructionLeaves({
-            familyNumber: parent._id, leaveType, startDate, endDate, reason
+            familyNumber: parent._id, leaveType, startDate, reason
         })
 
         await newLeave.save()
@@ -21,27 +21,27 @@ const addLeave = async (req, res) => {
 
 }
 
-const getLeave = async (req, res) => {
+const getVaccination = async (req, res) => {
     try {
         const { id, role } = req.params;
-        let leaves
+        let vaccinations
         if(role === "healthWorker") {
-            leaves = await ConstructionLeaves.find({ familyNumber: id })
+            vaccinations = await Vaccinations.find({ familyNumber: id })
         } else {
-            const worker = await Parents.findOne({ userId: id })
-            leaves = await ConstructionLeaves.find({ familyNumber: parent._id })
+            const parent = await Parents.findOne({ userId: id })
+            vaccinations = await Vaccinations.find({ familyNumber: parent._id })
         }
 
-        return res.status(200).json({ success: true, leaves })
+        return res.status(200).json({ success: true, vaccinations })
 
     } catch (error) {
-        return res.status(400).json({ success: false, error: "Leave add server error" })
+        return res.status(400).json({ success: false, error: "Vaccine add server error" })
     }
 }
 
-const getLeaves = async (req, res) => {
+const getVaccinations = async (req, res) => {
     try {
-        const leaves = await ConstructionLeaves.find().populate({
+        const vaccinations = await Vaccinations.find().populate({
             path: "familyNumber",
             populate: [
                 {
@@ -51,7 +51,7 @@ const getLeaves = async (req, res) => {
             ]
         });
 
-        console.log(leaves)
+        console.log(vaccinations)
 
         return res.status(200).json({ success: true, leaves })
 
@@ -60,10 +60,10 @@ const getLeaves = async (req, res) => {
     }
 }
 
-const getLeaveDetail = async (req, res) => {
+const getVaccinationDetail = async (req, res) => {
     try {
         const { id } = req.params;
-        const leave = await ConstructionLeaves.findById({ _id: id }).populate({
+        const vaccination = await Vaccinations.findById({ _id: id }).populate({
             path: "familyNumber",
             populate: [
                 {
@@ -73,17 +73,17 @@ const getLeaveDetail = async (req, res) => {
             ]
         });
 
-        return res.status(200).json({ success: true, leave })
+        return res.status(200).json({ success: true, vaccination })
 
     } catch (error) {
-        return res.status(400).json({ success: false, error: "Leave get server error" })
+        return res.status(400).json({ success: false, error: "Vaccination get server error" })
     }
 }
 
-const updateLeave = async (req, res) => {
+const updateVaccination = async (req, res) => {
     try {
         const { id } = req.params;
-        const leave = await ConstructionLeaves.findByIdAndUpdate({ _id: id }, { status: req.body.status });
+        const leave = await Vaccinations.findByIdAndUpdate({ _id: id }, { status: req.body.status });
         if (!leave) {
             return res.status(400).json({ success: false, error: "Leave not found" })
         }
@@ -93,4 +93,4 @@ const updateLeave = async (req, res) => {
     }
 }
 
-export { addLeave, getLeave, getLeaves, getLeaveDetail, updateLeave }
+export { addLeave, getVaccination, getVaccinations, getLeaveDetail, updateLeave }

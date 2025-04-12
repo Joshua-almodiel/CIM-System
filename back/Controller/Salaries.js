@@ -1,16 +1,16 @@
 
-import ConstructionWorkers from "../Models/ConstructionWorkers.js";
-import ConstructionSalaries from "../Models/ConstructionSalaries.js";
+import Parents from "../Models/Parents.js";
+import Salaries from "../Models/Salaries.js";
 
 const addSalary = async (req, res) => {
 
     try {
-        const { workerId, basicSalary, bunos, advanceSalary, payDate } = req.body;
+        const { parentId, basicSalary, bunos, advanceSalary, payDate } = req.body;
 
         const totalSalary = parseInt(basicSalary) + parseInt(bunos) - parseInt(advanceSalary)
 
-        const newSalary = new ConstructionSalaries({
-            workerId,
+        const newSalary = new Salaries({
+            parentId,
             basicSalary,
             bunos,
             advanceSalary,
@@ -33,11 +33,11 @@ const getSalary = async (req, res) => {
         const {id, role} = req.params;
 
         let salary
-        if(role === "manager"){
-            salary = await ConstructionSalaries.find({workerId: id}).populate('workerId', 'workerId')
+        if(role === "healthWorker") {
+            salary = await Salaries.find({parentId: id}).populate('parentId', 'parentId')
         } else {
-            const worker = await ConstructionWorkers.findOne({userId: id})
-            salary = await ConstructionSalaries.find({workerId: worker._id}).populate('workerId', 'workerId')
+            const parent = await Parents.findOne({userId: id})
+            salary = await Salaries.find({parentId: parent._id}).populate('parentId', 'parentId')
             console.log(salary)
         }
 
