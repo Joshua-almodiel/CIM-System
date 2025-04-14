@@ -6,6 +6,7 @@ const addParent = async (req, res) => {
   try {
     const {
       name,
+      parentId,
       familyNumber,
       lastName,
       firstName,
@@ -134,6 +135,7 @@ const addParent = async (req, res) => {
 
     const newParent = new Parents({
       userId: saveUser._id,
+      parentId,
       familyNumber,
       lastName,
       firstName,
@@ -285,6 +287,7 @@ const updateParent = async (req, res) => {
     const { id } = req.params;
     const {
       name,
+      parentId,
       familyNumber,
       lastName,
       firstName,
@@ -410,6 +413,7 @@ const updateParent = async (req, res) => {
       { _id: id },
       {
         name,
+        parentId,
         familyNumber,
         lastName,
         firstName,

@@ -3,6 +3,7 @@ import { Schema } from "mongoose";
 
 const parentsSchema = new Schema({
     userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    parentId: { type: String, required: true, unique: true },
     familyNumber: { type: String, required: true, unique: true },
     lastName: { type: String, required: true },
     firstName: { type: String, required: true },

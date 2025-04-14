@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 const Edit = () => {
   const [parent, setParent] = useState({
     name: '',
+    parentId: '',
     familyNumber: '',
     lastName: '',
     firstName: '',

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Add = () => {
   const [formData, setFormData] = useState({
     name: "",
+    parentId: "",
     familyNumber: "",
     lastName: "",
     firstName: "",
