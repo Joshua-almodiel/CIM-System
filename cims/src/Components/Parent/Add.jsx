@@ -156,7 +156,7 @@ const Add = () => {
               Please fill out all required fields completely and accurately
             </p>
           </div>
-          
+
           <form onSubmit={handleSubmit} className="p-6 space-y-8">
             <div className="bg-blue-50 p-4 rounded-lg">
               <h3 className="text-lg font-semibold text-[#147190] mb-4 border-b border-blue-200 pb-2">
@@ -175,7 +175,7 @@ const Add = () => {
                     required
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     First Choice KPP <span className="text-red-500">*</span>
@@ -198,7 +198,7 @@ const Add = () => {
                     NASIPIT RURAL HEALTH UNIT and Family PLANNING
                   </p>
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Number of Dependents <span className="text-red-500">*</span>
@@ -212,7 +212,7 @@ const Add = () => {
                     min="0"
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Nickname
@@ -225,13 +225,26 @@ const Add = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
-  
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Parent ID
+                  </label>
+                  <input
+                    type="text"
+                    name="parentId"
+                    placeholder="Enter parent ID"
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Family Number <span className="text-red-500">*</span>
                   </label>
                   <input
-                    type="number"
+                    type="text"
                     name="familyNumber"
                     placeholder="Enter family number"
                     onChange={handleChange}
@@ -239,7 +252,7 @@ const Add = () => {
                     required
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Last Name <span className="text-red-500">*</span>
@@ -253,7 +266,7 @@ const Add = () => {
                     required
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     First Name <span className="text-red-500">*</span>
@@ -267,7 +280,7 @@ const Add = () => {
                     required
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Middle Name <span className="text-red-500">*</span>
@@ -281,13 +294,13 @@ const Add = () => {
                     required
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Contact Number <span className="text-red-500">*</span>
                   </label>
                   <input
-                    type="tel"
+                    type="number"
                     name="contact"
                     placeholder="09XXXXXXXXX"
                     onChange={handleChange}
@@ -296,13 +309,13 @@ const Add = () => {
                     pattern="[0-9]{11}"
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     PhilHealth Number <span className="text-red-500">*</span>
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     name="phNumber"
                     placeholder="XX-XXXXXXXXX-X"
                     onChange={handleChange}
@@ -311,7 +324,7 @@ const Add = () => {
                     pattern="[0-9]{2}-[0-9]{9}-[0-9]{1}"
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Client Type <span className="text-red-500">*</span>
@@ -327,7 +340,7 @@ const Add = () => {
                     <option value="Dependent">Dependent</option>
                   </select>
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     If Member <span className="text-red-500">*</span>
@@ -343,7 +356,7 @@ const Add = () => {
                     <option value="Informal">Informal</option>
                   </select>
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Sex <span className="text-red-500">*</span>
@@ -359,7 +372,7 @@ const Add = () => {
                     <option value="Female">Female</option>
                   </select>
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Birthday <span className="text-red-500">*</span>
@@ -372,7 +385,7 @@ const Add = () => {
                     required
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Age <span className="text-red-500">*</span>
@@ -387,7 +400,7 @@ const Add = () => {
                     max="120"
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Religion <span className="text-red-500">*</span>
@@ -401,7 +414,7 @@ const Add = () => {
                     required
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Address <span className="text-red-500">*</span>
@@ -415,7 +428,7 @@ const Add = () => {
                     required
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Civil Status <span className="text-red-500">*</span>
@@ -435,7 +448,7 @@ const Add = () => {
                     <option value="Co habitation">Co habitation</option>
                   </select>
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     [For Married Woman] Maiden Name
@@ -448,7 +461,7 @@ const Add = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     [If Married] Spouse Name
@@ -461,7 +474,7 @@ const Add = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     [If Living in] Partner's Name
@@ -474,7 +487,7 @@ const Add = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Occupation
@@ -487,10 +500,11 @@ const Add = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Educational Attainment <span className="text-red-500">*</span>
+                    Educational Attainment{" "}
+                    <span className="text-red-500">*</span>
                   </label>
                   <select
                     name="educAttainment"
@@ -499,7 +513,9 @@ const Add = () => {
                     required
                   >
                     <option value="">Select attainment</option>
-                    <option value="No Formal Education">No Formal Education</option>
+                    <option value="No Formal Education">
+                      No Formal Education
+                    </option>
                     <option value="Elementary">Elementary</option>
                     <option value="High School">High School</option>
                     <option value="College">College</option>
@@ -507,7 +523,7 @@ const Add = () => {
                     <option value="Post Graduate">Post Graduate</option>
                   </select>
                 </div>
-  
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Employment Status <span className="text-red-500">*</span>
@@ -527,7 +543,7 @@ const Add = () => {
                 </div>
               </div>
             </div>
-  
+
             <div className="space-y-8">
               <div className="bg-blue-50 p-4 rounded-lg">
                 <h3 className="text-lg font-semibold text-[#147190] mb-4 border-b border-blue-200 pb-2">
@@ -585,7 +601,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Asthma
@@ -609,7 +625,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Cancer
@@ -669,7 +685,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Hypertension
@@ -693,7 +709,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           None
@@ -717,7 +733,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Highest Blood Pressure:
@@ -736,7 +752,7 @@ const Add = () => {
                   </table>
                 </div>
               </div>
-  
+
               <div className="bg-blue-50 p-4 rounded-lg">
                 <h3 className="text-lg font-semibold text-[#147190] mb-4 border-b border-blue-200 pb-2">
                   Family Medical History
@@ -793,7 +809,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Asthma
@@ -817,7 +833,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Cancer
@@ -841,7 +857,6 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      {/* Cancer Specification Row */}
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700 pl-8">
                           Specify Organ with Cancer:
@@ -878,7 +893,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Hypertension
@@ -902,7 +917,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           None
@@ -926,7 +941,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Highest Blood Pressure:
@@ -945,7 +960,7 @@ const Add = () => {
                   </table>
                 </div>
               </div>
-  
+
               <div className="bg-blue-50 p-4 rounded-lg">
                 <h3 className="text-lg font-semibold text-[#147190] mb-4 border-b border-blue-200 pb-2">
                   Personal/Social History
@@ -1016,7 +1031,7 @@ const Add = () => {
                           </div>
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Alcohol
@@ -1053,7 +1068,7 @@ const Add = () => {
                           </div>
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Illicit Drugs
@@ -1087,7 +1102,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Sexual History Screening
@@ -1125,7 +1140,7 @@ const Add = () => {
                   </table>
                 </div>
               </div>
-  
+
               <div className="bg-blue-50 p-4 rounded-lg">
                 <h3 className="text-lg font-semibold text-[#147190] mb-4 border-b border-blue-200 pb-2">
                   Obstetrics/Menstrual History (For Females Only)
@@ -1158,7 +1173,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700 font-medium">
                           Menopause
@@ -1173,7 +1188,9 @@ const Add = () => {
                                 onChange={handleChange}
                                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
                               />
-                              <span className="ml-2 text-sm text-gray-700">Yes</span>
+                              <span className="ml-2 text-sm text-gray-700">
+                                Yes
+                              </span>
                             </label>
                             <label className="inline-flex items-center">
                               <input
@@ -1183,7 +1200,9 @@ const Add = () => {
                                 onChange={handleChange}
                                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
                               />
-                              <span className="ml-2 text-sm text-gray-700">No</span>
+                              <span className="ml-2 text-sm text-gray-700">
+                                No
+                              </span>
                             </label>
                           </div>
                         </td>
@@ -1200,7 +1219,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700 font-medium">
                           Age of Menopause
@@ -1228,7 +1247,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700 font-medium">
                           LMP
@@ -1254,7 +1273,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700 font-medium">
                           Interval of Menstruation
@@ -1281,7 +1300,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700 font-medium">
                           Duration
@@ -1295,7 +1314,9 @@ const Add = () => {
                               onChange={handleChange}
                               className="w-20 px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
                             />
-                            <span className="ml-2 text-sm text-gray-700">days</span>
+                            <span className="ml-2 text-sm text-gray-700">
+                              days
+                            </span>
                           </div>
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700 font-medium">
@@ -1311,7 +1332,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700 font-medium">
                           Pads per day
@@ -1343,7 +1364,7 @@ const Add = () => {
                 </div>
               </div>
             </div>
-  
+
             <div className="bg-blue-50 p-4 rounded-lg">
               <h3 className="text-lg font-semibold text-[#147190] mb-4 border-b border-blue-200 pb-2">
                 Account Information
@@ -1362,7 +1383,7 @@ const Add = () => {
                     required
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Password <span className="text-red-500">*</span>
@@ -1382,7 +1403,7 @@ const Add = () => {
                 </div>
               </div>
             </div>
-  
+
             <div className="bg-blue-50 p-4 rounded-lg">
               <h3 className="text-lg font-semibold text-[#147190] mb-4 border-b border-blue-200 pb-2">
                 Current Health Status
@@ -1400,7 +1421,7 @@ const Add = () => {
                     required
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Chief Complaints <span className="text-red-500">*</span>
@@ -1415,7 +1436,7 @@ const Add = () => {
                   />
                 </div>
               </div>
-              
+
               <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -1429,7 +1450,7 @@ const Add = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     HR
@@ -1442,7 +1463,7 @@ const Add = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     O2Sat
@@ -1455,7 +1476,7 @@ const Add = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Temp
@@ -1468,7 +1489,7 @@ const Add = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     RR
@@ -1481,7 +1502,7 @@ const Add = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Wt
@@ -1494,7 +1515,7 @@ const Add = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Ht
@@ -1507,10 +1528,22 @@ const Add = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    BMI
+                  </label>
+                  <input
+                    type="text"
+                    name="bmi"
+                    placeholder="BMI"
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
               </div>
             </div>
-  
-            {/* Form Submission */}
+
             <div className="flex justify-end">
               <button
                 type="submit"

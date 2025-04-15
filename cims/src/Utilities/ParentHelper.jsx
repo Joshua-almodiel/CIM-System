@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 export const columns = [
     {
-        name: "Family Number",
-        selector: (row) => row.familyNumber,
-        sortable: true,
+        name: "ID",
+        selector: (row) => row.sno,
         width: "135px",
     },
     {
         name: "Last Name",
         selector: (row) => row.lastName,
+        sortable: true,
         width: "250px",
     },
     {

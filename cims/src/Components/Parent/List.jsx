@@ -31,8 +31,10 @@ const List = () => {
         });
         console.log("API Response: ", response.data);
         if (response.data.success) {
+          let sno = 1;
           const data = response.data.parents.map((care) => ({
-            familyNumber: care.familyNumber,
+            _id: care._id,
+            sno: sno++,
             lastName: care.lastName,
             firstName: care.firstName,
             middleName: care.middleName,
