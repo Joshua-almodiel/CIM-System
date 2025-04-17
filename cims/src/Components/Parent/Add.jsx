@@ -315,7 +315,7 @@ const Add = () => {
                     PhilHealth Number <span className="text-red-500">*</span>
                   </label>
                   <input
-                    type="number"
+                    type="text"
                     name="phNumber"
                     placeholder="XX-XXXXXXXXX-X"
                     onChange={handleChange}

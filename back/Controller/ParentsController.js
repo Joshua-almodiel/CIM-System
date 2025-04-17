@@ -287,6 +287,7 @@ const updateParent = async (req, res) => {
     const { id } = req.params;
     const {
       name,
+      parentId,
       familyNumber,
       lastName,
       firstName,
@@ -411,6 +412,8 @@ const updateParent = async (req, res) => {
     const updateParent = await Parents.findByIdAndUpdate(
       { _id: id },
       {
+        name,
+        parentId,
         familyNumber,
         lastName,
         firstName,

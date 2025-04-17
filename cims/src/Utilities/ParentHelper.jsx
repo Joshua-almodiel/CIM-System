@@ -3,42 +3,55 @@ import { useNavigate } from "react-router-dom";
 
 export const columns = [
     {
-        name: "ID",
-        selector: (row) => row.sno,
-        width: "135px",
+      name: "ID",
+      selector: (row) => row.sno,
+      grow: 0.5,
+      wrap: true,
     },
     {
-        name: "Last Name",
-        selector: (row) => row.lastName,
-        sortable: true,
-        width: "250px",
+      name: "Family Number",
+      selector: (row) => row.familyNumber,
+      grow: 1,
+      wrap: true,
     },
     {
-        name: "First Name",
-        selector: (row) => row.firstName,
-        width: "175px",
+      name: "Last Name",
+      selector: (row) => row.lastName,
+      sortable: true,
+      grow: 1,
+      wrap: true,
     },
     {
-        name: "Middle Name",
-        selector: (row) => row.middleName,
-        width: "175px",
+      name: "First Name",
+      selector: (row) => row.firstName,
+      grow: 1,
+      wrap: true,
     },
     {
-        name: "Gender",
-        selector: (row) => row.sex,
-        width: "175px",
+      name: "Middle Name",
+      selector: (row) => row.middleName,
+      grow: 1,
+      wrap: true,
     },
     {
-        name: "Birthday",
-        selector: (row) => row.birthday,
-        width: "190px",
+      name: "Gender",
+      selector: (row) => row.sex,
+      grow: 0.7,
+      wrap: true,
     },
     {
-        name: "Action",
-        selector: (row) => row.action,
-        center: true,
+      name: "Birthday",
+      selector: (row) => row.birthday,
+      grow: 0.8,
+      wrap: true,
     },
-]
+    {
+      name: "Action",
+      selector: (row) => row.action,
+      grow: 0.8,
+    },
+  ];
+  
 
 
 export const ParentButtons = ({ _id }) => {
