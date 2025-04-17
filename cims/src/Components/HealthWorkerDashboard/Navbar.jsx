@@ -5,8 +5,8 @@ const NavBar = () => {
     const { user } = useAuth()
 
     return (
-        <div className="flex justify-between items-center h-12 bg-gray-700 px-4 border-b border-gray-600">
-            <p className="text-white font-medium">Welcome, {user.name}</p>
+        <div className="flex justify-between items-center h-12 bg-white px-4">
+            <p className="text-slate-800 font-bold">Glad to have you here, {user.name}!</p>
             
         </div>
     )

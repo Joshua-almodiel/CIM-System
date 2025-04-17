@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
+import { Link } from "react-router-dom";
 import { columns, VaccinationButtons } from "../../Utilities/VaccinationHelper.jsx";
 import axios from "axios";
 
@@ -90,8 +91,17 @@ const TableVaccination = () => {
       {setSearchParents ? (
         <div className="p-6 bg-gray-900 text-white overflow-hidden">
           <div className="mb-6">
-            <h3 className="text-2xl font-semibold">Manage Parents Records</h3>
+            <h3 className="text-2xl font-semibold">Manage Vaccination Records</h3>
           </div>
+
+          <div className="flex items-left justify-between mb-6">
+                    <Link
+                        to="/healthWorker-dashboard/add-vaccination"
+                        className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
+                    >
+                        Appy for leave
+                    </Link>
+            </div>
 
           <div className="flex items-center justify-between mb-6">
             <input

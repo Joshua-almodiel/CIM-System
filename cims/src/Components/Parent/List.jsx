@@ -46,7 +46,7 @@ const List = () => {
   const customStyles = {
     rows: {
       style: {
-        backgroundColor: "#F8FAFC",
+        backgroundColor: "#F9FAFB",
         "&:nth-of-type(even)": {
           backgroundColor: "#F1F5F9",
         },
@@ -57,165 +57,156 @@ const List = () => {
     },
     headRow: {
       style: {
-        backgroundColor: "#0F172A",
+        backgroundColor: "#1E293B",
         color: "#FFFFFF",
         fontSize: "0.875rem",
-        fontWeight: "600",
-        borderTopLeftRadius: "8px",
-        borderTopRightRadius: "8px",
+        fontWeight: "700",
+        borderTopLeftRadius: "10px",
+        borderTopRightRadius: "10px",
       },
     },
     headCells: {
       style: {
-        paddingLeft: "12px",
-        paddingRight: "12px",
+        padding: "12px",
       },
     },
     cells: {
       style: {
-        paddingLeft: "12px",
-        paddingRight: "12px",
+        padding: "12px",
         fontSize: "0.875rem",
-        color: "#334155",
+        color: "#1E293B",
       },
     },
     pagination: {
       style: {
-        backgroundColor: "#F8FAFC",
-        borderBottomLeftRadius: "8px",
-        borderBottomRightRadius: "8px",
+        backgroundColor: "#F9FAFB",
+        borderBottomLeftRadius: "10px",
+        borderBottomRightRadius: "10px",
         borderTop: "1px solid #E2E8F0",
       },
+      pageButtonsStyle: {
+        color: "#1E293B",
+        fill: "#1E293B",
+        '&:hover': {
+          backgroundColor: "#E2E8F0",
+        },
+        '&:focus': {
+          outline: 'none',
+          backgroundColor: "#CBD5E1",
+        },
+      },
     },
+    
   };
 
   const handleFilter = (e) => {
-    const records = parents.filter((care) => {
-      return care.lastName.toLowerCase().includes(e.target.value.toLowerCase());
-    });
+    const records = parents.filter((care) =>
+      care.lastName.toLowerCase().includes(e.target.value.toLowerCase())
+    );
     setSearchParent(records);
   };
 
   return (
-    <div className="bg-gray-50 p-4 md:p-8 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Child Records</h1>
-          <p className="text-gray-600 mt-2">
-            Manage all child records in the system
+    <div className="bg-slate-100 py-15 px-40 md:px-12 min-h-screen overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-10">
+          <h1 className="text-4xl font-extrabold text-slate-800">Family Records</h1>
+          <p className="mt-2 text-slate-600">
+            Search and manage all registered records.
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+        <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-6 overflow: auto">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
             <div className="relative w-full md:w-96">
+              <input
+                type="text"
+                onChange={handleFilter}
+                placeholder="Search by last name..."
+                className="pl-10 pr-4 py-2.5 rounded-lg border border-gray-300 w-full text-gray-700 shadow-sm focus:ring-2 focus:ring-[#147190] focus:outline-none"
+              />
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <svg
                   className="h-5 w-5 text-gray-400"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-4.35-4.35M16 10a6 6 0 11-12 0 6 6 0 0112 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <Link
+              to="/healthWorker-dashboard/add-parent"
+              className="bg-[#147190] hover:bg-[#148190] transition text-white font-medium text-sm px-5 py-2.5 rounded-lg shadow"
+            >
+              <div className="flex items-center space-x-2">
+                <svg
+                  className="h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
                   <path
                     fillRule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                     clipRule="evenodd"
                   />
                 </svg>
+                <span>Add Family</span>
               </div>
-              <input
-                type="text"
-                onChange={handleFilter}
-                placeholder="Search by last name..."
-                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
-              />
-            </div>
-
-            <Link
-              to="/healthWorker-dashboard/add-parent"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-150"
-            >
-              <svg
-                className="-ml-1 mr-2 h-5 w-5"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Add Family
             </Link>
           </div>
 
           {searchParent ? (
             searchParent.length > 0 ? (
-              <div className="overflow-hidden border border-gray-200 rounded-lg">
-                <div className="overflow-hidden">
-                  <DataTable
-                    columns={columns}
-                    data={searchParent}
-                    customStyles={customStyles}
-                    pagination
-                    highlightOnHover
-                    responsive
-                    striped
-                    noHeader
-                    persistTableHead
-                  />
-                </div>
-              </div>
+              <DataTable
+                columns={columns}
+                data={searchParent}
+                customStyles={customStyles}
+                pagination
+                highlightOnHover
+                responsive
+                fixedHeader
+              />
             ) : (
-              <div className="text-center py-12">
-                <svg
-                  className="mx-auto h-12 w-12 text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1"
-                    d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <h3 className="mt-2 text-lg font-medium text-gray-900">
-                  No records found
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">
-                  Try adjusting your search or add a new family record.
+              <div className="text-center py-16">
+                <h2 className="text-lg font-semibold text-slate-700">No records found</h2>
+                <p className="text-slate-500 mt-2">
+                  Try refining your search or add a new family record.
                 </p>
-                <div className="mt-6">
-                  <Link
-                    to="/healthWorker-dashboard/add-parent"
-                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                <Link
+                  to="/healthWorker-dashboard/add-parent"
+                  className="mt-4 inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-md shadow transition"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
                   >
-                    <svg
-                      className="-ml-1 mr-2 h-5 w-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    Add Family
-                  </Link>
-                </div>
+                    <path
+                      fillRule="evenodd"
+                      d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  Add Family
+                </Link>
               </div>
             )
           ) : (
-            <div className="text-center py-12">
-              <div className="inline-flex items-center justify-center">
+            <div className="bg-white min-h-screen text-center py-16">
+              <div className="flex justify-center items-center space-x-3">
                 <svg
-                  className="animate-spin -ml-1 mr-3 h-8 w-8 text-blue-500"
+                  className="animate-spin h-6 w-6 text-blue-500"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -231,16 +222,12 @@ const List = () => {
                   <path
                     className="opacity-75"
                     fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
                   ></path>
                 </svg>
-                <span className="text-lg font-medium text-gray-700">
-                  Loading family records...
-                </span>
+                <span className="text-slate-600 font-medium">Loading Records...</span>
               </div>
-              <p className="mt-2 text-sm text-gray-500">
-                This may take a few moments.
-              </p>
+              <p className="mt-2 text-sm text-gray-500">Please wait a moment.</p>
             </div>
           )}
         </div>

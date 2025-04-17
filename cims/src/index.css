@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(203, 213, 225, 100); /* cbd5e1 with 50% opacity */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0); /* 94a3b8 with 70% opacity */
+  }
+  
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(203, 213, 225, 0.01) transparent;
+  }
+  
+  /* For Internet Explorer */
+  * {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }

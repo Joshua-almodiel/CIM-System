@@ -38,7 +38,7 @@ const HealthWorkerOverview = () => {
 
   if (!summary) {
     return (
-      <div className="p-8 text-center">
+      <div className="bg-white text-slate-800 p-8 text-center">
         <svg
           className="w-16 h-16 mx-auto text-gray-500"
           fill="none"
@@ -61,12 +61,12 @@ const HealthWorkerOverview = () => {
   }
 
   return (
-    <div className="p-6 sm:p-8 bg-gray-900 text-white overflow-hidden">
+    <div className="p-6 sm:p-8 bg-white min-h-screen text-white overflow-hidden">
       <h3 className="text-2xl sm:text-3xl font-semibold mb-6">
         Health Worker Dashboard Overview
       </h3>
 
-      <div className="mt-6 p-6 sm:p-6 bg-gray-800 rounded-lg shadow-md">
+      <div className="mt-6 p-6 sm:p-6 bg-gray-300 rounded-lg shadow-md">
 
         <div className="flex justify-center mt-6">
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-6">

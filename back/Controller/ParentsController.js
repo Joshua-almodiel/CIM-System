@@ -535,4 +535,13 @@ const updateParent = async (req, res) => {
   }
 };
 
-export { addParent, getParents, getParent, updateParent };
+const getAllFamilyNumbers = async (req, res) => {
+  try {
+    const parents = await Parents.find({}, "familyNumber");
+    return res.status(200).json({ success: true, familyNumbers: parents });
+  } catch (error) {
+    return res.status(500).json({ success: false, error: "Failed to fetch family numbers" });
+  }
+};
+
+export { addParent, getParents, getParent, updateParent, getAllFamilyNumbers };
