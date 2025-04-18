@@ -48,6 +48,8 @@ function App() {
           <Route path="/healthWorker-dashboard/vaccinations" element={<TableVaccination />}></Route>
           <Route path="/healthWorker-dashboard/add-vaccination" element={<AddVaccination />}></Route>
           <Route path="/healthWorker-dashboard/vaccinations/:id" element={<DetailsVaccination />}></Route>
+          
+          
 
         </Route>
 

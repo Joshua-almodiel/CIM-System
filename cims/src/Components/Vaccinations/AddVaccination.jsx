@@ -37,33 +37,44 @@ const AddVaccination = () => {
         console.error("Error fetching family numbers:", error);
       }
     };
-  
+
     fetchFamilyNumbers();
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const fetchParents = async () => {
-      try {
-        const response = await axios.post(
-          `http://localhost:5000/api/vaccination/add`,
-          vaccination,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
-        if (response.data.success) {
-          navigate(`/healthWorker-dashboard/vaccinations/${user._id}`);
+    if (
+      !vaccination.familyNumber ||
+      !vaccination.vaccinationType ||
+      !vaccination.startDate ||
+      !vaccination.reason
+    ) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+    console.log("Vaccination Data:", vaccination);
+
+    try {
+      const response = await axios.post(
+        `http://localhost:5000/api/vaccination/add`,
+        vaccination,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
         }
-      } catch (error) {
-        if (error.response && !error.response.data.success) {
-          alert(error.response.data.error);
-        }
+      );
+      if (response.data.success) {
+        navigate(`/healthWorker-dashboard/vaccinations`);
+      } else {
+        console.error("Failed to add vaccination:", response.data.error);
       }
-    };
-    fetchParents();
+    } catch (error) {
+      console.error("Error adding vaccination:", error);
+      if (error.response && !error.response.data.success) {
+        alert(error.response.data.error);
+      }
+    }
   };
 
   return (

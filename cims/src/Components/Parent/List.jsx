@@ -110,7 +110,7 @@ const List = () => {
     <div className="bg-slate-100 py-15 px-40 md:px-12 min-h-screen overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="mb-10">
-          <h1 className="text-4xl font-extrabold text-slate-800">Family Records</h1>
+          <h1 className="text-4xl font-extrabold text-slate-800">Child Records</h1>
           <p className="mt-2 text-slate-600">
             Search and manage all registered records.
           </p>
@@ -184,7 +184,7 @@ const List = () => {
                 </p>
                 <Link
                   to="/healthWorker-dashboard/add-parent"
-                  className="mt-4 inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-md shadow transition"
+                  className="mt-4 inline-flex items-center gap-2 bg-[#147190] hover:bg-[#148190] text-white font-medium px-4 py-2 rounded-md shadow transition"
                 >
                   <svg
                     className="h-5 w-5"

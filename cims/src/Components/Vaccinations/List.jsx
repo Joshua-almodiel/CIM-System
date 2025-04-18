@@ -32,7 +32,7 @@ const List = () => {
 
     useEffect(() => {
         fetchVaccinations();
-    });
+    }, [id, user.role]);
 
     return (
         <div className="p-6 bg-gray-900 text-white w-full overflow-hidden">
@@ -51,6 +51,7 @@ const List = () => {
                         <thead className="bg-gray-700">
                             <tr>
                                 <th className="px-4 py-2 text-left">ID</th>
+                                <th className="px-4 py-2 text-left">Family Number</th>
                                 <th className="px-4 py-2 text-left">Vaccination Type</th>
                                 <th className="px-4 py-2 text-left">Date</th>
                                 <th className="px-4 py-2 text-left">Description</th>
@@ -60,6 +61,7 @@ const List = () => {
                             {vaccinations.map((vaccination) => (
                                 <tr key={vaccination._id} className="border-b border-gray-700 hover:bg-gray-700 transition duration-200">
                                     <td className="px-4 py-2">{sno++}</td>
+                                    <td className="px-4 py-2">{vaccination.familyNumber.familyNumber}</td>
                                     <td className="px-4 py-2">{vaccination.vaccinationType}</td>
                                     <td className="px-4 py-2">{new Date(vaccination.startDate).toLocaleDateString()}</td>
                                     <td className="px-4 py-2">{vaccination.reason}</td>

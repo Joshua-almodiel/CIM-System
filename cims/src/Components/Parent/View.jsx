@@ -63,7 +63,7 @@ const View = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 p-10">
-      <h2 className="text-3xl font-bold mb-10 text-center">
+      <h2 className="text-3xl text-[#147190] font-bold mb-10 text-center">
         Record Form Details
       </h2>
 
@@ -131,7 +131,7 @@ const View = () => {
         </div>
       </div>
 
-      <h2 className="text-3xl font-bold mb-10 pt-8 text-center">
+      <h2 className="text-3xl text-[#147190] font-bold mb-10 pt-8 text-center">
         Past Medical History
       </h2>
       <div className="bg-white p-6 rounded-lg shadow-sm border">
@@ -197,7 +197,7 @@ const View = () => {
         </div>
       </div>
 
-      <h2 className="text-3xl font-bold mb-10 pt-8 text-center">
+      <h2 className="text-3xl text-[#147190] font-bold mb-10 pt-8 text-center">
         Family History
       </h2>
       <div className="bg-white p-6 rounded-lg shadow-sm border">
@@ -263,7 +263,7 @@ const View = () => {
         </div>
       </div>
 
-      <h2 className="text-3xl font-bold mb-10 pt-8 text-center">
+      <h2 className="text-3xl text-[#147190] font-bold mb-10 pt-8 text-center">
         Personal / Social History
       </h2>
       <div className="bg-white p-6 rounded-lg shadow-sm border">
@@ -301,7 +301,7 @@ const View = () => {
         </div>
       </div>
 
-      <h2 className="text-3xl font-bold mb-10 pt-8 text-center">
+      <h2 className="text-3xl text-[#147190] font-bold mb-10 pt-8 text-center">
         Obstetrics / Menstrual History
       </h2>
       <div className="bg-white p-6 rounded-lg shadow-sm border">
@@ -343,7 +343,7 @@ const View = () => {
         </div>
       </div>
 
-      <h2 className="text-3xl font-bold mb-10 pt-8 text-center">Vital Signs</h2>
+      <h2 className="text-3xl text-[#147190] font-bold mb-10 pt-8 text-center">Vital Signs</h2>
       <div className="bg-white p-6 rounded-lg shadow-sm border">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[

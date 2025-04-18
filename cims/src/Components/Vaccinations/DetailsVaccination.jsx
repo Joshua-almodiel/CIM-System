@@ -5,10 +5,7 @@ import {
     FaUser,
     FaIdCard,
     FaCalendarAlt,
-    FaHardHat,
     FaInfoCircle,
-    FaCheckCircle,
-    FaTimesCircle,
 } from "react-icons/fa";
 
 const DetailsVaccination = () => {
@@ -34,7 +31,7 @@ const DetailsVaccination = () => {
             }
         };
         fetchVaccinations();
-    });
+    }, [id]);
 
 
     if (!vaccination) {
@@ -48,16 +45,6 @@ const DetailsVaccination = () => {
             <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-6">
-
-                        <div className="bg-gradient-to-r from-gray-600 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div className="flex items-center space-x-4">
-                                <FaUser className="text-2xl text-white" />
-                                <div>
-                                    <p className="text-sm text-gray-200">Nickname</p>
-                                    <p className="text-lg font-semibold">{vaccination.familyNumber.userId.name}</p>
-                                </div>
-                            </div>
-                        </div>
 
                         <div className="bg-gradient-to-r from-gray-600 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                             <div className="flex items-center space-x-4">

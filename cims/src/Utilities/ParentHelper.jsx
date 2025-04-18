@@ -47,7 +47,7 @@ export const columns = [
   {
     name: "Action",
     selector: (row) => row.action,
-    width: "340px",
+    width: "350px",
     center: true,
   },
 ];
@@ -81,7 +81,7 @@ export const ParentButtons = ({ _id }) => {
             d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
           />
         </svg>
-        View
+        Details
       </button>
 
       <button
@@ -129,9 +129,9 @@ export const ParentButtons = ({ _id }) => {
       </button>
 
       <button
-        className="px-1 py-1 bg-red-50 text-red-600 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-red-100 hover:border-red-200 text-sm flex items-center"
+        className="px-1 py-1 bg-blue-600 text-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-red-100 hover:border-red-200 text-sm flex items-center"
         onClick={() =>
-          navigate(`/healthWorker-dashboard/parents/vaccination/${_id}`)
+          navigate(`/healthWorker-dashboard/parents/vaccinations/${_id}`)
         }
       >
         <svg
