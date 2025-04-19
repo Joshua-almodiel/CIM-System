@@ -77,6 +77,9 @@ const List = () => {
                       Date
                     </th>
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                      Time
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                       Description
                     </th>
                   </tr>
@@ -96,12 +99,20 @@ const List = () => {
                       <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
                         {new Date(vaccination.startDate).toLocaleDateString()}
                       </td>
-                      <td className="px-4 py-4 whitespace-nowrap text-sm text-blue-600">
+                      <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {new Date(
+                          `1970-01-01T${vaccination.startTime}`
+                        ).toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
+                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap text-sm text-[#148190]">
                         <button
                           onClick={() =>
                             handleViewDescription(vaccination.reason)
                           }
-                          className="flex items-center hover:text-blue-800"
+                          className="flex items-center hover:text-[#149190]"
                         >
                           <FaInfoCircle className="mr-1" />
                           View
@@ -152,7 +163,7 @@ const List = () => {
             <div className="px-6 py-3 border-t border-gray-200 flex justify-end">
               <button
                 onClick={() => setShowDescription(false)}
-                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                className="px-4 py-2 bg-[#148190] text-white rounded-md hover:bg-[#148190]"
               >
                 Close
               </button>

@@ -4,14 +4,10 @@ const getSummary = async (req, res) => {
     try{
         const totalParents = await Parents.countDocuments()
 
-        const totalSalaries = await Parents.aggregate([
-            {$group: {_id: null, totalSalary: {$sum : "$salary"}}}
-        ])
 
         return res.status(200).json({
             success: true,
-            totalParents,
-            totalSalary: totalSalaries[0]?.totalSalary || 0
+            totalParents
         })
 
     } catch(error) {

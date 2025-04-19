@@ -99,15 +99,6 @@ const Edit = () => {
     intervalOfMenstruation: '',
     duration: '',
     padsPerDay: '',
-    dateComplaints: '',
-    chiefComplaints: '',
-    bp: '',
-    hr: '',
-    o2sat: '',
-    wt: '',
-    temp: '',
-    rr: '',
-    ht: '',
   });
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -145,7 +136,6 @@ const Edit = () => {
   const handleChange = (e) => {
     const { name, value, type } = e.target;
     
-    // Handle radio buttons differently
     if (type === 'radio') {
       setParent(prev => ({ ...prev, [name]: value }));
     } else {
@@ -279,7 +269,7 @@ const Edit = () => {
                       Family Number <span className="text-red-500">*</span>
                     </label>
                     <input
-                      type="text"
+                      type="number"
                       name="familyNumber"
                       value={parent.familyNumber}
                       placeholder="Enter family number"
@@ -1474,156 +1464,6 @@ const Edit = () => {
                         </tr>
                       </tbody>
                     </table>
-                  </div>
-                </div>
-              </div>
-  
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <h3 className="text-lg font-semibold text-[#147190] mb-4 border-b border-blue-200 pb-2">
-                  Current Health Status
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Date <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="date"
-                      name="dateComplaints"
-                      value={parent.dateComplaints}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                      required
-                    />
-                  </div>
-  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Chief Complaints <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="chiefComplaints"
-                      value={parent.chiefComplaints}
-                      placeholder="Enter chief complaints"
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                      required
-                    />
-                  </div>
-                </div>
-  
-                <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      BP
-                    </label>
-                    <input
-                      type="text"
-                      name="bp"
-                      value={parent.bp}
-                      placeholder="e.g. 120/80"
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      HR
-                    </label>
-                    <input
-                      type="text"
-                      name="hr"
-                      value={parent.hr}
-                      placeholder="Heart rate"
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      O2Sat
-                    </label>
-                    <input
-                      type="text"
-                      name="o2sat"
-                      value={parent.o2sat}
-                      placeholder="Oxygen saturation"
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Temp
-                    </label>
-                    <input
-                      type="text"
-                      name="temp"
-                      value={parent.temp}
-                      placeholder="Temperature (°C)"
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      RR
-                    </label>
-                    <input
-                      type="text"
-                      name="rr"
-                      value={parent.rr}
-                      placeholder="Respiratory rate"
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Wt
-                    </label>
-                    <input
-                      type="text"
-                      name="wt"
-                      value={parent.wt}
-                      placeholder="Weight (kg)"
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Ht
-                    </label>
-                    <input
-                      type="text"
-                      name="ht"
-                      value={parent.ht}
-                      placeholder="Height (cm)"
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      BMI
-                    </label>
-                    <input
-                      type="text"
-                      name="bmi"
-                      value={parent.bmi}
-                      placeholder="BMI"
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
                   </div>
                 </div>
               </div>

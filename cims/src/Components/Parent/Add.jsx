@@ -101,15 +101,6 @@ const Add = () => {
     intervalOfMenstruation: "",
     duration: "",
     padsPerDay: "",
-    dateComplaints: "",
-    chiefComplaints: "",
-    bp: "",
-    hr: "",
-    o2sat: "",
-    wt: "",
-    temp: "",
-    rr: "",
-    ht: "",
     email: "",
     password: "",
     role: "parent",
@@ -171,7 +162,7 @@ const Add = () => {
                     type="date"
                     name="date"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   />
                 </div>
@@ -183,7 +174,7 @@ const Add = () => {
                   <select
                     name="kpp"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   >
                     <option value="">Select KPP</option>
@@ -207,7 +198,7 @@ const Add = () => {
                     type="number"
                     name="dependents"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                     min="0"
                   />
@@ -222,7 +213,7 @@ const Add = () => {
                     name="name"
                     placeholder="Enter nickname"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                   />
                 </div>
 
@@ -231,11 +222,11 @@ const Add = () => {
                     Parent ID
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     name="parentId"
-                    placeholder="Enter parent ID"
+                    placeholder="Enter any ID number"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                   />
                 </div>
 
@@ -244,11 +235,11 @@ const Add = () => {
                     Family Number <span className="text-red-500">*</span>
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     name="familyNumber"
                     placeholder="Enter family number"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   />
                 </div>
@@ -262,7 +253,7 @@ const Add = () => {
                     name="lastName"
                     placeholder="Enter last name"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   />
                 </div>
@@ -276,7 +267,7 @@ const Add = () => {
                     name="firstName"
                     placeholder="Enter first name"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   />
                 </div>
@@ -290,7 +281,7 @@ const Add = () => {
                     name="middleName"
                     placeholder="Enter middle name"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   />
                 </div>
@@ -304,7 +295,7 @@ const Add = () => {
                     name="contact"
                     placeholder="09XXXXXXXXX"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                     pattern="[0-9]{11}"
                   />
@@ -317,9 +308,8 @@ const Add = () => {
                   <input
                     type="text"
                     name="phNumber"
-                    placeholder="XX-XXXXXXXXX-X"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                     pattern="[0-9]{2}-[0-9]{9}-[0-9]{1}"
                   />
@@ -332,7 +322,7 @@ const Add = () => {
                   <select
                     name="clientType"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   >
                     <option value="">Select client type</option>
@@ -348,7 +338,7 @@ const Add = () => {
                   <select
                     name="ifMember"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   >
                     <option value="">Select member type</option>
@@ -364,7 +354,7 @@ const Add = () => {
                   <select
                     name="sex"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   >
                     <option value="">Select gender</option>
@@ -381,7 +371,7 @@ const Add = () => {
                     type="date"
                     name="birthday"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   />
                 </div>
@@ -394,7 +384,7 @@ const Add = () => {
                     type="number"
                     name="age"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                     min="0"
                     max="120"
@@ -410,7 +400,7 @@ const Add = () => {
                     name="religion"
                     placeholder="Enter religion"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   />
                 </div>
@@ -424,7 +414,7 @@ const Add = () => {
                     name="address"
                     placeholder="Complete address"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   />
                 </div>
@@ -436,7 +426,7 @@ const Add = () => {
                   <select
                     name="civilStatus"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   >
                     <option value="">Select status</option>
@@ -458,7 +448,7 @@ const Add = () => {
                     name="maidenName"
                     placeholder="Enter maiden name"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                   />
                 </div>
 
@@ -471,7 +461,7 @@ const Add = () => {
                     name="spouseName"
                     placeholder="Enter spouse name"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                   />
                 </div>
 
@@ -484,7 +474,7 @@ const Add = () => {
                     name="partnerName"
                     placeholder="Enter partner's name"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                   />
                 </div>
 
@@ -497,7 +487,7 @@ const Add = () => {
                     name="occupation"
                     placeholder="Enter occupation"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                   />
                 </div>
 
@@ -509,7 +499,7 @@ const Add = () => {
                   <select
                     name="educAttainment"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   >
                     <option value="">Select attainment</option>
@@ -531,7 +521,7 @@ const Add = () => {
                   <select
                     name="empStatus"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   >
                     <option value="">Select employment status</option>
@@ -575,7 +565,7 @@ const Add = () => {
                             name="pallergy"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -584,7 +574,7 @@ const Add = () => {
                             name="pallergy"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                       </tr>
@@ -597,7 +587,7 @@ const Add = () => {
                             type="text"
                             name="pspecifyAllergy"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                           />
                         </td>
                       </tr>
@@ -612,7 +602,7 @@ const Add = () => {
                             name="pasthma"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -621,7 +611,7 @@ const Add = () => {
                             name="pasthma"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                       </tr>
@@ -636,7 +626,7 @@ const Add = () => {
                             name="pcancer"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -645,7 +635,7 @@ const Add = () => {
                             name="pcancer"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                       </tr>
@@ -658,7 +648,7 @@ const Add = () => {
                             type="text"
                             name="porganCancer"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                           />
                         </td>
                       </tr>
@@ -672,7 +662,7 @@ const Add = () => {
                             name="pdiabetes"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -681,7 +671,7 @@ const Add = () => {
                             name="pdiabetes"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                       </tr>
@@ -696,7 +686,7 @@ const Add = () => {
                             name="phypertension"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -705,7 +695,7 @@ const Add = () => {
                             name="phypertension"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                       </tr>
@@ -720,7 +710,7 @@ const Add = () => {
                             name="pnone"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -729,7 +719,7 @@ const Add = () => {
                             name="pnone"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                       </tr>
@@ -744,7 +734,7 @@ const Add = () => {
                             name="pbloodPressure"
                             placeholder="e.g. 120/80"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                           />
                         </td>
                       </tr>
@@ -783,7 +773,7 @@ const Add = () => {
                             name="fallergy"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -792,7 +782,7 @@ const Add = () => {
                             name="fallergy"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                       </tr>
@@ -805,7 +795,7 @@ const Add = () => {
                             type="text"
                             name="fspecifyAllergy"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                           />
                         </td>
                       </tr>
@@ -820,7 +810,7 @@ const Add = () => {
                             name="fasthma"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -829,7 +819,7 @@ const Add = () => {
                             name="fasthma"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                       </tr>
@@ -844,7 +834,7 @@ const Add = () => {
                             name="fcancer"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -853,7 +843,7 @@ const Add = () => {
                             name="fcancer"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                       </tr>
@@ -866,7 +856,7 @@ const Add = () => {
                             type="text"
                             name="forganCancer"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                           />
                         </td>
                       </tr>
@@ -880,7 +870,7 @@ const Add = () => {
                             name="fdiabetes"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -889,7 +879,7 @@ const Add = () => {
                             name="fdiabetes"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                       </tr>
@@ -904,7 +894,7 @@ const Add = () => {
                             name="fhypertension"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -913,7 +903,7 @@ const Add = () => {
                             name="fhypertension"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                       </tr>
@@ -928,7 +918,7 @@ const Add = () => {
                             name="fnone"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -937,7 +927,7 @@ const Add = () => {
                             name="fnone"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                       </tr>
@@ -952,7 +942,7 @@ const Add = () => {
                             name="fbloodPressure"
                             placeholder="e.g. 120/80"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                           />
                         </td>
                       </tr>
@@ -997,7 +987,7 @@ const Add = () => {
                             name="smoking"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -1006,7 +996,7 @@ const Add = () => {
                             name="smoking"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -1015,7 +1005,7 @@ const Add = () => {
                             name="smoking"
                             value="quit"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
@@ -1025,7 +1015,7 @@ const Add = () => {
                               type="number"
                               name="packsPerYear"
                               onChange={handleChange}
-                              className="ml-2 w-20 px-2 py-1 border border-gray-300 text-black rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                              className="ml-2 w-20 px-2 py-1 border border-gray-300 text-black rounded-md shadow-sm focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                               min="0"
                             />
                           </div>
@@ -1042,7 +1032,7 @@ const Add = () => {
                             name="alcohol"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -1051,7 +1041,7 @@ const Add = () => {
                             name="alcohol"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap"></td>
@@ -1062,7 +1052,7 @@ const Add = () => {
                               type="number"
                               name="bottlesPerDay"
                               onChange={handleChange}
-                              className="ml-2 w-20 px-2 py-1 border border-gray-300 text-black rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                              className="ml-2 w-20 px-2 py-1 border border-gray-300 text-black rounded-md shadow-sm focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                               min="0"
                             />
                           </div>
@@ -1079,7 +1069,7 @@ const Add = () => {
                             name="illicitDrugs"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -1088,7 +1078,7 @@ const Add = () => {
                             name="illicitDrugs"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap"></td>
@@ -1098,7 +1088,7 @@ const Add = () => {
                             name="illicitDrugsDetails"
                             placeholder="Specify drug use"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                           />
                         </td>
                       </tr>
@@ -1113,7 +1103,7 @@ const Add = () => {
                             name="sexualHistory"
                             value="yes"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
@@ -1122,7 +1112,7 @@ const Add = () => {
                             name="sexualHistory"
                             value="no"
                             onChange={handleChange}
-                            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap"></td>
@@ -1132,7 +1122,7 @@ const Add = () => {
                             name="sexualHistoryDetails"
                             placeholder="Additional details"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                           />
                         </td>
                       </tr>
@@ -1157,7 +1147,7 @@ const Add = () => {
                             type="number"
                             name="menarche"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                             placeholder="Age at first period"
                           />
                         </td>
@@ -1169,7 +1159,7 @@ const Add = () => {
                             type="text"
                             name="pregnancyHistory"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                           />
                         </td>
                       </tr>
@@ -1186,7 +1176,7 @@ const Add = () => {
                                 name="menopause"
                                 value="yes"
                                 onChange={handleChange}
-                                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                                className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                               />
                               <span className="ml-2 text-sm text-gray-700">
                                 Yes
@@ -1198,7 +1188,7 @@ const Add = () => {
                                 name="menopause"
                                 value="no"
                                 onChange={handleChange}
-                                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                                className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
                               />
                               <span className="ml-2 text-sm text-gray-700">
                                 No
@@ -1214,7 +1204,7 @@ const Add = () => {
                             type="number"
                             name="gravida"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                             min="0"
                           />
                         </td>
@@ -1229,7 +1219,7 @@ const Add = () => {
                             type="number"
                             name="ageOfMenopause"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                             min="0"
                             max="100"
                           />
@@ -1242,7 +1232,7 @@ const Add = () => {
                             type="number"
                             name="para"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                             min="0"
                           />
                         </td>
@@ -1257,7 +1247,7 @@ const Add = () => {
                             type="date"
                             name="lmp"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700 font-medium">
@@ -1268,7 +1258,7 @@ const Add = () => {
                             type="number"
                             name="fullTerm"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                             min="0"
                           />
                         </td>
@@ -1283,7 +1273,7 @@ const Add = () => {
                             type="text"
                             name="intervalOfMenstruation"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                             placeholder="e.g. 28 days"
                           />
                         </td>
@@ -1295,7 +1285,7 @@ const Add = () => {
                             type="number"
                             name="preterm"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                             min="0"
                           />
                         </td>
@@ -1312,7 +1302,7 @@ const Add = () => {
                               name="duration"
                               min="0"
                               onChange={handleChange}
-                              className="w-20 px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                              className="w-20 px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                             />
                             <span className="ml-2 text-sm text-gray-700">
                               days
@@ -1327,7 +1317,7 @@ const Add = () => {
                             type="number"
                             name="abortion"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                             min="0"
                           />
                         </td>
@@ -1343,7 +1333,7 @@ const Add = () => {
                             name="padsPerDay"
                             min="0"
                             onChange={handleChange}
-                            className="w-20 px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-20 px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                           />
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700 font-medium">
@@ -1354,7 +1344,7 @@ const Add = () => {
                             type="number"
                             name="living"
                             onChange={handleChange}
-                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                             min="0"
                           />
                         </td>
@@ -1379,7 +1369,7 @@ const Add = () => {
                     name="email"
                     placeholder="Enter email address"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                   />
                 </div>
@@ -1393,7 +1383,7 @@ const Add = () => {
                     name="password"
                     placeholder="Create password"
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
                     required
                     minLength="8"
                   />
@@ -1404,145 +1394,7 @@ const Add = () => {
               </div>
             </div>
 
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <h3 className="text-lg font-semibold text-[#147190] mb-4 border-b border-blue-200 pb-2">
-                Current Health Status
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Date <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="date"
-                    name="dateComplaints"
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Chief Complaints <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="chiefComplaints"
-                    placeholder="Enter chief complaints"
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    BP
-                  </label>
-                  <input
-                    type="text"
-                    name="bp"
-                    placeholder="e.g. 120/80"
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    HR
-                  </label>
-                  <input
-                    type="text"
-                    name="hr"
-                    placeholder="Heart rate"
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    O2Sat
-                  </label>
-                  <input
-                    type="text"
-                    name="o2sat"
-                    placeholder="Oxygen saturation"
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Temp
-                  </label>
-                  <input
-                    type="text"
-                    name="temp"
-                    placeholder="Temperature (°C)"
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    RR
-                  </label>
-                  <input
-                    type="text"
-                    name="rr"
-                    placeholder="Respiratory rate"
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Wt
-                  </label>
-                  <input
-                    type="text"
-                    name="wt"
-                    placeholder="Weight (kg)"
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Ht
-                  </label>
-                  <input
-                    type="text"
-                    name="ht"
-                    placeholder="Height (cm)"
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    BMI
-                  </label>
-                  <input
-                    type="text"
-                    name="bmi"
-                    placeholder="BMI"
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
-              </div>
-            </div>
+            
 
             <div className="flex justify-end">
               <button

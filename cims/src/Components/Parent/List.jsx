@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { columns, ParentButtons } from "../../Utilities/ParentHelper.jsx";
 import axios from "axios";
 import DataTable from "react-data-table-component";
+import { useAuth } from "../../Context/AuthContext.jsx";
 
 const List = () => {
   const [parents, setParents] = useState([]);
   const [searchParent, setSearchParent] = useState();
+  const { user } = useAuth();
 
   useEffect(() => {
     const fetchParents = async () => {
@@ -87,16 +89,15 @@ const List = () => {
       pageButtonsStyle: {
         color: "#1E293B",
         fill: "#1E293B",
-        '&:hover': {
+        "&:hover": {
           backgroundColor: "#E2E8F0",
         },
-        '&:focus': {
-          outline: 'none',
+        "&:focus": {
+          outline: "none",
           backgroundColor: "#CBD5E1",
         },
       },
     },
-    
   };
 
   const handleFilter = (e) => {
@@ -110,7 +111,9 @@ const List = () => {
     <div className="bg-slate-100 py-15 px-40 md:px-12 min-h-screen overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="mb-10">
-          <h1 className="text-4xl font-extrabold text-slate-800">Child Records</h1>
+          <h1 className="text-4xl font-extrabold text-slate-800">
+            Child Records
+          </h1>
           <p className="mt-2 text-slate-600">
             Search and manage all registered records.
           </p>
@@ -143,26 +146,51 @@ const List = () => {
               </div>
             </div>
 
-            <Link
-              to="/healthWorker-dashboard/add-parent"
-              className="bg-[#147190] hover:bg-[#148190] transition text-white font-medium text-sm px-5 py-2.5 rounded-lg shadow"
-            >
-              <div className="flex items-center space-x-2">
-                <svg
-                  className="h-5 w-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
+            <div className="flex gap-2">
+              <Link
+                to="/healthWorker-dashboard/add-parent"
+                className="bg-[#147190] hover:bg-[#148190] transition text-white font-medium text-sm px-3 py-2.5 rounded-lg shadow"
+              >
+                <div className="flex items-center space-x-2">
+                  <svg
+                    className="h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <span>Registration Form</span>
+                </div>
+              </Link>
+
+              {user.role === "healthWorker" && (
+                <Link
+                  to="/healthWorker-dashboard/vital/add"
+                  className="bg-[#147190] hover:bg-[#148190] transition text-white font-medium text-sm px-3 py-2.5 rounded-lg shadow"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span>Add Family</span>
-              </div>
-            </Link>
+                  <div className="flex items-center space-x-2">
+                    <svg
+                      className="h-5 w-5"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span>Add Vital</span>
+                  </div>
+                </Link>
+              )}
+            </div>
           </div>
 
           {searchParent ? (
@@ -178,7 +206,9 @@ const List = () => {
               />
             ) : (
               <div className="text-center py-16">
-                <h2 className="text-lg font-semibold text-slate-700">No records found</h2>
+                <h2 className="text-lg font-semibold text-slate-700">
+                  No records found
+                </h2>
                 <p className="text-slate-500 mt-2">
                   Try refining your search or add a new family record.
                 </p>
@@ -198,7 +228,7 @@ const List = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  Add Family
+                  Register Record
                 </Link>
               </div>
             )
@@ -225,9 +255,13 @@ const List = () => {
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
                   ></path>
                 </svg>
-                <span className="text-slate-600 font-medium">Loading Records...</span>
+                <span className="text-slate-600 font-medium">
+                  Loading Records...
+                </span>
               </div>
-              <p className="mt-2 text-sm text-gray-500">Please wait a moment.</p>
+              <p className="mt-2 text-sm text-gray-500">
+                Please wait a moment.
+              </p>
             </div>
           )}
         </div>

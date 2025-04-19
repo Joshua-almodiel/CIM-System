@@ -3,8 +3,8 @@ import { Schema } from "mongoose";
 
 const parentsSchema = new Schema({
     userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
-    parentId: { type: String, required: true, unique: true },
-    familyNumber: { type: String, required: true },
+    parentId: { type: Number, required: true, unique: true },
+    familyNumber: { type: Number, required: true },
     lastName: { type: String },
     firstName: { type: String },
     middleName: { type: String },
@@ -99,16 +99,6 @@ const parentsSchema = new Schema({
     intervalOfMenstruation: { type: String },
     duration: { type: Number },
     padsPerDay: { type: Number },
-    dateComplaints: { type: Date },
-    chiefComplaints: { type: String },
-    bp: { type: String },
-    hr: { type: String },
-    o2sat: { type: String },
-    wt: { type: String },
-    temp: { type: String },
-    rr: { type: String },
-    ht: { type: String },
-    bmi: { type: String },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
 });

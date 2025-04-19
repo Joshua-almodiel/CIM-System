@@ -79,124 +79,142 @@ const AddVaccination = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-900 text-white">
-      <h2 className="text-2xl font-semibold mb-6">Add Vaccination Record</h2>
-
-      <form
-        className="bg-gray-800 p-6 rounded-lg shadow-md"
-        onSubmit={handleSubmit}
-      >
-        <div className="space-y-6">
-          <div>
-            <label
-              htmlFor="familyNumber"
-              className="block text-sm font-medium mb-2"
-            >
-              Family Number
-            </label>
-            <select
-              name="familyNumber"
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
-              required
-            >
-              <option value="">Select Family Number</option>
-              {familyNumbers.map((family) => (
-                <option key={family._id} value={family._id}>
-                  {family.familyNumber}
-                </option>
-              ))}
-            </select>
+    <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-white shadow-xl rounded-lg overflow-hidden">
+          <div className="bg-white-200 py-4 px-6">
+            <h2 className="text-2xl font-bold text-gray-700">
+              Add Vaccination Record
+            </h2>
+            <p className="text-gray-500 mt-1">
+              Please fill out all required fields completely and accurately
+            </p>
           </div>
 
-          <div>
-            <label
-              htmlFor="vaccinationType"
-              className="block text-sm font-medium mb-2"
-            >
-              Vaccination Type
-            </label>
-            <select
-              name="vaccinationType"
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
-              required
-            >
-              <option value="">Select Vaccination</option>
-              <option value="BCG">BCG</option>
-              <option value="HEPATITIS B">HEPATITIS B</option>
-              <option value="PENTAVALENT VACCINE">PENTAVALENT VACCINE</option>
-              <option value="ORAL POLIO VACCINE">ORAL POLIO VACCINE</option>
-              <option value="INACTIVATED POLIO VACCINE">
-                INACTIVATED POLIO VACCINE
-              </option>
-              <option value="PNEUMOCOCCAL CONJUGATE VACCINE">
-                PNEUMOCOCCAL CONJUGATE VACCINE
-              </option>
-            </select>
-          </div>
+          <form className="p-6 space-y-8" onSubmit={handleSubmit}>
+            <div className="bg-blue-50 p-4 rounded-lg">
+              <h3 className="text-lg font-semibold text-[#147190] mb-4 border-b border-blue-200 pb-2">
+                Vaccination
+              </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label
-                htmlFor="fromDate"
-                className="block text-sm font-medium mb-2"
-              >
-                Date
-              </label>
-              <input
-                type="date"
-                name="startDate"
-                onChange={handleChange}
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
-                required
-              />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div>
+                  <label
+                    htmlFor="familyNumber"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Family Number <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    name="familyNumber"
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
+                    required
+                  >
+                    <option value="">Select Family Number</option>
+                    {familyNumbers.map((family) => (
+                      <option key={family._id} value={family._id}>
+                        {family.familyNumber}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div>
+                <label
+                  htmlFor="vaccinationType"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Vaccination Type <span className="text-red-500">*</span>
+                </label>
+                <select
+                  name="vaccinationType"
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
+                  required
+                >
+                  <option value="">Select Vaccination</option>
+                  <option value="BCG">BCG</option>
+                  <option value="HEPATITIS B">HEPATITIS B</option>
+                  <option value="PENTAVALENT VACCINE">
+                    PENTAVALENT VACCINE
+                  </option>
+                  <option value="ORAL POLIO VACCINE">ORAL POLIO VACCINE</option>
+                  <option value="INACTIVATED POLIO VACCINE">
+                    INACTIVATED POLIO VACCINE
+                  </option>
+                  <option value="PNEUMOCOCCAL CONJUGATE VACCINE">
+                    PNEUMOCOCCAL CONJUGATE VACCINE
+                  </option>
+                </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    htmlFor="fromDate"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Date <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="date"
+                    name="startDate"
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="startTime"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Time <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="time"
+                  name="startTime"
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
+                  required
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="description"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Description <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  name="reason"
+                  placeholder="Reason"
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"
+                  rows={4}
+                  required
+                />
+              </div>
             </div>
-          </div>
 
-          <div>
-              <label
-                htmlFor="startTime"
-                className="block text-sm font-medium mb-2"
+            <div className="mt-6">
+              <button
+                type="submit"
+                className="w-full px-6 py-2 bg-[#147190] text-white rounded-lg hover:bg-[#148190] transition duration-200"
               >
-                Time
-              </label>
-              <input
-                type="time"
-                name="startTime"
-                onChange={handleChange}
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
-                required
-              />
+                Add Vaccination
+              </button>
             </div>
-
-          <div>
-            <label
-              htmlFor="description"
-              className="block text-sm font-medium mb-2"
-            >
-              Description
-            </label>
-            <textarea
-              name="reason"
-              placeholder="Reason"
-              onChange={handleChange}
-              className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
-              rows={4}
-              required
-            />
-          </div>
+          </form>
         </div>
-
-        <div className="mt-6">
-          <button
-            type="submit"
-            className="w-full px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
-          >
-            Add Vaccination
-          </button>
-        </div>
-      </form>
+      </div>
     </div>
   );
 };

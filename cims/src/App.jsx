@@ -10,8 +10,9 @@ import List from './Components/Parent/List.jsx'
 import Add from './Components/Parent/Add.jsx'
 import View from './Components/Parent/View.jsx'
 import Edit from './Components/Parent/Edit.jsx'
-import AddSalary from './Components/Salaries/Add.jsx'
-import ViewSalary from './Components/Salaries/View.jsx'
+import AddVital from './Components/Vital/Add.jsx'
+import ViewVital from './Components/Vital/View.jsx'
+import EditVital from "./Components/Vital/Edit.jsx"
 import Summary from './Components/ParentDashboard/Summary.jsx'
 import VaccinationList from './Components/Vaccinations/List.jsx'
 import AddVaccination from './Components/Vaccinations/AddVaccination.jsx'
@@ -39,10 +40,11 @@ function App() {
           <Route path="/healthWorker-dashboard/add-parent" element={<Add />}></Route>
           <Route path="/healthWorker-dashboard/parents/:id" element={<View />}></Route>
           <Route path="/healthWorker-dashboard/parents/edit/:id" element={<Edit />}></Route>
-          <Route path="/healthWorker-dashboard/parents/salary/:id" element={<ViewSalary />}></Route>
+          <Route path="/healthWorker-dashboard/parents/vital/:id" element={<ViewVital />}></Route>
+          <Route path="/healthWorker-dashboard/parents/vital/edit/:id" element={<EditVital />} />
           <Route path="/healthWorker-dashboard/parents/vaccinations/:id" element={<VaccinationList />}></Route>
 
-          <Route path="/healthWorker-dashboard/salary/add" element={<AddSalary />}></Route>
+          <Route path="/healthWorker-dashboard/vital/add" element={<AddVital />}></Route>
           <Route path="/healthWorker-dashboard/setting" element={<Setting />}></Route>
 
           <Route path="/healthWorker-dashboard/vaccinations" element={<TableVaccination />}></Route>
@@ -67,7 +69,7 @@ function App() {
           <Route path="/parent-dashboard/profile/:id" element={<View />}></Route>
           <Route path="/parent-dashboard/vaccinations/:id" element={<VaccinationList />}></Route>
           <Route path="/parent-dashboard/add-vaccination" element={<AddVaccination />}></Route>
-          <Route path="/parent-dashboard/salary/:id" element={<ViewSalary />}></Route>
+          <Route path="/parent-dashboard/vital/:id" element={<ViewVital />}></Route>
           <Route path="/parent-dashboard/setting" element={<Setting />}></Route>
 
         </Route>

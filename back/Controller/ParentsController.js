@@ -1,5 +1,7 @@
 import Parents from "../Models/Parents.js";
 import User from "../Models/User.js";
+import Vitals from "../Models/Vitals.js";
+import Vaccinations from "../Models/Vaccinations.js";
 import bcrypt from "bcryptjs";
 
 const addParent = async (req, res) => {
@@ -102,15 +104,6 @@ const addParent = async (req, res) => {
       intervalOfMenstruation,
       duration,
       padsPerDay,
-      dateComplaints,
-      chiefComplaints,
-      bp,
-      hr,
-      o2sat,
-      wt,
-      temp,
-      rr,
-      ht,
       email,
       password,
       role,
@@ -231,15 +224,6 @@ const addParent = async (req, res) => {
       intervalOfMenstruation,
       duration,
       padsPerDay,
-      dateComplaints,
-      chiefComplaints,
-      bp,
-      hr,
-      o2sat,
-      wt,
-      temp,
-      rr,
-      ht,
     });
 
     await newParent.save();
@@ -383,15 +367,6 @@ const updateParent = async (req, res) => {
       intervalOfMenstruation,
       duration,
       padsPerDay,
-      dateComplaints,
-      chiefComplaints,
-      bp,
-      hr,
-      o2sat,
-      wt,
-      temp,
-      rr,
-      ht,
     } = req.body;
 
     const parent = await Parents.findById({ _id: id });
@@ -509,15 +484,6 @@ const updateParent = async (req, res) => {
         intervalOfMenstruation,
         duration,
         padsPerDay,
-        dateComplaints,
-        chiefComplaints,
-        bp,
-        hr,
-        o2sat,
-        wt,
-        temp,
-        rr,
-        ht,
       }
     );
 
@@ -544,4 +510,18 @@ const getAllFamilyNumbers = async (req, res) => {
   }
 };
 
-export { addParent, getParents, getParent, updateParent, getAllFamilyNumbers };
+const deleteParent = async (req, res) => {
+  try {
+      const { id } = req.params;
+
+      await Vitals.deleteMany({ familyNumber: id });
+      await Vaccinations.deleteMany({ familyNumber: id });
+      await Parents.findByIdAndDelete(id);
+
+      return res.status(200).json({ success: true, message: "Parent and related records deleted successfully" });
+  } catch (error) {
+      return res.status(500).json({ success: false, error: "Error deleting parent record" });
+  }
+};
+
+export { addParent, getParents, getParent, updateParent, getAllFamilyNumbers, deleteParent };

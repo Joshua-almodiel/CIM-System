@@ -58,7 +58,7 @@ export const ParentButtons = ({ _id }) => {
   return (
     <div className="flex space-x-2">
       <button
-        className="px-1 py-1 bg-white text-blue-600 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 hover:border-blue-300 text-sm flex items-center"
+        className="px-1 py-1 bg-white text-[#148190] rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 hover:border-blue-300 text-sm flex items-center"
         onClick={() => navigate(`/healthWorker-dashboard/parents/${_id}`)}
       >
         <svg
@@ -85,7 +85,7 @@ export const ParentButtons = ({ _id }) => {
       </button>
 
       <button
-        className="px-1 py-1 bg-blue-600 text-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-sm flex items-center"
+        className="px-1 py-1 bg-[#148190] text-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-sm flex items-center"
         onClick={() => navigate(`/healthWorker-dashboard/parents/edit/${_id}`)}
       >
         <svg
@@ -106,30 +106,30 @@ export const ParentButtons = ({ _id }) => {
       </button>
 
       <button
-        className="px-1 py-1 bg-green-50 text-green-700 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-green-100 hover:border-green-200 text-sm flex items-center"
+        className="px-1 py-1 bg-green-50 text-[#148190] rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-green-100 hover:border-green-200 text-sm flex items-center"
         onClick={() =>
-          navigate(`/healthWorker-dashboard/parents/salary/${_id}`)
+          navigate(`/healthWorker-dashboard/parents/vital/${_id}`)
         }
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4 mr-1.5"
-          fill="none"
+          fill="currentColor"
           viewBox="0 0 24 24"
-          stroke="currentColor"
+          stroke="none"
         >
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 
+           4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 
+           14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
+           3.78-3.4 6.86-8.55 11.54L12 21.35z"
           />
         </svg>
-        Salary
+        Vital
       </button>
 
       <button
-        className="px-1 py-1 bg-blue-600 text-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-red-100 hover:border-red-200 text-sm flex items-center"
+        className="px-1 py-1 bg-[#148190] text-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-red-100 hover:border-red-200 text-sm flex items-center"
         onClick={() =>
           navigate(`/healthWorker-dashboard/parents/vaccinations/${_id}`)
         }
@@ -145,7 +145,7 @@ export const ParentButtons = ({ _id }) => {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            d="M18.364 5.636l-1.414-1.414-3.182 3.182-1.415-1.414 3.182-3.182-1.414-1.414L11.939 4.99l-1.768-1.768-1.414 1.414 1.768 1.768L4 14.061V18h3.939l8.121-8.121 1.768 1.768 1.414-1.414-1.768-1.768 1.414-1.414-1.414-1.414z"
           />
         </svg>
         Vaccination
