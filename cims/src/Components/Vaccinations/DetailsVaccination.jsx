@@ -33,61 +33,53 @@ const DetailsVaccination = () => {
         fetchVaccinations();
     }, [id]);
 
-
     if (!vaccination) {
-        return <div className="p-6 bg-gray-900 text-white">Loading...</div>;
+        return <div className="p-6 bg-white text-gray-700">Loading...</div>;
     }
 
     return (
-        <div className="p-6 bg-gray-900 text-white min-h-screen">
-            <h2 className="text-2xl font-semibold mb-6">Vaccination Details</h2>
+        <div className="min-h-screen bg-gray-100 p-10">
+            <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl font-bold text-[#147190] mb-8 text-center">
+                    Vaccination Details
+                </h2>
 
-            <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-6">
+                <div className="bg-white p-8 rounded-xl shadow-md grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                        <div className="bg-gradient-to-r from-gray-600 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div className="flex items-center space-x-4">
-                                <FaIdCard className="text-2xl text-white" />
-                                <div>
-                                    <p className="text-sm text-gray-200">Family Number</p>
-                                    <p className="text-lg font-semibold">{vaccination.familyNumber.familyNumber}</p>
-                                </div>
+                    <div className="space-y-4">
+                        <div className="border border-gray-200 rounded-lg p-4 flex items-start gap-4">
+                            <FaIdCard className="text-[#147190] text-xl mt-1" />
+                            <div>
+                                <p className="text-sm text-gray-500">Family Number</p>
+                                <p className="text-lg text-gray-700 font-medium">{vaccination.familyNumber.familyNumber}</p>
                             </div>
                         </div>
 
-                        <div className="bg-gradient-to-r from-gray-600 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div className="flex items-center space-x-4">
-                                <FaInfoCircle className="text-2xl text-white" />
-                                <div>
-                                    <p className="text-sm text-gray-200">Vaccination Type</p>
-                                    <p className="text-lg font-semibold">{vaccination.vaccinationType}</p>
-                                </div>
+                        <div className="border border-gray-200 rounded-lg p-4 flex items-start gap-4">
+                            <FaInfoCircle className="text-[#147190] text-xl mt-1" />
+                            <div>
+                                <p className="text-sm text-gray-500">Vaccination Type</p>
+                                <p className="text-lg text-gray-700 font-medium">{vaccination.vaccinationType}</p>
                             </div>
                         </div>
 
-                        <div className="bg-gradient-to-r from-gray-600 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div className="flex items-center space-x-4">
-                                <FaInfoCircle className="text-2xl text-white" />
-                                <div>
-                                    <p className="text-sm text-gray-200">Description</p>
-                                    <p className="text-lg font-semibold">{vaccination.reason}</p>
-                                </div>
+                        <div className="border border-gray-200 rounded-lg p-4 flex items-start gap-4">
+                            <FaInfoCircle className="text-[#147190] text-xl mt-1" />
+                            <div>
+                                <p className="text-sm text-gray-500">Description</p>
+                                <p className="text-lg text-gray-700 font-medium">{vaccination.reason}</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="space-y-6">
-
-                        <div className="bg-gradient-to-r from-gray-600 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <div className="flex items-center space-x-4">
-                                <FaCalendarAlt className="text-2xl text-white" />
-                                <div>
-                                    <p className="text-sm text-gray-200">Date</p>
-                                    <p className="text-lg font-semibold">
-                                        {new Date(vaccination.startDate).toLocaleDateString()}
-                                    </p>
-                                </div>
+                    <div className="space-y-4">
+                        <div className="border border-gray-200 rounded-lg p-4 flex items-start gap-4">
+                            <FaCalendarAlt className="text-[#147190] text-xl mt-1" />
+                            <div>
+                                <p className="text-sm text-gray-500">Date</p>
+                                <p className="text-lg text-gray-700 font-medium">
+                                    {new Date(vaccination.startDate).toLocaleDateString()}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -98,4 +90,4 @@ const DetailsVaccination = () => {
     );
 }
 
-export default DetailsVaccination
+export default DetailsVaccination;

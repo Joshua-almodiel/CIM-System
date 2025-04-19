@@ -43,7 +43,11 @@ const TableVaccination = () => {
           familyNumber: vaccination.familyNumber.familyNumber,
           name: vaccination.familyNumber.userId.name,
           vaccinationType: vaccination.vaccinationType,
-          startDate: new Date(vaccination.startDate).getDate(),
+          startDate: new Date(vaccination.startDate).toLocaleDateString(),
+          startTime: new Date(`1970-01-01T${vaccination.startTime}`).toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
           action: <VaccinationButtons _id={vaccination._id} />,
         }));
         setVaccinations(data);
@@ -132,7 +136,7 @@ const TableVaccination = () => {
           <div className="max-w-7xl mx-auto">
             <div className="mb-10">
               <h3 className="text-4xl font-extrabold text-slate-800">
-                Manage Vaccination Records
+                Vaccination Records
               </h3>
             </div>
 

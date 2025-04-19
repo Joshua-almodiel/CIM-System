@@ -2,100 +2,166 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../Context/AuthContext.jsx";
+import { FaSyringe, FaInfoCircle } from "react-icons/fa";
 
 const List = () => {
-    const [vaccinations, setVaccinations] = useState([]);
-    const [loading, setLoading] = useState(true);
-    let sno = 1;
-    const { id } = useParams();
-    const { user } = useAuth();
+  const [vaccinations, setVaccinations] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedDescription, setSelectedDescription] = useState("");
+  const [showDescription, setShowDescription] = useState(false);
+  let sno = 1;
+  const { id } = useParams();
+  const { user } = useAuth();
 
-    const fetchVaccinations = async () => {
-        try {
-            setLoading(true);
-            console.log("Fetching Vaccinations for ID:", id);
-            const response = await axios.get(`http://localhost:5000/api/vaccination/${id}/${user.role}`, {
-                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-            });
-
-            console.log("API Response: ", response.data);
-
-            if (response.data.success) {
-                setVaccinations(response.data.vaccinations);
-            }
-        } catch (error) {
-            alert(error.response?.data?.error || "Failed to fetch Vaccinations");
-        } finally {
-            setLoading(false);
+  const fetchVaccinations = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        `http://localhost:5000/api/vaccination/${id}/${user.role}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
         }
-    };
+      );
 
-    useEffect(() => {
-        fetchVaccinations();
-    }, [id, user.role]);
+      if (response.data.success) {
+        setVaccinations(response.data.vaccinations);
+      }
+    } catch (error) {
+      alert(error.response?.data?.error || "Failed to fetch Vaccinations");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    return (
-        <div className="p-6 bg-gray-900 text-white w-full overflow-hidden">
-            <div className="mb-6">
-                <h3 className="text-2xl font-semibold">Manage Parents Vaccination</h3>
-            </div>
+  useEffect(() => {
+    fetchVaccinations();
+  }, [id, user.role]);
 
-            <div className="bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                {loading ? (
-                    <div className="p-8 text-center">
-                        <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
-                        <p className="mt-2">Loading Vaccines...</p>
-                    </div>
-                ) : vaccinations.length > 0 ? (
-                    <table className="w-full">
-                        <thead className="bg-gray-700">
-                            <tr>
-                                <th className="px-4 py-2 text-left">ID</th>
-                                <th className="px-4 py-2 text-left">Family Number</th>
-                                <th className="px-4 py-2 text-left">Vaccination Type</th>
-                                <th className="px-4 py-2 text-left">Date</th>
-                                <th className="px-4 py-2 text-left">Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {vaccinations.map((vaccination) => (
-                                <tr key={vaccination._id} className="border-b border-gray-700 hover:bg-gray-700 transition duration-200">
-                                    <td className="px-4 py-2">{sno++}</td>
-                                    <td className="px-4 py-2">{vaccination.familyNumber.familyNumber}</td>
-                                    <td className="px-4 py-2">{vaccination.vaccinationType}</td>
-                                    <td className="px-4 py-2">{new Date(vaccination.startDate).toLocaleDateString()}</td>
-                                    <td className="px-4 py-2">{vaccination.reason}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                ) : (
-                    <div className="p-8 text-center">
-                        <svg
-                            className="w-16 h-16 mx-auto text-gray-500"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={1}
-                                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                        </svg>
-                        <h3 className="mt-4 text-lg font-medium text-gray-300">No Vaccinations Found</h3>
-                        <p className="mt-1 text-gray-400">
-                            {user.role === "parent"
-                                ? "You haven't add for any vaccination yet."
-                                : "This parent hasn't add for any vaccination yet."}
-                        </p>
-                    </div>
-                )}
-            </div>
+  const handleViewDescription = (description) => {
+    setSelectedDescription(description);
+    setShowDescription(true);
+  };
+
+  return (
+    <div className="bg-gray-50 min-h-screen p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-center mb-6">
+          <h1 className="text-2xl font-bold text-gray-800">
+            Vaccination Records
+          </h1>
         </div>
-    );
+
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+          {loading ? (
+            <div className="p-8 text-center">
+              <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500 mb-4"></div>
+              <p className="text-gray-600">Loading vaccination records...</p>
+            </div>
+          ) : vaccinations.length > 0 ? (
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                      No.
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                      Family Number
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                      Vaccination Type
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                      Date
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {vaccinations.map((vaccination) => (
+                    <tr key={vaccination._id} className="hover:bg-gray-50">
+                      <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {sno++}
+                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {vaccination.familyNumber.familyNumber}
+                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {vaccination.vaccinationType}
+                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {new Date(vaccination.startDate).toLocaleDateString()}
+                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap text-sm text-blue-600">
+                        <button
+                          onClick={() =>
+                            handleViewDescription(vaccination.reason)
+                          }
+                          className="flex items-center hover:text-blue-800"
+                        >
+                          <FaInfoCircle className="mr-1" />
+                          View
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="p-8 text-center">
+              <div className="mx-auto w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                <FaSyringe className="text-xl text-gray-400" />
+              </div>
+              <h3 className="text-lg font-medium text-gray-700 mb-1">
+                No Vaccinations Found
+              </h3>
+              <p className="text-gray-500">
+                {user.role === "parent"
+                  ? "You haven't registered for any vaccinations yet."
+                  : "This parent hasn't registered for any vaccinations yet."}
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {showDescription && (
+        <div className="fixed inset-0 bg-transparent bg-opacity-30 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg shadow-xl max-w-md w-full">
+            <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+              <h3 className="text-lg font-medium text-gray-900">
+                Vaccination Details
+              </h3>
+              <button
+                onClick={() => setShowDescription(false)}
+                className="text-gray-400 hover:text-gray-500"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="p-6">
+              <p className="text-gray-700 whitespace-pre-line">
+                {selectedDescription || "No description available"}
+              </p>
+            </div>
+            <div className="px-6 py-3 border-t border-gray-200 flex justify-end">
+              <button
+                onClick={() => setShowDescription(false)}
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default List;

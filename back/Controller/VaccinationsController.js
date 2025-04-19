@@ -3,12 +3,13 @@ import Parents from "../Models/Parents.js";
 
 const addVaccination = async (req, res) => {
   try {
-    const { familyNumber, vaccinationType, startDate, reason } = req.body;
+    const { familyNumber, vaccinationType, startDate, startTime, reason } = req.body;
 
     const newVaccination = new Vaccinations({
       familyNumber,
       vaccinationType,
       startDate,
+      startTime,
       reason,
     });
 

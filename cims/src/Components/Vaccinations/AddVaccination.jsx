@@ -47,6 +47,7 @@ const AddVaccination = () => {
       !vaccination.familyNumber ||
       !vaccination.vaccinationType ||
       !vaccination.startDate ||
+      !vaccination.startTime ||
       !vaccination.reason
     ) {
       alert("Please fill in all required fields.");
@@ -152,6 +153,22 @@ const AddVaccination = () => {
               />
             </div>
           </div>
+
+          <div>
+              <label
+                htmlFor="startTime"
+                className="block text-sm font-medium mb-2"
+              >
+                Time
+              </label>
+              <input
+                type="time"
+                name="startTime"
+                onChange={handleChange}
+                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 text-white"
+                required
+              />
+            </div>
 
           <div>
             <label

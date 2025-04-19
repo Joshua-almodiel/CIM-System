@@ -15,12 +15,17 @@ export const columns = [
     {
       name: "Date",
       selector: (row) => row.startDate,
-      width: "250px", 
+      width: "220px", 
+    },
+    {
+      name: "Time",
+      selector: (row) => row.startTime,
+      width: "220px", 
     },
     {
       name: "Action",
       selector: (row) => row.action,
-      width: "250px",
+      width: "220px",
       center: true,
     },
   ];

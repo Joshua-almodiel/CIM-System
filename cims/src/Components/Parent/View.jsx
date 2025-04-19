@@ -8,6 +8,15 @@ import {
   FaVenusMars,
   FaHardHat,
   FaHeart,
+  FaCalendarAlt,
+  FaPhone,
+  FaHome,
+  FaNotesMedical,
+  FaSmoking,
+  FaWineBottle,
+  FaBaby,
+  FaWeight,
+  FaThermometerHalf
 } from "react-icons/fa";
 
 const View = () => {
@@ -35,65 +44,72 @@ const View = () => {
       }
     };
     fetchParents();
-  });
-
+  }, [id]); 
   if (!parent) {
     return (
-      <div className="bg-white min-h-screen p-8 text-center">
-        <svg
-          className="w-16 h-16 mx-auto text-gray-500"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1}
-            d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-        <h3 className="mt-4 text-lg font-medium text-gray-300">
+      <div className="bg-white min-h-screen p-8 flex flex-col items-center justify-center">
+        <div className="animate-pulse flex flex-col items-center">
+          <div className="w-16 h-16 bg-blue-100 rounded-full mb-4"></div>
+          <div className="h-4 bg-blue-100 rounded w-48"></div>
+        </div>
+        <h3 className="mt-6 text-lg font-medium text-gray-500">
           Loading Record Details...
         </h3>
       </div>
     );
   }
 
-  return (
-    <div className="min-h-screen bg-white text-gray-900 p-10">
-      <h2 className="text-3xl text-[#147190] font-bold mb-10 text-center">
-        Record Form Details
-      </h2>
+  const getIcon = (label) => {
+    const iconMap = {
+      "Created": <FaCalendarAlt className="text-xl text-[#147190]" />,
+      "NASIPIT RURAL HEALTH UNIT": <FaIdCard className="text-xl text-[#147190]" />,
+      "Nickname": <FaUser className="text-xl text-[#147190]" />,
+      "Birthday": <FaBirthdayCake className="text-xl text-[#147190]" />,
+      "Gender": <FaVenusMars className="text-xl text-[#147190]" />,
+      "Contact Number": <FaPhone className="text-xl text-[#147190]" />,
+      "Address": <FaHome className="text-xl text-[#147190]" />,
+      "Occupation": <FaHardHat className="text-xl text-[#147190]" />,
+      "Medical History": <FaNotesMedical className="text-xl text-[#147190]" />,
+      "Smoking": <FaSmoking className="text-xl text-[#147190]" />,
+      "Alcohol": <FaWineBottle className="text-xl text-[#147190]" />,
+      "Obstetrics": <FaBaby className="text-xl text-[#147190]" />,
+      "WT": <FaWeight className="text-xl text-[#147190]" />,
+      "Temp": <FaThermometerHalf className="text-xl text-[#147190]" />,
+    };
+    
+    return iconMap[label] || <FaHeart className="text-xl text-[#147190]" />;
+  };
 
-      <div className="bg-white p-6 rounded-lg shadow-sm border">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  return (
+    <div className="min-h-screen bg-gray-50 p-8 md:p-14">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-left mb-12">
+          <h2 className="text-4xl font-extrabold text-slate-800">
+            Record Form Details
+          </h2>
+        </div>
+
+        <Section title="Personal Information">
           {[
             {
               label: "Created",
               value: new Date(parent.date).toLocaleDateString(),
-              icon: <FaUser className="text-xl text-gray-500" />,
             },
             {
-              label: "NASIPIT RURAL HEALTH UNIT and Family PLANNING",
+              label: "NASIPIT RURAL HEALTH UNIT",
               value: parent.kpp,
-              icon: <FaIdCard className="text-xl text-gray-500" />,
             },
             {
               label: "How many dependents?",
               value: parent.dependents,
-              icon: <FaBirthdayCake className="text-xl text-gray-500" />,
             },
             {
               label: "Nickname",
               value: parent.userId.name,
-              icon: <FaVenusMars className="text-xl text-gray-500" />,
             },
             {
               label: "Family Number",
               value: parent.familyNumber,
-              icon: <FaHardHat className="text-xl text-gray-500" />,
             },
             { label: "Last Name", value: parent.lastName },
             { label: "First Name", value: parent.firstName },
@@ -113,43 +129,18 @@ const View = () => {
             { label: "Educational Attainment", value: parent.educAttainment },
             { label: "Employment Status", value: parent.empStatus },
           ].map((item, index) => (
-            <div
-              key={index}
-              className="flex items-start gap-3 p-4 border rounded-lg shadow-sm bg-white"
-            >
-              <div className="pt-1 text-gray-500">
-                {item.icon || <FaHeart className="text-xl" />}
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">{item.label}</p>
-                <p className="text-base font-medium text-gray-800">
-                  {item.value || "N/A"}
-                </p>
-              </div>
-            </div>
+            <InfoCard key={index} label={item.label} value={item.value} icon={getIcon(item.label)} />
           ))}
-        </div>
-      </div>
+        </Section>
 
-      <h2 className="text-3xl text-[#147190] font-bold mb-10 pt-8 text-center">
-        Past Medical History
-      </h2>
-      <div className="bg-white p-6 rounded-lg shadow-sm border">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Section title="Past Medical History">
           {[
-            {
-              label: "Allergy",
-              value: parent.pallergy,
-              icon: <FaVenusMars className="text-xl text-gray-500" />,
-            },
+            { label: "Allergy", value: parent.pallergy },
             { label: "Asthma", value: parent.pasthma },
             { label: "Specify Allergy", value: parent.pspecifyAllergy },
             { label: "Cancer", value: parent.pcancer },
             { label: "Specify Organ with Cancer", value: parent.porganCancer },
-            {
-              label: "Cereobrovascular Disease",
-              value: parent.pcerebrovascular,
-            },
+            { label: "Cereobrovascular Disease", value: parent.pcerebrovascular },
             { label: "Coronary Artery Disease", value: parent.pcoronaryArtery },
             { label: "Diabetes Mellitus", value: parent.pdiabetes },
             { label: "Emphysema", value: parent.pemphysema },
@@ -161,61 +152,27 @@ const View = () => {
             { label: "Pneumonia", value: parent.ppneumonia },
             { label: "Thyroid Disease", value: parent.pthyroid },
             { label: "Pulmonary Tuberculosis", value: parent.ppulmonaryTb },
-            {
-              label: "Specify Pulmonary Tuberculosis Category",
-              value: parent.ppulmonaryTbCategory,
-            },
-            {
-              label: "Extrapulmonary Tuberculosis",
-              value: parent.pextrapulmonaryTb,
-            },
-            {
-              label: "Specify Extrapulmonary Tuberculosis Category",
-              value: parent.pextrapulmonaryTbCategory,
-            },
+            { label: "Specify Pulmonary Tuberculosis Category", value: parent.ppulmonaryTbCategory },
+            { label: "Extrapulmonary Tuberculosis", value: parent.pextrapulmonaryTb },
+            { label: "Specify Extrapulmonary Tuberculosis Category", value: parent.pextrapulmonaryTbCategory },
             { label: "Urinary Tract Infection", value: parent.puti },
             { label: "Mental Illness", value: parent.pmentalIllness },
             { label: "Others", value: parent.pothers },
             { label: "None", value: parent.pnone },
             { label: "Highest Blood Pressure", value: parent.phighestBp },
           ].map((item, index) => (
-            <div
-              key={index}
-              className="flex items-start gap-3 p-4 border rounded-lg shadow-sm bg-white"
-            >
-              <div className="pt-1 text-gray-500">
-                {item.icon || <FaHeart className="text-xl" />}
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">{item.label}</p>
-                <p className="text-base font-medium text-gray-800">
-                  {item.value || "N/A"}
-                </p>
-              </div>
-            </div>
+            <InfoCard key={index} label={item.label} value={item.value} icon={getIcon("Medical History")} />
           ))}
-        </div>
-      </div>
+        </Section>
 
-      <h2 className="text-3xl text-[#147190] font-bold mb-10 pt-8 text-center">
-        Family History
-      </h2>
-      <div className="bg-white p-6 rounded-lg shadow-sm border">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Section title="Family History">
           {[
-            {
-              label: "Allergy",
-              value: parent.fallergy,
-              icon: <FaVenusMars className="text-xl text-gray-500" />,
-            },
+            { label: "Allergy", value: parent.fallergy },
             { label: "Asthma", value: parent.fasthma },
             { label: "Specify Allergy", value: parent.fspecifyAllergy },
             { label: "Cancer", value: parent.fcancer },
             { label: "Specify Organ with Cancer", value: parent.forganCancer },
-            {
-              label: "Cereobrovascular Disease",
-              value: parent.fcerebrovascular,
-            },
+            { label: "Cereobrovascular Disease", value: parent.fcerebrovascular },
             { label: "Coronary Artery Disease", value: parent.fcoronaryArtery },
             { label: "Diabetes Mellitus", value: parent.fdiabetes },
             { label: "Emphysema", value: parent.femphysema },
@@ -227,94 +184,45 @@ const View = () => {
             { label: "Pneumonia", value: parent.fpneumonia },
             { label: "Thyroid Disease", value: parent.fthyroid },
             { label: "Pulmonary Tuberculosis", value: parent.fpulmonaryTb },
-            {
-              label: "Specify Pulmonary Tuberculosis Category",
-              value: parent.fpulmonaryTbCategory,
-            },
-            {
-              label: "Extrapulmonary Tuberculosis",
-              value: parent.fextrapulmonaryTb,
-            },
-            {
-              label: "Specify Extrapulmonary Tuberculosis Category",
-              value: parent.fextrapulmonaryTbCategory,
-            },
+            { label: "Specify Pulmonary Tuberculosis Category", value: parent.fpulmonaryTbCategory },
+            { label: "Extrapulmonary Tuberculosis", value: parent.fextrapulmonaryTb },
+            { label: "Specify Extrapulmonary Tuberculosis Category", value: parent.fextrapulmonaryTbCategory },
             { label: "Urinary Tract Infection", value: parent.futi },
             { label: "Mental Illness", value: parent.fmentalIllness },
             { label: "Others", value: parent.fothers },
             { label: "None", value: parent.fnone },
             { label: "Highest Blood Pressure", value: parent.fhighestBp },
           ].map((item, index) => (
-            <div
-              key={index}
-              className="flex items-start gap-3 p-4 border rounded-lg shadow-sm bg-white"
-            >
-              <div className="pt-1 text-gray-500">
-                {item.icon || <FaHeart className="text-xl" />}
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">{item.label}</p>
-                <p className="text-base font-medium text-gray-800">
-                  {item.value || "N/A"}
-                </p>
-              </div>
-            </div>
+            <InfoCard key={index} label={item.label} value={item.value} icon={getIcon("Medical History")} />
           ))}
-        </div>
-      </div>
+        </Section>
 
-      <h2 className="text-3xl text-[#147190] font-bold mb-10 pt-8 text-center">
-        Personal / Social History
-      </h2>
-      <div className="bg-white p-6 rounded-lg shadow-sm border">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Section title="Personal / Social History">
           {[
             { label: "Smoking", value: parent.smoking },
             { label: "No. of Packs per year", value: parent.packsPerYear },
             { label: "Alcohol", value: parent.alcohol },
             { label: "Illicit Drugs", value: parent.illicitDrugs },
-            {
-              label: "Illicit Drugs Details",
-              value: parent.illicitDrugsDetails,
-            },
+            { label: "Illicit Drugs Details", value: parent.illicitDrugsDetails },
             { label: "Sexual History Screening", value: parent.sexualHistory },
-            {
-              label: "Sexual History Details",
-              value: parent.sexualHistoryDetails,
-            },
+            { label: "Sexual History Details", value: parent.sexualHistoryDetails },
           ].map((item, index) => (
-            <div
-              key={index}
-              className="flex items-start gap-3 p-4 border rounded-lg shadow-sm bg-white"
-            >
-              <div className="pt-1 text-gray-500">
-                {item.icon || <FaHeart className="text-xl" />}
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">{item.label}</p>
-                <p className="text-base font-medium text-gray-800">
-                  {item.value || "N/A"}
-                </p>
-              </div>
-            </div>
+            <InfoCard 
+              key={index} 
+              label={item.label} 
+              value={item.value} 
+              icon={getIcon(item.label.includes("Smok") ? "Smoking" : item.label.includes("Alcohol") ? "Alcohol" : "Medical History")} 
+            />
           ))}
-        </div>
-      </div>
+        </Section>
 
-      <h2 className="text-3xl text-[#147190] font-bold mb-10 pt-8 text-center">
-        Obstetrics / Menstrual History
-      </h2>
-      <div className="bg-white p-6 rounded-lg shadow-sm border">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Section title="Obstetrics / Menstrual History">
           {[
             { label: "Menarche", value: parent.menarche },
             { label: "Menopause", value: parent.menopause },
             { label: "Age of Menopause", value: parent.ageOfMenopause },
             { label: "LMP", value: parent.lmp },
-            {
-              label: "Interval of Menstruation",
-              value: parent.intervalOfMenstruation,
-            },
+            { label: "Interval of Menstruation", value: parent.intervalOfMenstruation },
             { label: "Duration", value: parent.duration },
             { label: "Pads per day", value: parent.padsPerDay },
             { label: "Pregnancy History", value: parent.pregnancyHistory },
@@ -325,32 +233,13 @@ const View = () => {
             { label: "Abortion", value: parent.abortion },
             { label: "Living", value: parent.living },
           ].map((item, index) => (
-            <div
-              key={index}
-              className="flex items-start gap-3 p-4 border rounded-lg shadow-sm bg-white"
-            >
-              <div className="pt-1 text-gray-500">
-                {item.icon || <FaHeart className="text-xl" />}
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">{item.label}</p>
-                <p className="text-base font-medium text-gray-800">
-                  {item.value || "N/A"}
-                </p>
-              </div>
-            </div>
+            <InfoCard key={index} label={item.label} value={item.value} icon={getIcon("Obstetrics")} />
           ))}
-        </div>
-      </div>
+        </Section>
 
-      <h2 className="text-3xl text-[#147190] font-bold mb-10 pt-8 text-center">Vital Signs</h2>
-      <div className="bg-white p-6 rounded-lg shadow-sm border">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Section title="Vital Signs">
           {[
-            {
-              label: "Created Complaints",
-              value: new Date(parent.dateComplaints).toLocaleDateString(),
-            },
+            { label: "Created Complaints", value: new Date(parent.dateComplaints).toLocaleDateString() },
             { label: "Chief Complaints", value: parent.chiefComplaints },
             { label: "BP", value: parent.bp },
             { label: "HR", value: parent.hr },
@@ -361,25 +250,40 @@ const View = () => {
             { label: "HT", value: parent.ht },
             { label: "BMI", value: parent.bmi },
           ].map((item, index) => (
-            <div
-              key={index}
-              className="flex items-start gap-3 p-4 border rounded-lg shadow-sm bg-white"
-            >
-              <div className="pt-1 text-gray-500">
-                {item.icon || <FaHeart className="text-xl" />}
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">{item.label}</p>
-                <p className="text-base font-medium text-gray-800">
-                  {item.value || "N/A"}
-                </p>
-              </div>
-            </div>
+            <InfoCard key={index} label={item.label} value={item.value} icon={getIcon(item.label)} />
           ))}
-        </div>
+        </Section>
       </div>
     </div>
   );
 };
+
+const Section = ({ title, children }) => (
+  <div className="mb-12">
+    <div className="text-center mb-8">
+      <h3 className="text-2xl md:text-3xl font-bold text-[#147190] mb-2">{title}</h3>
+      <div className="w-20 h-1 bg-[#147190] mx-auto"></div>
+    </div>
+    <div className="bg-white rounded-xl shadow-md overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+        {children}
+      </div>
+    </div>
+  </div>
+);
+
+const InfoCard = ({ label, value, icon }) => (
+  <div className="flex items-start gap-4 p-4 hover:bg-blue-50 transition-colors rounded-lg">
+    <div className="flex-shrink-0 mt-1">
+      {icon}
+    </div>
+    <div className="flex-1 min-w-0">
+      <p className="text-sm font-medium text-gray-500 truncate">{label}</p>
+      <p className="text-base font-semibold text-gray-800 break-words">
+        {value || "N/A"}
+      </p>
+    </div>
+  </div>
+);
 
 export default View;
