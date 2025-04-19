@@ -49,50 +49,6 @@ const getVital = async (req, res) => {
     } 
 }
 
-const updateVital = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const {
-        dateComplaints,
-        chiefComplaints,
-        bp,
-        hr,
-        o2sat,
-        temp,
-        rr,
-        wt,
-        ht,
-        bmi,
-    } = req.body;
 
-    const updateVital = await Parents.findByIdAndUpdate(
-      { _id: id },
-      {
-        dateComplaints,
-        chiefComplaints,
-        bp,
-        hr,
-        o2sat,
-        temp,
-        rr,
-        wt,
-        ht,
-        bmi,
-      }
-    );
 
-    if (!updateVital) {
-      return res.status(404).json({ success: false, error: "info not found" });
-    }
-
-    return res
-      .status(200)
-      .json({ success: true, message: "parent updated successfully" });
-  } catch (error) {
-    return res
-      .status(500)
-      .json({ success: false, error: "update parents server error" });
-  }
-};
-
-export { addVital, getVital, updateVital }
+export { addVital, getVital, }

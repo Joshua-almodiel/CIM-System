@@ -13,5 +13,4 @@ router.put('/:id', Middleware, updateParent)
 router.delete('/:id', Middleware, deleteParent);
 
 
-
 export default router

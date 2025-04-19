@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext.jsx";
 import { FaSyringe, FaInfoCircle } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
@@ -11,7 +11,6 @@ const View = () => {
   const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
   const { user } = useAuth();
-  const navigate = useNavigate();
 
   const fetchVitals = async () => {
     try {
@@ -32,7 +31,7 @@ const View = () => {
 
   useEffect(() => {
     fetchVitals();
-  }, []);
+  }, [id]);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -103,7 +102,6 @@ const View = () => {
                       <td className="px-4 py-4 whitespace-nowrap">{vital.bmi}</td>
                       <td className="px-4 py-4 whitespace-nowrap">
                         <button
-                          onClick={() => navigate(`/healthWorker-dashboard/parents/vital/edit/${vital._id}`)}
                           className="px-3 py-1 bg-[#147190] text-white rounded-lg hover:bg-[#148190] transition duration-200"
                         >
                           Edit

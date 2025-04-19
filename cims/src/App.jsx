@@ -12,7 +12,6 @@ import View from './Components/Parent/View.jsx'
 import Edit from './Components/Parent/Edit.jsx'
 import AddVital from './Components/Vital/Add.jsx'
 import ViewVital from './Components/Vital/View.jsx'
-import EditVital from "./Components/Vital/Edit.jsx"
 import Summary from './Components/ParentDashboard/Summary.jsx'
 import VaccinationList from './Components/Vaccinations/List.jsx'
 import AddVaccination from './Components/Vaccinations/AddVaccination.jsx'
@@ -41,7 +40,6 @@ function App() {
           <Route path="/healthWorker-dashboard/parents/:id" element={<View />}></Route>
           <Route path="/healthWorker-dashboard/parents/edit/:id" element={<Edit />}></Route>
           <Route path="/healthWorker-dashboard/parents/vital/:id" element={<ViewVital />}></Route>
-          <Route path="/healthWorker-dashboard/parents/vital/edit/:id" element={<EditVital />} />
           <Route path="/healthWorker-dashboard/parents/vaccinations/:id" element={<VaccinationList />}></Route>
 
           <Route path="/healthWorker-dashboard/vital/add" element={<AddVital />}></Route>
