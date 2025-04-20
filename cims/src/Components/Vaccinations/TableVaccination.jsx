@@ -11,18 +11,6 @@ const TableVaccination = () => {
   const [vaccinations, setVaccinations] = useState([]);
   const [searchParents, setSearchParents] = useState([]);
 
-  const noRecords = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100%",
-    color: "white",
-    backgroundColor: "#1F2937",
-    fontSize: "1.5rem",
-    fontWeight: "500",
-    padding: "2rem",
-    borderRadius: "0.5rem",
-  };
 
   const fetchVaccinations = async () => {
     try {
@@ -48,6 +36,7 @@ const TableVaccination = () => {
             hour: "2-digit",
             minute: "2-digit",
           }),
+          status: vaccination.status,
           action: <VaccinationButtons _id={vaccination._id} />,
         }));
         setVaccinations(data);
@@ -199,7 +188,14 @@ const TableVaccination = () => {
                   fixedHeader
                 />
               ) : (
-                <div style={noRecords}>No Records Found</div>
+                <div className="text-center py-16">
+                <h2 className="text-lg font-semibold text-slate-700">
+                  No records found
+                </h2>
+                <p className="text-slate-500 mt-2">
+                  Click on the Add Vaccination to add a record.
+                </p>
+              </div>
               )}
             </div>
           </div>

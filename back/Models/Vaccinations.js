@@ -7,6 +7,7 @@ const vaccinationSchema = new Schema({
     startDate: {type: Date, required: true},
     startTime: { type: String, required: true },
     reason: {type: String, required: true},
+    status: {type: String, enum: ["Processing", "Scheduled"], default: "Processing"},
     appliedAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now}
 })

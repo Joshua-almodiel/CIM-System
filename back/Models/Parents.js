@@ -9,7 +9,7 @@ const parentsSchema = new Schema({
     firstName: { type: String },
     middleName: { type: String },
     contact: { type: Number },
-    phNumber: { type: String },
+    phNumber: { type: Number },
     clientType: { type: String },
     ifMember: { type: String },
     birthday: { type: Date },

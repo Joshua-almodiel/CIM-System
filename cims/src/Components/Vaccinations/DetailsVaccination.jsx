@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import {
   FaUser,
@@ -7,12 +7,16 @@ import {
   FaCalendarAlt,
   FaInfoCircle,
   FaRegClock,
+  FaCheckCircle,
+  FaClock,
+  FaTimesCircle,
 } from "react-icons/fa";
 
 const DetailsVaccination = () => {
   const { id } = useParams();
   const [vaccination, setVaccination] = useState(null);
   const [showDescription, setShowDescription] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchVaccinations = async () => {
@@ -37,9 +41,71 @@ const DetailsVaccination = () => {
     fetchVaccinations();
   }, [id]);
 
+  const changeStatus = async (id, status) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:5000/api/vaccination/${id}`,
+        { status },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      if (response.data.success) {
+        navigate("/healthWorker-dashboard/vaccinations");
+      }
+    } catch (error) {
+      if (error.response && !error.response.data.success) {
+        alert(error.response.data.error);
+      }
+    }
+  };
+
+  const statusStyles = {
+    Processing: {
+      label: "Mark as Scheduled",
+      next: "Scheduled",
+      color: "bg-[#147190] hover:bg-[#148190]",
+      icon: <FaClock className="text-white text-2xl" />,
+    },
+    Scheduled: {
+      label: "Scheduled",
+      color: "bg-[#147190]",
+      icon: <FaCheckCircle className="text-white text-2xl" />,
+    },
+  };
+
   if (!vaccination) {
-    return <div className="p-6 bg-white text-gray-700">Loading...</div>;
+    return (
+      <div className="bg-white min-h-screen p-8 text-center">
+        <svg
+          className="w-16 h-16 mx-auto text-gray-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1}
+            d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <h3 className="mt-4 text-lg font-medium text-gray-300">Loading...</h3>
+      </div>
+    );
   }
+
+  // Now that vaccination is guaranteed to be not null
+  const currentStatus = vaccination.status;
+  const isActionable = currentStatus === "Processing";
+  const statusConfig = statusStyles[currentStatus] || {
+    label: currentStatus,
+    color: "bg-gray-400",
+    icon: <FaClock className="text-white text-2xl" />,
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 p-10">
@@ -102,14 +168,37 @@ const DetailsVaccination = () => {
               <div>
                 <p className="text-sm text-gray-500">Time</p>
                 <p className="text-lg text-gray-700 font-medium">
-                  {new Date(
-                    `1970-01-01T${vaccination.startTime}`
-                  ).toLocaleTimeString([], {
+                  {new Date(`1970-01-01T${vaccination.startTime}`).toLocaleTimeString([], {
                     hour: "2-digit",
                     minute: "2-digit",
                   })}
                 </p>
               </div>
+            </div>
+          </div>
+
+          <div
+            className={`p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ${statusConfig.color}`}
+          >
+            <div className="flex items-center space-x-4">
+              {statusConfig.icon}
+              <div className="flex flex-col text-white">
+                <p className="text-sm">Status</p>
+                <p className="text-lg font-semibold">{currentStatus}</p>
+              </div>
+              {isActionable && (
+                <button
+                  onClick={() =>
+                    changeStatus(
+                      vaccination._id,
+                      statusStyles[currentStatus].next
+                    )
+                  }
+                  className="ml-auto px-4 py-2 bg-white text-[#147190] font-semibold rounded-lg hover:bg-gray-100 transition duration-200"
+                >
+                  {statusStyles[currentStatus].label}
+                </button>
+              )}
             </div>
           </div>
         </div>

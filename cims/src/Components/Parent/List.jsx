@@ -210,26 +210,8 @@ const List = () => {
                   No records found
                 </h2>
                 <p className="text-slate-500 mt-2">
-                  Try refining your search or add a new family record.
+                  Click on the Registration Form to register.
                 </p>
-                <Link
-                  to="/healthWorker-dashboard/add-parent"
-                  className="mt-4 inline-flex items-center gap-2 bg-[#147190] hover:bg-[#148190] text-white font-medium px-4 py-2 rounded-md shadow transition"
-                >
-                  <svg
-                    className="h-5 w-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Register Record
-                </Link>
               </div>
             )
           ) : (

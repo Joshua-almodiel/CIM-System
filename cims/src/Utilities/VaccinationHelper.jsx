@@ -5,27 +5,32 @@ export const columns = [
     {
       name: "Family Number",
       selector: (row) => row.familyNumber,
-      width: "250px",
+      width: "200px",
     },
     {
       name: "Vaccination Type",
       selector: (row) => row.vaccinationType,
-      width: "320px",
+      width: "300px",
     },
     {
       name: "Date",
       selector: (row) => row.startDate,
-      width: "220px", 
+      width: "180px", 
     },
     {
       name: "Time",
       selector: (row) => row.startTime,
-      width: "220px", 
+      width: "180px", 
+    },
+    {
+      name: "Status",
+      selector: (row) => row.status,
+      width: "180px", 
     },
     {
       name: "Action",
       selector: (row) => row.action,
-      width: "220px",
+      width: "180px",
       center: true,
     },
   ];

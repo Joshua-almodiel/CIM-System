@@ -49,6 +49,22 @@ const getVital = async (req, res) => {
     } 
 }
 
+const getVitals = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const vital = await Vitals.findById(id);
+  
+      if (!vital) {
+        return res.status(404).json({ success: false, message: "Vital not found" });
+      }
+  
+      res.json({ success: true, vital });
+    } catch (error) {
+      console.error("Error fetching vital:", error);
+      res.status(500).json({ success: false, message: "Server error" });
+    }
+  };
 
 
-export { addVital, getVital, }
+
+export { addVital, getVital, getVitals }

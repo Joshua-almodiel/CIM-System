@@ -306,7 +306,7 @@ const Add = () => {
                     PhilHealth Number <span className="text-red-500">*</span>
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     name="phNumber"
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190]"

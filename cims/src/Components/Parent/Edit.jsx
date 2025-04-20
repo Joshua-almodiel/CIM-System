@@ -345,7 +345,7 @@ const Edit = () => {
                       PhilHealth Number <span className="text-red-500">*</span>
                     </label>
                     <input
-                      type="text"
+                      type="number"
                       name="phNumber"
                       value={parent.phNumber}
                       placeholder="XX-XXXXXXXXX-X"

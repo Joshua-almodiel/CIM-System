@@ -82,6 +82,9 @@ const List = () => {
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                       Description
                     </th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                      Status
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
@@ -117,6 +120,9 @@ const List = () => {
                           <FaInfoCircle className="mr-1" />
                           View
                         </button>
+                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {vaccination.status}
                       </td>
                     </tr>
                   ))}

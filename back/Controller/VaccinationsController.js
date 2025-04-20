@@ -89,7 +89,7 @@ const getVaccinationDetail = async (req, res) => {
 const updateVaccination = async (req, res) => {
   try {
     const { id } = req.params;
-    const vaccination = await Vaccinations.findByIdAndUpdate({ _id: id });
+    const vaccination = await Vaccinations.findByIdAndUpdate({ _id: id }, { status: req.body.status });
     if (!vaccination) {
       return res
         .status(400)
