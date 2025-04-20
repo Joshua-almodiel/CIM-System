@@ -74,6 +74,11 @@ const DetailsVaccination = () => {
       color: "bg-[#147190]",
       icon: <FaCheckCircle className="text-white text-2xl" />,
     },
+    Cancel: {
+      label: "Cancelled",
+      color: "bg-red-400",
+      icon: <FaTimesCircle className="text-white text-2xl" />,
+    },
   };
 
   if (!vaccination) {
@@ -98,9 +103,7 @@ const DetailsVaccination = () => {
     );
   }
 
-  // Now that vaccination is guaranteed to be not null
   const currentStatus = vaccination.status;
-  const isActionable = currentStatus === "Processing";
   const statusConfig = statusStyles[currentStatus] || {
     label: currentStatus,
     color: "bg-gray-400",
@@ -168,7 +171,9 @@ const DetailsVaccination = () => {
               <div>
                 <p className="text-sm text-gray-500">Time</p>
                 <p className="text-lg text-gray-700 font-medium">
-                  {new Date(`1970-01-01T${vaccination.startTime}`).toLocaleTimeString([], {
+                  {new Date(
+                    `1970-01-01T${vaccination.startTime}`
+                  ).toLocaleTimeString([], {
                     hour: "2-digit",
                     minute: "2-digit",
                   })}
@@ -186,18 +191,26 @@ const DetailsVaccination = () => {
                 <p className="text-sm">Status</p>
                 <p className="text-lg font-semibold">{currentStatus}</p>
               </div>
-              {isActionable && (
-                <button
-                  onClick={() =>
-                    changeStatus(
-                      vaccination._id,
-                      statusStyles[currentStatus].next
-                    )
-                  }
-                  className="ml-auto px-4 py-2 bg-white text-[#147190] font-semibold rounded-lg hover:bg-gray-100 transition duration-200"
-                >
-                  {statusStyles[currentStatus].label}
-                </button>
+              {currentStatus === "Processing" && (
+                <div className="ml-auto flex space-x-2">
+                  <button
+                    onClick={() =>
+                      changeStatus(
+                        vaccination._id,
+                        statusStyles[currentStatus].next
+                      )
+                    }
+                    className="px-4 py-2 bg-white text-[#147190] font-semibold rounded-lg hover:bg-gray-100 transition duration-200"
+                  >
+                    {statusStyles[currentStatus].label}
+                  </button>
+                  <button
+                    onClick={() => changeStatus(vaccination._id, "Cancel")}
+                    className="px-4 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition duration-200"
+                  >
+                    Cancel
+                  </button>
+                </div>
               )}
             </div>
           </div>
