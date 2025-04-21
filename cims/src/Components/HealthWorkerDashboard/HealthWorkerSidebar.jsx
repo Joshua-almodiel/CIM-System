@@ -87,7 +87,7 @@ const HealthWorkerSidebar = () => {
         </NavLink>
 
         <NavLink
-          to="/healthWorker-dashboard/reports"
+          to="/healthWorker-dashboard/reports-analytics"
           className={({ isActive }) =>
             `flex items-center p-3 rounded-lg transition-colors duration-200 ${
               isActive
@@ -101,7 +101,7 @@ const HealthWorkerSidebar = () => {
         </NavLink>
 
         <NavLink
-          to="/healthWorker-dashboard/users"
+          to="/healthWorker-dashboard/usermanagement"
           className={({ isActive }) =>
             `flex items-center p-3 rounded-lg transition-colors duration-200 ${
               isActive

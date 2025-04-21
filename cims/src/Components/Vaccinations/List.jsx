@@ -26,7 +26,22 @@ const List = () => {
       );
 
       if (response.data.success) {
-        setVaccinations(response.data.vaccinations);
+        let sno = 1;
+        const data = response.data.vaccinations.map((vaccination) => ({
+          _id: vaccination._id,
+          sno: sno++,
+          familyNumber: vaccination.familyNumber?.familyNumber || "N/A",
+          lastName: vaccination.familyNumber?.lastName || "N/A", // Map lastName here
+          vaccinationType: vaccination.vaccinationType,
+          startDate: new Date(vaccination.startDate).toLocaleDateString(),
+          startTime: new Date(`1970-01-01T${vaccination.startTime}`).toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+          reason: vaccination.reason,
+          status: vaccination.status,
+        }));
+        setVaccinations(data);
       }
     } catch (error) {
       alert(error.response?.data?.error || "Failed to fetch Vaccinations");
@@ -56,9 +71,24 @@ const List = () => {
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
           {loading ? (
             <div className="p-8 text-center">
-              <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500 mb-4"></div>
-              <p className="text-gray-600">Loading vaccination records...</p>
-            </div>
+            <svg
+              className="w-16 h-16 mx-auto text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1}
+                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <h3 className="mt-4 text-lg font-medium text-gray-300">
+              Loading Vaccination Records...
+            </h3>
+          </div>
           ) : vaccinations.length > 0 ? (
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
@@ -69,6 +99,9 @@ const List = () => {
                     </th>
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                       Family Number
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                      Last Name
                     </th>
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                       Vaccination Type
@@ -94,7 +127,10 @@ const List = () => {
                         {sno++}
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
-                        {vaccination.familyNumber.familyNumber}
+                        {vaccination.familyNumber}
+                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {vaccination.lastName}
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {vaccination.vaccinationType}

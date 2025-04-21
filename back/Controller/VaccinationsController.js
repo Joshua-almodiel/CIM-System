@@ -3,7 +3,8 @@ import Parents from "../Models/Parents.js";
 
 const addVaccination = async (req, res) => {
   try {
-    const { familyNumber, vaccinationType, startDate, startTime, reason } = req.body;
+    const { familyNumber, vaccinationType, startDate, startTime, reason } =
+      req.body;
 
     const newVaccination = new Vaccinations({
       familyNumber,
@@ -24,24 +25,29 @@ const addVaccination = async (req, res) => {
 };
 
 const getVaccination = async (req, res) => {
-    try {
-      const { id, role } = req.params;
-      let vaccinations;
-  
-      if (role === "healthWorker") {
-        vaccinations = await Vaccinations.find({ familyNumber: id }).populate("familyNumber", "familyNumber");
-      } else {
-        const parent = await Parents.findOne({ userId: id });
-        vaccinations = await Vaccinations.find({ familyNumber: parent._id }).populate("familyNumber", "familyNumber");
-      }
-  
-      return res.status(200).json({ success: true, vaccinations });
-    } catch (error) {
-      return res
-        .status(400)
-        .json({ success: false, error: "Vaccine fetch server error" });
+  try {
+    const { id, role } = req.params;
+    let vaccinations;
+
+    if (role === "healthWorker") {
+      vaccinations = await Vaccinations.find({ familyNumber: id }).populate(
+        "familyNumber",
+        "familyNumber lastName" 
+      );
+    } else {
+      const parent = await Parents.findOne({ userId: id });
+      vaccinations = await Vaccinations.find({
+        familyNumber: parent._id,
+      }).populate("familyNumber", "familyNumber lastName");
     }
-  };
+
+    return res.status(200).json({ success: true, vaccinations });
+  } catch (error) {
+    return res
+      .status(400)
+      .json({ success: false, error: "Vaccine fetch server error" });
+  }
+};
 
 const getVaccinations = async (req, res) => {
   try {
@@ -51,6 +57,10 @@ const getVaccinations = async (req, res) => {
         {
           path: "userId",
           select: "name",
+        },
+        {
+          path: "parentId",
+          select: "lastName",
         },
       ],
     });
@@ -89,7 +99,10 @@ const getVaccinationDetail = async (req, res) => {
 const updateVaccination = async (req, res) => {
   try {
     const { id } = req.params;
-    const vaccination = await Vaccinations.findByIdAndUpdate({ _id: id }, { status: req.body.status });
+    const vaccination = await Vaccinations.findByIdAndUpdate(
+      { _id: id },
+      { status: req.body.status }
+    );
     if (!vaccination) {
       return res
         .status(400)

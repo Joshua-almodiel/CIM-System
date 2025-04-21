@@ -19,6 +19,9 @@ import AddVaccination from './Components/Vaccinations/AddVaccination.jsx'
 import Setting from './Components/ParentDashboard/Setting.jsx'
 import TableVaccination from './Components/Vaccinations/TableVaccination.jsx'
 import DetailsVaccination from './Components/Vaccinations/DetailsVaccination.jsx'
+import Notifications from "./Components/Notifications/Notifications.jsx"
+import ReportsAndAnalytics from "./Components/ReportsAndAnalytics/ReportsAndAnalytics.jsx"
+import UserManagement from "./Components/UserManagement/UserManagement.jsx"
 
 function App() {
   return (
@@ -51,7 +54,15 @@ function App() {
           <Route path="/healthWorker-dashboard/vaccinations" element={<TableVaccination />}></Route>
           <Route path="/healthWorker-dashboard/add-vaccination" element={<AddVaccination />}></Route>
           <Route path="/healthWorker-dashboard/vaccinations/:id" element={<DetailsVaccination />}></Route>
+
+
+          <Route path="/healthWorker-dashboard/notifications" element={<Notifications />}></Route>
+
           
+          <Route path="/healthWorker-dashboard/reports-analytics" element={<ReportsAndAnalytics />}></Route>\
+
+
+          <Route path="/healthWorker-dashboard/usermanagement" element={<UserManagement />}></Route>
           
 
         </Route>

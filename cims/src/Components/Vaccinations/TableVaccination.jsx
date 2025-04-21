@@ -10,11 +10,11 @@ import axios from "axios";
 const TableVaccination = () => {
   const [vaccinations, setVaccinations] = useState([]);
   const [searchParents, setSearchParents] = useState([]);
-
+  const [loading, setLoading] = useState(true);
 
   const fetchVaccinations = async () => {
     try {
-      const responnse = await axios.get(
+      const response = await axios.get(
         "http://localhost:5000/api/vaccination",
         {
           headers: {
@@ -22,17 +22,20 @@ const TableVaccination = () => {
           },
         }
       );
-      console.log(responnse);
-      if (responnse.data.success) {
+
+      if (response.data.success) {
         let sno = 1;
-        const data = await responnse.data.vaccinations.map((vaccination) => ({
+        const data = response.data.vaccinations.map((vaccination) => ({
           _id: vaccination._id,
           sno: sno++,
-          familyNumber: vaccination.familyNumber.familyNumber,
-          name: vaccination.familyNumber.userId.name,
+          familyNumber: vaccination.familyNumber?.familyNumber || "N/A",
+          lastName: vaccination.familyNumber?.lastName || "N/A",
+          name: vaccination.familyNumber?.userId?.name || "N/A",
           vaccinationType: vaccination.vaccinationType,
           startDate: new Date(vaccination.startDate).toLocaleDateString(),
-          startTime: new Date(`1970-01-01T${vaccination.startTime}`).toLocaleTimeString([], {
+          startTime: new Date(
+            `1970-01-01T${vaccination.startTime}`
+          ).toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
           }),
@@ -41,12 +44,13 @@ const TableVaccination = () => {
         }));
         setVaccinations(data);
         setSearchParents(data);
+        setLoading(false);
       }
-      console.log(responnse.data.vaccinations);
     } catch (error) {
       if (error.response && !error.response.data.success) {
         alert(error.response.data.error);
       }
+      setLoading(false);
     }
   };
 
@@ -55,24 +59,18 @@ const TableVaccination = () => {
   }, []);
 
   const searchParent = (e) => {
-    const data = vaccinations.filter((vaccination) =>
-      vaccination.familyNumber
-        .toLowerCase()
-        .includes(e.target.value.toLowerCase())
+    const filtered = vaccinations.filter((vaccination) =>
+      vaccination.lastName.toLowerCase().includes(e.target.value.toLowerCase())
     );
-    setSearchParents(data);
+    setSearchParents(filtered);
   };
 
   const customStyles = {
     rows: {
       style: {
         backgroundColor: "#F9FAFB",
-        "&:nth-of-type(even)": {
-          backgroundColor: "#F1F5F9",
-        },
-        "&:hover": {
-          backgroundColor: "#E2E8F0",
-        },
+        "&:nth-of-type(even)": { backgroundColor: "#F1F5F9" },
+        "&:hover": { backgroundColor: "#E2E8F0" },
       },
     },
     headRow: {
@@ -83,11 +81,6 @@ const TableVaccination = () => {
         fontWeight: "700",
         borderTopLeftRadius: "10px",
         borderTopRightRadius: "10px",
-      },
-    },
-    headCells: {
-      style: {
-        padding: "12px",
       },
     },
     cells: {
@@ -104,23 +97,41 @@ const TableVaccination = () => {
         borderBottomRightRadius: "10px",
         borderTop: "1px solid #E2E8F0",
       },
-      pageButtonsStyle: {
-        color: "#1E293B",
-        fill: "#1E293B",
-        "&:hover": {
-          backgroundColor: "#E2E8F0",
-        },
-        "&:focus": {
-          outline: "none",
-          backgroundColor: "#CBD5E1",
-        },
-      },
     },
   };
 
   return (
     <>
-      {setSearchParents ? (
+      {loading ? (
+        <div className="bg-white min-h-screen text-center py-16">
+          <div className="flex justify-center items-center space-x-3">
+            <svg
+              className="animate-spin h-6 w-6 text-blue-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+              ></path>
+            </svg>
+            <span className="text-slate-600 font-medium">
+              Loading Records...
+            </span>
+          </div>
+          <p className="mt-2 text-sm text-gray-500">Please wait a moment.</p>
+        </div>
+      ) : (
         <div className="bg-slate-100 py-15 px-40 md:px-12 min-h-screen overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <div className="mb-10">
@@ -129,7 +140,7 @@ const TableVaccination = () => {
               </h3>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-6 overflow: auto">
+            <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-6 overflow-auto">
               <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
                 <div className="relative w-full md:w-96">
                   <input
@@ -189,36 +200,16 @@ const TableVaccination = () => {
                 />
               ) : (
                 <div className="text-center py-16">
-                <h2 className="text-lg font-semibold text-slate-700">
-                  No records found
-                </h2>
-                <p className="text-slate-500 mt-2">
-                  Click on the Add Vaccination to add a record.
-                </p>
-              </div>
+                  <h2 className="text-lg font-semibold text-slate-700">
+                    No records found
+                  </h2>
+                  <p className="text-slate-500 mt-2">
+                    Click on the Add Vaccination to add a record.
+                  </p>
+                </div>
               )}
             </div>
           </div>
-        </div>
-      ) : (
-        <div className="p-8 text-center">
-          <svg
-            className="w-16 h-16 mx-auto text-gray-500"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1}
-              d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <h3 className="mt-4 text-lg font-medium text-gray-300">
-            Loading Parents Records...
-          </h3>
         </div>
       )}
     </>

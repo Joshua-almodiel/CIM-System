@@ -1,5 +1,6 @@
 import Parents from "../Models/Parents.js"
 import Vaccinations from "../Models/Vaccinations.js";
+import Vitals from "../Models/Vitals.js";
 
 const getSummary = async (req, res) => {
     try{
@@ -19,17 +20,18 @@ const getSummary = async (req, res) => {
 const getDashboardStats = async (req, res) => {
     try {
       const totalVaccinations = await Vaccinations.countDocuments();
-      const upcomingVaccinations = await Vaccinations.countDocuments({ status: "Scheduled" });
       const processingVaccinations = await Vaccinations.countDocuments({ status: "Processing" });
-      const cancelVaccinations = await Vaccinations.countDocuments({ status: "Cancel" });
       const totalChildRecords = await Parents.countDocuments();
+      const totalVitalSigns = await Vitals.countDocuments();
+      const totalVaccinated = await Vaccinations.countDocuments({ status: "Scheduled" });
   
       return res.status(200).json({
         success: true,
         totalVaccinations,
-        upcomingVaccinations,
         processingVaccinations,
-        cancelVaccinations,
+        totalChildRecords,
+        totalVitalSigns,
+        totalVaccinated,
       });
     } catch (error) {
       return res.status(500).json({ success: false, error: "Dashboard stats error" });

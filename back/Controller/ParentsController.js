@@ -512,16 +512,27 @@ const getAllFamilyNumbers = async (req, res) => {
 
 const deleteParent = async (req, res) => {
   try {
-      const { id } = req.params;
+    const { id } = req.params;
 
-      await Vitals.deleteMany({ familyNumber: id });
-      await Vaccinations.deleteMany({ familyNumber: id });
-      await Parents.findByIdAndDelete(id);
+    const parent = await Parents.findById(id);
+    if (!parent) {
+      return res.status(404).json({ success: false, error: "Parent not found" });
+    }
 
-      return res.status(200).json({ success: true, message: "Parent and related records deleted successfully" });
+    const user = await User.findByIdAndDelete(parent.userId);
+    if (!user) {
+      return res.status(404).json({ success: false, error: "Associated user not found" });
+    }
+
+    await Vitals.deleteMany({ familyNumber: id });
+    await Vaccinations.deleteMany({ familyNumber: id });
+    await Parents.findByIdAndDelete(id);
+
+    return res.status(200).json({ success: true, message: "Parent, associated user, and related records deleted successfully" });
   } catch (error) {
-      return res.status(500).json({ success: false, error: "Error deleting parent record" });
+    return res.status(500).json({ success: false, error: "Error deleting parent record" });
   }
 };
+
 
 export { addParent, getParents, getParent, updateParent, getAllFamilyNumbers, deleteParent };
