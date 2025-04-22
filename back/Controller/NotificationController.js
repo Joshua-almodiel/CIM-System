@@ -17,8 +17,13 @@ const sendEmailNotification = async (req, res) => {
             to: email,
             subject: subject,
             date: date,
-            text: message,
+            html: `
+                <h2>${subject}</h2>
+                <p><strong>Schedule Date:</strong> ${date}</p>
+                <p>${message}</p>
+            `,
         };
+        
 
         await transporter.sendMail(mailOptions);
         return res.status(200).json({ success: true, message: "Email sent successfully" });
