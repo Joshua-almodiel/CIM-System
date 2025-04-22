@@ -1,14 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import {
-  FaTachometerAlt,
-  FaUsers,
-  FaCalendarAlt,
-  FaBell,
-  FaChartBar,
-  FaUserCog,
-  FaCogs,
-  FaSignOutAlt,
+  FaTachometerAlt,   // Dashboard
+  FaChild,            // Child Records
+  FaSyringe,          // Vaccination Schedule
+  FaBell,             // Notifications
+  FaChartPie,         // Reports & Analytics
+  FaUserNurse,        // Health Worker
+  FaTools,            // Settings
+  FaSignOutAlt        // Logout
 } from "react-icons/fa";
 import { useAuth } from "../../Context/AuthContext.jsx";
 
@@ -19,7 +19,7 @@ const HealthWorkerSidebar = () => {
     <div className="fixed inset-y-0 flex flex-col bg-white text-gray-800 w-64 border-r border-gray-200 shadow-md">
       <div className="p-5 border-b border-gray-200 bg-blue-50 text-center">
         <h3 className="text-xl font-bold text-gray-700 tracking-wide bg-blue-100 rounded-md px-2 py-1 shadow-sm">
-        𝘊𝘩𝘪𝘭𝘥 𝘐𝘮𝘮𝘶𝘯𝘪𝘻𝘢𝘵𝘪𝘰𝘯<br />𝘔𝘰𝘯𝘪𝘵𝘰𝘳𝘪𝘯𝘨 𝘚𝘺𝘴𝘵𝘦𝘮
+          𝘊𝘩𝘪𝘭𝘥 𝘐𝘮𝘮𝘶𝘯𝘪𝘻𝘢𝘵𝘪𝘰𝘯<br />𝘔𝘰𝘯𝘪𝘵𝘰𝘳𝘪𝘯𝘨 𝘚𝘺𝘴𝘵𝘦𝘮
         </h3>
         <img
           src="/public/Logocims.png"
@@ -54,7 +54,7 @@ const HealthWorkerSidebar = () => {
             }`
           }
         >
-          <FaUsers className="mr-3" />
+          <FaChild className="mr-3" />
           <span>Child Records</span>
         </NavLink>
 
@@ -68,7 +68,7 @@ const HealthWorkerSidebar = () => {
             }`
           }
         >
-          <FaCalendarAlt className="mr-3" />
+          <FaSyringe className="mr-3" />
           <span>Vaccination Schedule</span>
         </NavLink>
 
@@ -96,12 +96,12 @@ const HealthWorkerSidebar = () => {
             }`
           }
         >
-          <FaChartBar className="mr-3" />
+          <FaChartPie className="mr-3" />
           <span>Reports & Analytics</span>
         </NavLink>
 
         <NavLink
-          to="/healthWorker-dashboard/usermanagement"
+          to="/healthWorker-dashboard/healthworker"
           className={({ isActive }) =>
             `flex items-center p-3 rounded-lg transition-colors duration-200 ${
               isActive
@@ -110,8 +110,8 @@ const HealthWorkerSidebar = () => {
             }`
           }
         >
-          <FaUserCog className="mr-3" />
-          <span>User Management</span>
+          <FaUserNurse className="mr-3" />
+          <span>Health Worker</span>
         </NavLink>
 
         <NavLink
@@ -124,7 +124,7 @@ const HealthWorkerSidebar = () => {
             }`
           }
         >
-          <FaCogs className="mr-3" />
+          <FaTools className="mr-3" />
           <span>Settings</span>
         </NavLink>
       </div>

@@ -3,6 +3,7 @@ import User from "../Models/User.js";
 import Vitals from "../Models/Vitals.js";
 import Vaccinations from "../Models/Vaccinations.js";
 import bcrypt from "bcryptjs";
+import DeletedParents from "../Models/DeletedParents.js";
 
 const addParent = async (req, res) => {
   try {
@@ -524,6 +525,15 @@ const deleteParent = async (req, res) => {
       return res.status(404).json({ success: false, error: "Associated user not found" });
     }
 
+    const deletedParent = new DeletedParents({
+      originalId: parent._id,
+      familyNumber: parent.familyNumber,
+      lastName: parent.lastName,
+      middleName: parent.middleName,
+      firstName: parent.firstName,
+    });
+
+    await deletedParent.save();
     await Vitals.deleteMany({ familyNumber: id });
     await Vaccinations.deleteMany({ familyNumber: id });
     await Parents.findByIdAndDelete(id);

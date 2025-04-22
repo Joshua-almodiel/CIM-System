@@ -1,11 +1,11 @@
 import express from 'express';
 import Middleware from '../Middleware/Middleware.js';
-import { getDashboardStats } from '../Controller/DashboardController.js';
+import { getDashboardStats } from '../Controller/ReportsAndAnalytics.js';
 
 const router = express.Router()
 
 
-router.get("/stats", getDashboardStats);
+router.get("/stats", Middleware, getDashboardStats);
 
 
 export default router;

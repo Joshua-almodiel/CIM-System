@@ -74,7 +74,7 @@ const Notifications = () => {
           <form onSubmit={handleSendEmail} className="p-6 space-y-8">
             <div className="bg-blue-50 p-4 rounded-lg">
               <h3 className="text-lg font-semibold text-[#147190] mb-4 border-b border-blue-200 pb-2">
-                Personal Information
+                Email Sending
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-3 gap-6">
                 <div>

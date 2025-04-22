@@ -34,7 +34,9 @@ const List = () => {
           lastName: vaccination.familyNumber?.lastName || "N/A", // Map lastName here
           vaccinationType: vaccination.vaccinationType,
           startDate: new Date(vaccination.startDate).toLocaleDateString(),
-          startTime: new Date(`1970-01-01T${vaccination.startTime}`).toLocaleTimeString([], {
+          startTime: new Date(
+            `1970-01-01T${vaccination.startTime}`
+          ).toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
           }),
@@ -59,6 +61,18 @@ const List = () => {
     setShowDescription(true);
   };
 
+  const formatTime = (timeStr) => {
+    if (!timeStr) return "Invalid Time";
+    const [hours, minutes] = timeStr.split(":");
+    const date = new Date();
+    date.setHours(parseInt(hours), parseInt(minutes), 0);
+    return date.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+  
+
   return (
     <div className="bg-gray-50 min-h-screen p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
@@ -71,24 +85,24 @@ const List = () => {
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
           {loading ? (
             <div className="p-8 text-center">
-            <svg
-              className="w-16 h-16 mx-auto text-gray-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1}
-                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <h3 className="mt-4 text-lg font-medium text-gray-300">
-              Loading Vaccination Records...
-            </h3>
-          </div>
+              <svg
+                className="w-16 h-16 mx-auto text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <h3 className="mt-4 text-lg font-medium text-gray-300">
+                Loading Vaccination Records...
+              </h3>
+            </div>
           ) : vaccinations.length > 0 ? (
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
@@ -139,12 +153,7 @@ const List = () => {
                         {new Date(vaccination.startDate).toLocaleDateString()}
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {new Date(
-                          `1970-01-01T${vaccination.startTime}`
-                        ).toLocaleTimeString([], {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
+                      {formatTime(vaccination.startTime)}
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap text-sm text-[#148190]">
                         <button

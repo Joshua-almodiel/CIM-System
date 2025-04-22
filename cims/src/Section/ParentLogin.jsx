@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext.jsx";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 
-function Login() {
+function ParentLogin() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState(null);
@@ -19,12 +19,12 @@ function Login() {
         { email, password }
       );
       if (response.data.success) {
-        if (response.data.user.role === "healthWorker") {
+        if (response.data.user.role === "parent") {
           login(response.data.user);
           localStorage.setItem("token", response.data.token);
-          navigate("/healthWorker-dashboard");
+          navigate("/parent-dashboard");
         } else {
-          setError("Only health workers can log in here.");
+          setError("Only parents can log in here.");
         }
       }
     } catch (error) {
@@ -42,9 +42,7 @@ function Login() {
         <h1 className="text-4xl font-extrabold text-center mb-3 tracking-wide text-[#147190] drop-shadow-sm">
           Child Immunization Monitoring
         </h1>
-        <p className="text-center text-sm text-gray-600 mb-4">
-          Only Health Worker
-        </p>
+        <p className="text-center text-sm text-gray-600 mb-4">Only Parents</p>
 
         {error && (
           <p className="text-red-500 text-sm text-center mb-4">{error}</p>
@@ -78,10 +76,9 @@ function Login() {
               />
             </div>
           </div>
-
           <div className="flex justify-between text-sm text-gray-400">
-            <Link to="/parent-login" className="text-gray-400 hover:text-gray-600">
-              Are you a parents?
+            <Link to="/login" className="text-gray-400 hover:text-gray-600">
+              Health Worker Access
             </Link>
           </div>
 
@@ -97,4 +94,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ParentLogin;

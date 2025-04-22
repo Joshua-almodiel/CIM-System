@@ -5,6 +5,7 @@ const addVaccination = async (req, res) => {
   try {
     const { familyNumber, vaccinationType, startDate, startTime, reason } =
       req.body;
+      
 
     const newVaccination = new Vaccinations({
       familyNumber,

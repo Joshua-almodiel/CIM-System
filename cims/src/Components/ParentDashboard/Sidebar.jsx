@@ -1,108 +1,147 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { FaBuilding, FaCalendarAlt, FaCogs, FaMoneyBillAlt, FaMoneyBillWave, FaTachometerAlt, FaUser, FaUsers } from 'react-icons/fa'
-import { useAuth } from '../../Context/AuthContext.jsx'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import {
+  FaBaby,
+  FaCalendarCheck,
+  FaHeartbeat,
+  FaBookOpen,
+  FaHome,
+  FaUserCog,
+  FaUserFriends,
+  FaSignOutAlt,
+} from "react-icons/fa";
+import { useAuth } from "../../Context/AuthContext.jsx";
 
 const Sidebar = () => {
-
-  const { user, logout } = useAuth()
-
-
+  const { user, logout } = useAuth();
 
   return (
-    <div className="fixed inset-y-0 flex flex-col bg-gray-800 text-white w-64">
-      <div className="p-4 border-gray-700">
-        <h3 className="text-lg text-center font-semibold">CIM System</h3>
+    <div className="fixed inset-y-0 flex flex-col bg-white text-gray-800 w-64 border-r border-gray-200 shadow-md">
+      <div className="p-5 border-b border-gray-200 bg-blue-50 text-center">
+        <h3 className="text-xl font-bold text-gray-700 tracking-wide bg-blue-100 rounded-md px-3 py-1 shadow-sm">
+          𝘊𝘩𝘪𝘭𝘥 𝘐𝘮𝘮𝘶𝘯𝘪𝘻𝘢𝘵𝘪𝘰𝘯
+          <br />
+          𝘔𝘰𝘯𝘪𝘵𝘰𝘳𝘪𝘯𝘨 𝘚𝘺𝘴𝘵𝘦𝘮
+        </h3>
+        <img
+          src="/public/Logocims.png"
+          alt="Health Logo"
+          className="mx-auto w-98 h-40 object-contain"
+        />
       </div>
-      <div className="flex flex-col p-8 space-y-6">
 
+      <div className="flex flex-col p-4 space-y-1 flex-grow">
         <NavLink
           to="/parent-dashboard"
           className={({ isActive }) =>
-            `flex items-center p-2 rounded transition duration-200 ${isActive
-              ? "bg-blue-500 text-white"
-              : "hover:bg-gray-700"
+            `flex items-center p-3 rounded-lg transition-colors duration-200 ${
+              isActive
+                ? "bg-blue-100 text-[#147190] font-medium"
+                : "hover:bg-gray-100"
             }`
-          } end
+          }
+          end
         >
-          <FaTachometerAlt className="mr-2" />
+          <FaHome className="mr-3" />
           <span>Dashboard</span>
         </NavLink>
 
         <NavLink
           to={`/parent-dashboard/profile/${user._id}`}
           className={({ isActive }) =>
-            `flex items-center p-2 rounded transition duration-200 ${isActive
-              ? "bg-blue-500 text-white"
-              : "hover:bg-gray-700"
+            `flex items-center p-3 rounded-lg transition-colors duration-200 ${
+              isActive
+                ? "bg-blue-100 text-[#147190] font-medium"
+                : "hover:bg-gray-100"
             }`
           }
         >
-          <FaUsers className="mr-2" />
+          <FaBaby className="mr-3" />
           <span>My Child's Records</span>
+        </NavLink>
+
+        <NavLink
+          to={`/parent-dashboard/vital/${user._id}`}
+          className={({ isActive }) =>
+            `flex items-center p-3 rounded-lg transition-colors duration-200 ${
+              isActive
+                ? "bg-blue-100 text-[#147190] font-medium"
+                : "hover:bg-gray-100"
+            }`
+          }
+        >
+          <FaHeartbeat className="mr-3" />
+          <span>Vital Signs</span>
         </NavLink>
 
         <NavLink
           to={`/parent-dashboard/vaccinations/${user._id}`}
           className={({ isActive }) =>
-            `flex items-center p-2 rounded transition duration-200 ${isActive
-              ? "bg-blue-500 text-white"
-              : "hover:bg-gray-700"
+            `flex items-center p-3 rounded-lg transition-colors duration-200 ${
+              isActive
+                ? "bg-blue-100 text-[#147190] font-medium"
+                : "hover:bg-gray-100"
             }`
           }
         >
-          <FaBuilding className="mr-2" />
+          <FaCalendarCheck className="mr-3" />
           <span>Vaccination Schedule</span>
         </NavLink>
 
         <NavLink
-          to={`/parent-dashboard/salary/${user._id}`}
+          to={`/parent-dashboard/reminders/${user._id}`}
           className={({ isActive }) =>
-            `flex items-center p-2 rounded transition duration-200 ${isActive
-              ? "bg-blue-500 text-white"
-              : "hover:bg-gray-700"
+            `flex items-center p-3 rounded-lg transition-colors duration-200 ${
+              isActive
+                ? "bg-blue-100 text-[#147190] font-medium"
+                : "hover:bg-gray-100"
             }`
           }
         >
-          <FaCalendarAlt className="mr-2" />
+          <FaUserFriends className="mr-3" />
           <span>Reminders</span>
         </NavLink>
 
         <NavLink
-          to={``}
+          to={"/parent-dashboard/tips-guidelines"}
           className={({ isActive }) =>
-            `flex items-center p-2 rounded transition duration-200 ${isActive
-              ? "bg-blue-500 text-white"
-              : "hover:bg-gray-700"
+            `flex items-center p-3 rounded-lg transition-colors duration-200 ${
+              isActive
+                ? "bg-blue-100 text-[#147190] font-medium"
+                : "hover:bg-gray-100"
             }`
           }
         >
-          <FaCalendarAlt className="mr-2" />
+          <FaBookOpen className="mr-3" />
           <span>Health Tips & Guidelines</span>
         </NavLink>
 
         <NavLink
           to="/parent-dashboard/setting"
           className={({ isActive }) =>
-            `flex items-center p-2 rounded transition duration-200 ${isActive
-              ? "bg-blue-500 text-white"
-              : "hover:bg-gray-700"
+            `flex items-center p-3 rounded-lg transition-colors duration-200 ${
+              isActive
+                ? "bg-blue-100 text-[#147190] font-medium"
+                : "hover:bg-gray-100"
             }`
           }
         >
-          <FaCogs className="mr-2" />
+          <FaUserCog className="mr-3" />
           <span>Settings</span>
         </NavLink>
 
-        <div className='m-2'>
-          <button className="bg-red-500 text-white px-4 py-1 rounded-lg hover:bg-red-600 transition duration-200" onClick={logout}>
+        <div className="p-3 border-t border-gray-200">
+          <button
+            className="w-full flex items-center justify-center p-2 rounded-lg bg-red-100 text-red-600 hover:bg-red-200 transition-colors duration-200"
+            onClick={logout}
+          >
+            <FaSignOutAlt className="mr-2" />
             Logout
           </button>
         </div>
-
       </div>
     </div>
   );
-}
+};
 
-export default Sidebar
+export default Sidebar;

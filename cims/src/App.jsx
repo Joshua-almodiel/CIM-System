@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom"
 import { Navigate } from "react-router-dom"
 import Login from './Section/Login.jsx'
+import ParentLogin from "./Section/ParentLogin.jsx"
 import HealthWorker from './Section/HealthWorker.jsx'
 import ParentsDashboard from './Section/ParentsDashboard.jsx'
 import PrivateRoutes from './Utilities/PrivateRoutes.jsx'
@@ -21,7 +22,9 @@ import TableVaccination from './Components/Vaccinations/TableVaccination.jsx'
 import DetailsVaccination from './Components/Vaccinations/DetailsVaccination.jsx'
 import Notifications from "./Components/Notifications/Notifications.jsx"
 import ReportsAndAnalytics from "./Components/ReportsAndAnalytics/ReportsAndAnalytics.jsx"
-import UserManagement from "./Components/UserManagement/UserManagement.jsx"
+import AddHealthWorker from "./Components/AddHealthWorker/AddHealthWorker.jsx"
+import Reminder from "./Components/ParentReminder/Reminder.jsx"
+import TipsAndGuidelines from "./Components/TipsAndGuidelines/TipsAndGuidelines.jsx"
 
 function App() {
   return (
@@ -29,6 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/healthWorker-dashboard" />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/parent-login" element={<ParentLogin />}></Route>
 
         <Route path="/healthWorker-dashboard" element={
           <PrivateRoutes>
@@ -62,7 +66,7 @@ function App() {
           <Route path="/healthWorker-dashboard/reports-analytics" element={<ReportsAndAnalytics />}></Route>\
 
 
-          <Route path="/healthWorker-dashboard/usermanagement" element={<UserManagement />}></Route>
+          <Route path="/healthWorker-dashboard/healthworker" element={<AddHealthWorker />}></Route>
           
 
         </Route>
@@ -70,7 +74,7 @@ function App() {
 
         <Route path="/parent-dashboard" element={
           <PrivateRoutes>
-            <RoleBaseRoutes requiredRole={["healthWorker", "parent"]}>
+            <RoleBaseRoutes requiredRole={["parent"]}>
               <ParentsDashboard />
             </RoleBaseRoutes>
           </PrivateRoutes>
@@ -79,9 +83,10 @@ function App() {
           <Route index element={<Summary />}></Route>
 
           <Route path="/parent-dashboard/profile/:id" element={<View />}></Route>
-          <Route path="/parent-dashboard/vaccinations/:id" element={<VaccinationList />}></Route>
-          <Route path="/parent-dashboard/add-vaccination" element={<AddVaccination />}></Route>
           <Route path="/parent-dashboard/vital/:id" element={<ViewVital />}></Route>
+          <Route path="/parent-dashboard/vaccinations/:id" element={<VaccinationList />}></Route>
+          <Route path="/parent-dashboard/reminders/:id" element={<Reminder />}></Route>
+          <Route path="/parent-dashboard/tips-guidelines" element={<TipsAndGuidelines />}></Route>
           <Route path="/parent-dashboard/setting" element={<Setting />}></Route>
 
         </Route>

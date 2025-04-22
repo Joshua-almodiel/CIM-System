@@ -47,4 +47,38 @@ const getAllUserEmails = async (req, res) => {
   }
 };
 
-export { login, verify, getAllUserEmails };
+const registerHealthWorker = async (req, res) => {
+  try {
+    const { name, email, password, role } = req.body;
+
+    if (role !== "healthWorker") {
+      return res.status(400).json({ success: false, error: "Invalid role" });
+    }
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res
+        .status(400)
+        .json({ success: false, error: "Email already exists" });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = new User({
+      name,
+      email,
+      password: hashedPassword,
+      role,
+    });
+
+    await newUser.save();
+
+    return res
+      .status(201)
+      .json({ success: true, message: "Health worker added successfully" });
+  } catch (error) {
+    return res.status(500).json({ success: false, error: "Server error" });
+  }
+};
+
+export { login, verify, getAllUserEmails, registerHealthWorker };

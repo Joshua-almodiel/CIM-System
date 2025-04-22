@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {
-  FaSyringe,
-  FaClock,
-  FaCheckCircle,
-  FaUsers,
-  FaTrash,
-} from "react-icons/fa";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -26,7 +19,8 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const ReportsAndAnalystics = () => {
+
+const ReportsAndAnalytics = () => {
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
@@ -81,32 +75,30 @@ const ReportsAndAnalystics = () => {
   }
 
   const chartData = {
-    labels: ["Total Deleted", "Cancelled"],
+    labels: ["Deleted Child Records", "Canceled Vaccinations"],
     datasets: [
       {
-        label: "Vaccination Stats",
+        label: "Records",
         data: [stats.totalDeleteRecord, stats.totalCancelled],
-        backgroundColor: ["#4CAF50", "#FFC107"],
+        backgroundColor: ["#FF6384", "#36A2EB"],
       },
     ],
   };
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-
       <h2 className="text-3xl font-bold text-gray-700 mb-6">
-        Reports And Analytics
+        Reports & Analytics
       </h2>
 
       <div className="mt-10 bg-white p-6 rounded-lg shadow-md">
         <h3 className="text-xl font-bold text-gray-700 mb-4">
-          Records of Deleted and Canceled
+          Deleted and Canceled Records
         </h3>
         <Bar data={chartData} />
       </div>
-
     </div>
   );
-}
+};
 
-export default ReportsAndAnalystics
+export default ReportsAndAnalytics;

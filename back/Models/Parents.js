@@ -99,10 +99,7 @@ const parentsSchema = new Schema({
   intervalOfMenstruation: { type: String },
   duration: { type: Number },
   padsPerDay: { type: Number },
-  deleted: {
-    type: Boolean,
-    default: false,
-  },
+  deleted: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
