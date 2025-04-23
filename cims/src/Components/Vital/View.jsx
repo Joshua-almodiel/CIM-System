@@ -99,7 +99,7 @@ const View = () => {
                       BMI
                     </th>
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                      Edit
+                      {user.role === "healthWorker" && (<>Edit</>)}
                     </th>
                   </tr>
                 </thead>
@@ -148,16 +148,18 @@ const View = () => {
                         {vital.bmi}
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap">
-                        <button
-                          onClick={() =>
-                            navigate(
-                              `/healthWorker-dashboard/parents/vital/edit/${vital._id}`
-                            )
-                          }
-                          className="px-3 py-1 bg-[#147190] text-white rounded-lg hover:bg-[#148190] transition duration-200"
-                        >
-                          Edit
-                        </button>
+                        {user.role === "healthWorker" && (
+                          <button
+                            onClick={() =>
+                              navigate(
+                                `/healthWorker-dashboard/parents/vital/edit/${vital._id}`
+                              )
+                            }
+                            className="px-3 py-1 bg-[#147190] text-white rounded-lg hover:bg-[#148190] transition duration-200"
+                          >
+                            Edit
+                          </button>
+                        )}
                       </td>
                     </tr>
                   ))}

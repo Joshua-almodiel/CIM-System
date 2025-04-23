@@ -202,7 +202,7 @@ const View = () => {
             { label: "Urinary Tract Infection", value: parent.puti },
             { label: "Mental Illness", value: parent.pmentalIllness },
             { label: "Others", value: parent.pothers },
-            { label: "Specify Others", value: parent.pspecifyOthers},
+            { label: "Specify Others", value: parent.pspecifyOthers },
             { label: "None", value: parent.pnone },
             { label: "Highest Blood Pressure", value: parent.pbloodPressure },
           ].map((item, index) => (
@@ -252,7 +252,7 @@ const View = () => {
             { label: "Urinary Tract Infection", value: parent.futi },
             { label: "Mental Illness", value: parent.fmentalIllness },
             { label: "Others", value: parent.fothers },
-            { label: "Specify Others", value: parent.fspecifyOthers},
+            { label: "Specify Others", value: parent.fspecifyOthers },
             { label: "None", value: parent.fnone },
             { label: "Highest Blood Pressure", value: parent.fbloodPressure },
           ].map((item, index) => (
@@ -356,15 +356,15 @@ const View = () => {
           </div>
         )}
 
-{user.role === "healthWorker" && (
-        <div className="mt-8 text-right">
-          <button
-            onClick={() => setShowDeleteModal(true)}
-            className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition"
-          >
-            Delete Record
-          </button>
-        </div>
+        {user.role === "healthWorker" && (
+          <div className="mt-8 text-right">
+            <button
+              onClick={() => setShowDeleteModal(true)}
+              className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition"
+            >
+              Delete Record
+            </button>
+          </div>
         )}
       </div>
     </div>

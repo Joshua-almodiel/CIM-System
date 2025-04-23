@@ -1018,7 +1018,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Mental Illness
@@ -1289,7 +1289,6 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-
 
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
@@ -1606,7 +1605,7 @@ const Add = () => {
                           />
                         </td>
                       </tr>
-                      
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Mental Illness
@@ -2154,8 +2153,6 @@ const Add = () => {
                 </div>
               </div>
             </div>
-
-            
 
             <div className="flex justify-end">
               <button
