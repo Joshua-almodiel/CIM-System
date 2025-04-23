@@ -52,6 +52,7 @@ const Add = () => {
     puti: "",
     pmentalIllness: "",
     pothers: "",
+    pspecifyOthers: "",
     pnone: "",
     pbloodPressure: "",
     fallergy: "",
@@ -77,6 +78,7 @@ const Add = () => {
     futi: "",
     fmentalIllness: "",
     fothers: "",
+    fspecifyOthers: "",
     fnone: "",
     fbloodPressure: "",
     smoking: "",
@@ -652,6 +654,55 @@ const Add = () => {
                           />
                         </td>
                       </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Cerebrovascular Diseace
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pcerebrovascular"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pcerebrovascular"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Coronary Artery Disease
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pcoronaryArtery"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pcoronaryArtery"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Diabetes Mellitus
@@ -669,6 +720,102 @@ const Add = () => {
                           <input
                             type="radio"
                             name="pdiabetes"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Emphysema
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pemphysema"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pemphysema"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Epilepsy / Seizure Disorder
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pepilepsy"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pepilepsy"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Hepatitis
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="phepatitis"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="phepatitis"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Hyperlipidemia
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="phyperlipidemia"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="phyperlipidemia"
                             value="no"
                             onChange={handleChange}
                             className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
@@ -696,6 +843,240 @@ const Add = () => {
                             value="no"
                             onChange={handleChange}
                             className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Peptic Ulcer
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="ppepticUlcer"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="ppepticUlcer"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Pneumonia
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="ppneumonia"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="ppneumonia"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Thyroid Disease
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pthyroid"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pthyroid"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Pulmonary Tuberculosis
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="ppulmonaryTb"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="ppulmonaryTb"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Specify Pulmonary Tuberculosis Category:
+                        </td>
+                        <td colSpan="2" className="px-4 py-2">
+                          <input
+                            type="text"
+                            name="ppulmonaryTbCategory"
+                            onChange={handleChange}
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Extrapulmonary Tuberculosis
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pextrapulmonaryTb"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pextrapulmonaryTb"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Specify Extrapulmonary Tuberculosis Category:
+                        </td>
+                        <td colSpan="2" className="px-4 py-2">
+                          <input
+                            type="text"
+                            name="pextrapulmonaryTbCategory"
+                            onChange={handleChange}
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Urinary Tract Infection
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="puti"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="puti"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Mental Illness
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pmentalIllness"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pmentalIllness"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Others
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pothers"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pothers"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Others please specify:
+                        </td>
+                        <td colSpan="2" className="px-4 py-2">
+                          <input
+                            type="text"
+                            name="pspecifyOthers"
+                            onChange={handleChange}
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                           />
                         </td>
                       </tr>
@@ -860,6 +1241,56 @@ const Add = () => {
                           />
                         </td>
                       </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Cerebrovascular Disease
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fcerebrovascular"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fcerebrovascular"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Coronary Artery Disease
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fcoronaryArtery"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fcoronaryArtery"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+
                       <tr>
                         <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                           Diabetes Mellitus
@@ -877,6 +1308,102 @@ const Add = () => {
                           <input
                             type="radio"
                             name="fdiabetes"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Emphysema
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="femphysema"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="femphysema"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Epilepsy / Seizure Disorder
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fepilepsy"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fepilepsy"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Hepatitis
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fhepatitis"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fhepatitis"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Hyperlipidemia
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fhyperlipidemia"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fhyperlipidemia"
                             value="no"
                             onChange={handleChange}
                             className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
@@ -904,6 +1431,240 @@ const Add = () => {
                             value="no"
                             onChange={handleChange}
                             className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Peptic Ulcer
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fpepticUlcer"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fpepticUlcer"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Pneumonia
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fpneumonia"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fpneumonia"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Thyroid Disease
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fthyroid"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fthyroid"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Pulmonary Tuberculosis
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fpulmonaryTb"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fpulmonaryTb"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Specify Pulmonary Tuberculosis Category:
+                        </td>
+                        <td colSpan="2" className="px-4 py-2">
+                          <input
+                            type="text"
+                            name="fpulmonaryTbCategory"
+                            onChange={handleChange}
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Extrapulmonary Tuberculosis
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fextrapulmonaryTb"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fextrapulmonaryTb"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Specify Extrapulmonary Tuberculosis Category:
+                        </td>
+                        <td colSpan="2" className="px-4 py-2">
+                          <input
+                            type="text"
+                            name="fextrapulmonaryTbCategory"
+                            onChange={handleChange}
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Urinary Tract Infection
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="futi"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="futi"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Mental Illness
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fmentalIllness"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fmentalIllness"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Others
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fothers"
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fothers"
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Others please specify:
+                        </td>
+                        <td colSpan="2" className="px-4 py-2">
+                          <input
+                            type="text"
+                            name="fspecifyOthers"
+                            onChange={handleChange}
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                           />
                         </td>
                       </tr>
@@ -1283,7 +2044,7 @@ const Add = () => {
                         <td className="px-4 py-2 whitespace-nowrap">
                           <input
                             type="number"
-                            name="preterm"
+                            name="preTerm"
                             onChange={handleChange}
                             className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
                             min="0"

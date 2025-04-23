@@ -50,6 +50,7 @@ const Edit = () => {
     puti: '',
     pmentalIllness: '',
     pothers: '',
+    pspecifyOthers: '',
     pnone: '',
     pbloodPressure: '',
     fallergy: '',
@@ -75,6 +76,7 @@ const Edit = () => {
     futi: '',
     fmentalIllness: '',
     fothers: '',
+    fspecifyOthers: '',
     fnone: '',
     fbloodPressure: '',
     smoking: '',
@@ -119,7 +121,9 @@ const Edit = () => {
           const parentData = response.data.parent;
           setParent({
             ...parentData,
+            birthday: parentData.birthday ? new Date(parentData.birthday).toISOString().split('T')[0] : '',
             name: parentData.userId?.name || '',
+            lmp: parentData.lmp ? new Date(parentData.lmp).toISOString().split('T')[0] : '',
           });
         }
         setLoading(false);
@@ -715,6 +719,60 @@ const Edit = () => {
                             />
                           </td>
                         </tr>
+
+                        <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Cerebrovascular Diseace
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pcerebrovascular"
+                            checked={parent.pcerebrovascular === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pcerebrovascular"
+                            checked={parent.pcerebrovascular === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Coronary Artery Disease
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pcoronaryArtery"
+                            checked={parent.pcoronaryArtery === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pcoronaryArtery"
+                            checked={parent.pcoronaryArtery === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+
                         <tr>
                           <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                             Diabetes Mellitus
@@ -740,6 +798,110 @@ const Edit = () => {
                             />
                           </td>
                         </tr>
+
+                        <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Emphysema
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pemphysema"
+                            checked={parent.pemphysema === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pemphysema"
+                            checked={parent.pemphysema === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Epilepsy / Seizure Disorder
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pepilepsy"
+                            checked={parent.pepilepsy === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pepilepsy"
+                            checked={parent.pepilepsy === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Hepatitis
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="phepatitis"
+                            checked={parent.phepatitis === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="phepatitis"
+                            checked={parent.phepatitis === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Hyperlipidemia
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="phyperlipidemia"
+                            checked={parent.phyperlipidemia === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="phyperlipidemia"
+                            checked={parent.phyperlipidemia === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
   
                         <tr>
                           <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
@@ -766,6 +928,259 @@ const Edit = () => {
                             />
                           </td>
                         </tr>
+
+                        <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Peptic Ulcer
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="ppepticUlcer"
+                            checked={parent.ppepticUlcer === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="ppepticUlcer"
+                            checked={parent.ppepticUlcer === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Pneumonia
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="ppneumonia"
+                            checked={parent.ppneumonia === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="ppneumonia"
+                            checked={parent.ppneumonia === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Thyroid Disease
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pthyroid"
+                            checked={parent.pthyroid === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pthyroid"
+                            checked={parent.pthyroid === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Pulmonary Tuberculosis
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="ppulmonaryTb"
+                            checked={parent.ppulmonaryTb === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="ppulmonaryTb"
+                            checked={parent.ppulmonaryTb === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Specify Pulmonary Tuberculosis Category:
+                        </td>
+                        <td colSpan="2" className="px-4 py-2">
+                          <input
+                            type="text"
+                            name="ppulmonaryTbCategory"
+                            value={parent.ppulmonaryTbCategory}
+                            onChange={handleChange}
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Extrapulmonary Tuberculosis
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pextrapulmonaryTb"
+                            checked={parent.pextrapulmonaryTb === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pextrapulmonaryTb"
+                            checked={parent.pextrapulmonaryTb === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Specify Extrapulmonary Tuberculosis Category:
+                        </td>
+                        <td colSpan="2" className="px-4 py-2">
+                          <input
+                            type="text"
+                            name="pextrapulmonaryTbCategory"
+                            value={parent.pextrapulmonaryTbCategory}
+                            onChange={handleChange}
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Urinary Tract Infection
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="puti"
+                            checked={parent.puti === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="puti"
+                            checked={parent.puti === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Mental Illness
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pmentalIllness"
+                            checked={parent.pmentalIllness === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pmentalIllness"
+                            checked={parent.pmentalIllness === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Others
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pothers"
+                            checked={parent.pothers === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="pothers"
+                            checked={parent.pothers === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Others please specify:
+                        </td>
+                        <td colSpan="2" className="px-4 py-2">
+                          <input
+                            type="text"
+                            name="pspecifyOthers"
+                            value={parent.pspecifyOthers}
+                            onChange={handleChange}
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
+                          />
+                        </td>
+                      </tr>
   
                         <tr>
                           <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
@@ -938,6 +1353,60 @@ const Edit = () => {
                             />
                           </td>
                         </tr>
+
+                        <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Cerebrovascular Disease
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fcerebrovascular"
+                            checked={parent.fcerebrovascular === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fcerebrovascular"
+                            checked={parent.fcerebrovascular === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Coronary Artery Disease
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fcoronaryArtery"
+                            checked={parent.fcoronaryArtery === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fcoronaryArtery"
+                            checked={parent.fcoronaryArtery === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+
                         <tr>
                           <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
                             Diabetes Mellitus
@@ -963,6 +1432,110 @@ const Edit = () => {
                             />
                           </td>
                         </tr>
+
+                        <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Emphysema
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="femphysema"
+                            checked={parent.femphysema === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="femphysema"
+                            checked={parent.femphysema === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Epilepsy / Seizure Disorder
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fepilepsy"
+                            checked={parent.fepilepsy === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fepilepsy"
+                            checked={parent.fepilepsy === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Hepatitis
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fhepatitis"
+                            checked={parent.fhepatitis === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fhepatitis"
+                            checked={parent.fhepatitis === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Hyperlipidemia
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fhyperlipidemia"
+                            checked={parent.fhyperlipidemia === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fhyperlipidemia"
+                            checked={parent.fhyperlipidemia === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
   
                         <tr>
                           <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
@@ -989,6 +1562,259 @@ const Edit = () => {
                             />
                           </td>
                         </tr>
+
+                        <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Peptic Ulcer
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fpepticUlcer"
+                            checked={parent.fpepticUlcer === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fpepticUlcer"
+                            checked={parent.fpepticUlcer === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Pneumonia
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fpneumonia"
+                            checked={parent.fpneumonia === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fpneumonia"
+                            checked={parent.fpneumonia === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Thyroid Disease
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fthyroid"
+                            checked={parent.fthyroid === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fthyroid"
+                            checked={parent.fthyroid === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Pulmonary Tuberculosis
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fpulmonaryTb"
+                            checked={parent.fpulmonaryTb === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fpulmonaryTb"
+                            checked={parent.fpulmonaryTb === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Specify Pulmonary Tuberculosis Category:
+                        </td>
+                        <td colSpan="2" className="px-4 py-2">
+                          <input
+                            type="text"
+                            name="fpulmonaryTbCategory"
+                            value={parent.fpulmonaryTbCategory}
+                            onChange={handleChange}
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Extrapulmonary Tuberculosis
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fextrapulmonaryTb"
+                            checked={parent.fextrapulmonaryTb === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fextrapulmonaryTb"
+                            checked={parent.fextrapulmonaryTb === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Specify Extrapulmonary Tuberculosis Category:
+                        </td>
+                        <td colSpan="2" className="px-4 py-2">
+                          <input
+                            type="text"
+                            name="fextrapulmonaryTbCategory"
+                            value={parent.fextrapulmonaryTbCategory}
+                            onChange={handleChange}
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Urinary Tract Infection
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="futi"
+                            checked={parent.futi === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="futi"
+                            checked={parent.futi === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Mental Illness
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fmentalIllness"
+                            checked={parent.fmentalIllness === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fmentalIllness"
+                            checked={parent.fmentalIllness === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Others
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fothers"
+                            checked={parent.fothers === "yes"}
+                            value="yes"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          <input
+                            type="radio"
+                            name="fothers"
+                            checked={parent.fothers === "no"}
+                            value="no"
+                            onChange={handleChange}
+                            className="h-4 w-4 text-[#147190] focus:ring-[#148190] border-gray-300"
+                          />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
+                          Others please specify:
+                        </td>
+                        <td colSpan="2" className="px-4 py-2">
+                          <input
+                            type="text"
+                            name="fspecifyOthers"
+                            value={parent.fspecifyOthers}
+                            onChange={handleChange}
+                            className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-[#147190] focus:border-[#148190] text-sm"
+                          />
+                        </td>
+                      </tr>
   
                         <tr>
                           <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-700">
@@ -1391,8 +2217,8 @@ const Edit = () => {
                           <td className="px-4 py-2 whitespace-nowrap">
                             <input
                               type="number"
-                              name="preterm"
-                              value={parent.preterm}
+                              name="preTerm"
+                              value={parent.preTerm}
                               onChange={handleChange}
                               className="w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm text-black focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
                               min="0"

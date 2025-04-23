@@ -202,8 +202,9 @@ const View = () => {
             { label: "Urinary Tract Infection", value: parent.puti },
             { label: "Mental Illness", value: parent.pmentalIllness },
             { label: "Others", value: parent.pothers },
+            { label: "Specify Others", value: parent.pspecifyOthers},
             { label: "None", value: parent.pnone },
-            { label: "Highest Blood Pressure", value: parent.phighestBp },
+            { label: "Highest Blood Pressure", value: parent.pbloodPressure },
           ].map((item, index) => (
             <InfoCard
               key={index}
@@ -251,8 +252,9 @@ const View = () => {
             { label: "Urinary Tract Infection", value: parent.futi },
             { label: "Mental Illness", value: parent.fmentalIllness },
             { label: "Others", value: parent.fothers },
+            { label: "Specify Others", value: parent.fspecifyOthers},
             { label: "None", value: parent.fnone },
-            { label: "Highest Blood Pressure", value: parent.fhighestBp },
+            { label: "Highest Blood Pressure", value: parent.fbloodPressure },
           ].map((item, index) => (
             <InfoCard
               key={index}
