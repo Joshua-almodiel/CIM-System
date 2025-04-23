@@ -52,14 +52,18 @@ const Setting = () => {
     <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="bg-white shadow-xl rounded-lg overflow-hidden">
-          <div>
-          <h2 className="text-2xl font-semibold mb-6">Change Password</h2>
+          <div className="bg-white-200 py-4 px-6">
+          <h2 className="text-2xl font-bold text-gray-700">Change Password</h2>
           </div>
           {error && <p className="text-red-500 mb-4"></p>}
 
           <form
             onSubmit={handleSubmit} className="p-6 space-y-8"
           >
+            <div className="bg-blue-50 p-4 rounded-lg">
+            <h3 className="text-lg font-semibold text-[#147190] mb-4 border-b border-blue-200 pb-2">
+                Change Your Password for Secure
+              </h3>
             <div className="space-y-6">
               <div>
                 <label
@@ -112,7 +116,8 @@ const Setting = () => {
                 />
               </div>
             </div>
-
+            
+            </div>
             <div className="mt-6">
               <button
                 type="submit"
@@ -122,6 +127,7 @@ const Setting = () => {
               </button>
             </div>
           </form>
+
           {status && (
             <div
               className={`mt-4 px-4 py-3 rounded-md text-sm flex items-center gap-2 ${
