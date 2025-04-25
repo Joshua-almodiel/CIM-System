@@ -4,7 +4,7 @@ import axios from "axios";
 const Notifications = () => {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
-  const [date, setDate] = useState("")
+  const [date, setDate] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
   const [emails, setEmails] = useState([]);
@@ -32,6 +32,17 @@ const Notifications = () => {
 
     fetchEmails();
   }, []);
+
+  useEffect(() => {
+    if (status) {
+      const timer = setTimeout(() => {
+        setStatus("");
+      }, 3000);
+  
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+  
 
   const handleSendEmail = async (e) => {
     e.preventDefault();
@@ -111,7 +122,8 @@ const Notifications = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Reminder Date for vaccination<span className="text-red-500">*</span>
+                  Reminder Date for vaccination
+                  <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="date"
@@ -169,48 +181,49 @@ const Notifications = () => {
                   "Send Email"
                 )}
               </button>
+              
             </div>
           </form>
           {status && (
-            <div
-              className={`mt-4 px-4 py-3 rounded-md text-sm flex items-center gap-2 ${
-                status === "Email sent successfully!"
-                  ? "bg-green-100 text-green-800"
-                  : "bg-red-100 text-red-800"
-              }`}
-            >
-              {status === "Email sent successfully!" ? (
-                <svg
-                  className="w-5 h-5 text-green-600"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
+                <div
+                  className={`mt-4 px-4 py-3 rounded-md text-sm flex items-center gap-2 ${
+                    status === "Email sent successfully!"
+                      ? "bg-green-100 text-green-800"
+                      : "bg-red-100 text-red-800"
+                  }`}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className="w-5 h-5 text-red-600"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                  {status === "Email sent successfully!" ? (
+                    <svg
+                      className="w-5 h-5 text-green-600"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      className="w-5 h-5 text-red-600"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  )}
+                  <span>{status}</span>
+                </div>
               )}
-              <span>{status}</span>
-            </div>
-          )}
         </div>
       </div>
     </div>

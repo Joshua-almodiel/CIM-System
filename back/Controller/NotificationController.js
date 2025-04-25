@@ -7,13 +7,13 @@ const sendEmailNotification = async (req, res) => {
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
-                user: "healthcareworker113@gmail.com",
-                pass: "shxr bulg phqg isaj",
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS,
             },
         });
 
         const mailOptions = {
-            from: "healthcareworker113@gmail.com",
+            from: process.env.EMAIL_USER,
             to: email,
             subject: subject,
             date: date,

@@ -12,7 +12,14 @@ import {
   Legend,
 } from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const Summary = () => {
   const { user } = useAuth();
@@ -33,7 +40,11 @@ const Summary = () => {
           setStats(response.data);
         }
       } catch (error) {
-        setStats({ totalVaccinations: 0, upcomingVaccinations: 0, totalVitals: 0 });
+        setStats({
+          totalVaccinations: 0,
+          upcomingVaccinations: 0,
+          totalVitals: 0,
+        });
       }
     };
     fetchStats();
@@ -41,8 +52,31 @@ const Summary = () => {
 
   if (!stats) {
     return (
-      <div className="p-6 bg-gray-100 min-h-screen flex items-center justify-center">
-        <span className="text-gray-500">Loading your stats...</span>
+      <div className="bg-white min-h-screen text-center py-16">
+        <div className="flex justify-center items-center space-x-3">
+          <svg
+            className="animate-spin h-6 w-6 text-blue-500"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+            ></path>
+          </svg>
+          <span className="text-slate-600 font-medium">Loading Stats...</span>
+        </div>
+        <p className="mt-2 text-sm text-gray-500">Please wait a moment.</p>
       </div>
     );
   }
@@ -72,12 +106,17 @@ const Summary = () => {
     },
   };
 
+  const capitalize = (str) => {
+    if (!str) return "";
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  };
+
   return (
     <div className="p-10 bg-gray-100 min-h-screen">
-
-      
-
-<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+      <h2 className="text-2xl font-bold text-gray-700 mb-4">
+        Welcome, {capitalize(stats.firstName)} {capitalize(stats.lastName)}!
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
         <div className="p-6 bg-white rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
           <div>
             <p className="text-gray-500 text-sm">Your Total Vaccinations</p>
@@ -98,7 +137,9 @@ const Summary = () => {
       </div>
 
       <div className="bg-white rounded-lg shadow-lg mt-10 p-6">
-        <h3 className="text-xl font-bold text-gray-700 mb-4">Vaccination Status Overview</h3>
+        <h3 className="text-xl font-bold text-gray-700 mb-4">
+          Vaccination Status Overview
+        </h3>
         <Bar data={chartData} options={chartOptions} />
       </div>
     </div>

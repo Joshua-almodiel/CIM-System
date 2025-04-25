@@ -89,20 +89,6 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          to={`/parent-dashboard/reminders/${user._id}`}
-          className={({ isActive }) =>
-            `flex items-center p-3 rounded-lg transition-colors duration-200 ${
-              isActive
-                ? "bg-blue-100 text-[#147190] font-medium"
-                : "hover:bg-gray-100"
-            }`
-          }
-        >
-          <FaUserFriends className="mr-3" />
-          <span>Reminders</span>
-        </NavLink>
-
-        <NavLink
           to={"/parent-dashboard/tips-guidelines"}
           className={({ isActive }) =>
             `flex items-center p-3 rounded-lg transition-colors duration-200 ${

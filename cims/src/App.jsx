@@ -23,7 +23,6 @@ import DetailsVaccination from './Components/Vaccinations/DetailsVaccination.jsx
 import Notifications from "./Components/Notifications/Notifications.jsx"
 import ReportsAndAnalytics from "./Components/ReportsAndAnalytics/ReportsAndAnalytics.jsx"
 import AddHealthWorker from "./Components/AddHealthWorker/AddHealthWorker.jsx"
-import Reminder from "./Components/ParentReminder/Reminder.jsx"
 import TipsAndGuidelines from "./Components/TipsAndGuidelines/TipsAndGuidelines.jsx"
 
 function App() {
@@ -85,7 +84,6 @@ function App() {
           <Route path="/parent-dashboard/profile/:id" element={<View />}></Route>
           <Route path="/parent-dashboard/vital/:id" element={<ViewVital />}></Route>
           <Route path="/parent-dashboard/vaccinations/:id" element={<VaccinationList />}></Route>
-          <Route path="/parent-dashboard/reminders/:id" element={<Reminder />}></Route>
           <Route path="/parent-dashboard/tips-guidelines" element={<TipsAndGuidelines />}></Route>
           <Route path="/parent-dashboard/setting" element={<Setting />}></Route>
 

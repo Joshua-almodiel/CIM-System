@@ -281,6 +281,8 @@ const getParentStats = async (req, res) => {
       missedVaccinations,
       scheduledVaccinations,
       totalVitals,
+      firstName: parent.firstName,
+      lastName: parent.lastName,
     });
   } catch (error) {
     return res.status(500).json({ success: false, error: "Parent stats error" });
