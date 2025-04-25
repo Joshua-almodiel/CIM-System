@@ -7,7 +7,7 @@ const ParentsDashboard = () => {
     return (
         <div className="flex min-h-screen">
             <Sidebar />
-            <div className="flex-1 ml-64 bg-gray-200 text-white h-screen">
+            <div className="flex-1 ml-64 bg-gray-200 text-white min-h-screen">
                 <Outlet />
             </div>
         </div>

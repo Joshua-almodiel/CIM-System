@@ -251,6 +251,42 @@ const getParents = async (req, res) => {
   }
 };
 
+const getParentStats = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const parent = await Parents.findOne({ userId });
+    if (!parent) {
+      return res.status(404).json({ success: false, error: "Parent not found" });
+    }
+
+    const totalVaccinations = await Vaccinations.countDocuments({ familyNumber: parent._id });
+    const upcomingVaccinations = await Vaccinations.countDocuments({
+      familyNumber: parent._id,
+      status: "Processing",
+    });
+    const missedVaccinations = await Vaccinations.countDocuments({
+      familyNumber: parent._id,
+      status: "Cancel",
+    });
+    const scheduledVaccinations = await Vaccinations.countDocuments({
+      familyNumber: parent._id,
+      status: "Scheduled",
+    });
+    const totalVitals = await Vitals.countDocuments({ familyNumber: parent._id });
+
+    return res.status(200).json({
+      success: true,
+      totalVaccinations,
+      upcomingVaccinations,
+      missedVaccinations,
+      scheduledVaccinations,
+      totalVitals,
+    });
+  } catch (error) {
+    return res.status(500).json({ success: false, error: "Parent stats error" });
+  }
+};
+
 const getParent = async (req, res) => {
   const { id } = req.params;
   try {
@@ -553,4 +589,4 @@ const deleteParent = async (req, res) => {
 };
 
 
-export { addParent, getParents, getParent, updateParent, getAllFamilyNumbers, deleteParent };
+export { addParent, getParents, getParent, updateParent, getAllFamilyNumbers, deleteParent, getParentStats };

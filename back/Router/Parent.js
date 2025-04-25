@@ -8,6 +8,7 @@ import {
   updateParent,
   getAllFamilyNumbers,
   deleteParent,
+  getParentStats,
 } from "../Controller/ParentsController.js";
 
 const router = express.Router();
@@ -15,6 +16,7 @@ const router = express.Router();
 router.get("/", Middleware, getParents);
 router.post("/add", Middleware, addParent);
 router.get("/family-numbers", Middleware, getAllFamilyNumbers);
+router.get("/stats/:userId", Middleware, getParentStats);
 router.get("/:id", Middleware, getParent);
 router.put("/:id", Middleware, updateParent);
 router.delete("/:id", Middleware, deleteParent);
