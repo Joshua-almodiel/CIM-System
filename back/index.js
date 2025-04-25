@@ -12,7 +12,10 @@ import ReportAnalytic from "./Router/ReportsAnalytics.js"
 
 connectToDatabase()
 const app = express()
-app.use(cors())
+app.use(cors({
+    origin: "https://cim-system.vercel.app",
+    credentials: true
+}))
 app.use(express.json())
 app.use('/api/auth', UserRouter)
 app.use('/api/parent', ParentRouter)
