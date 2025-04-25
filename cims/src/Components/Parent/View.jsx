@@ -72,14 +72,31 @@ const View = () => {
 
   if (!parent) {
     return (
-      <div className="bg-white min-h-screen p-8 flex flex-col items-center justify-center">
-        <div className="animate-pulse flex flex-col items-center">
-          <div className="w-16 h-16 bg-blue-100 rounded-full mb-4"></div>
-          <div className="h-4 bg-blue-100 rounded w-48"></div>
+      <div className="bg-white min-h-screen text-center py-16">
+        <div className="flex justify-center items-center space-x-3">
+          <svg
+            className="animate-spin h-6 w-6 text-blue-500"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+            ></path>
+          </svg>
+          <span className="text-slate-600 font-medium">Loading Records...</span>
         </div>
-        <h3 className="mt-6 text-lg font-medium text-gray-500">
-          Loading Record Details...
-        </h3>
+        <p className="mt-2 text-sm text-gray-500">Please wait a moment.</p>
       </div>
     );
   }

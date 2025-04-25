@@ -74,7 +74,7 @@ const HealthWorkerOverview = () => {
               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
             ></path>
           </svg>
-          <span className="text-slate-600 font-medium">Loading Records...</span>
+          <span className="text-slate-600 font-medium">Loading Stats...</span>
         </div>
         <p className="mt-2 text-sm text-gray-500">Please wait a moment.</p>
       </div>

@@ -84,25 +84,36 @@ const List = () => {
 
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
           {loading ? (
-            <div className="p-8 text-center">
+            <div className="bg-white min-h-screen text-center py-16">
+            <div className="flex justify-center items-center space-x-3">
               <svg
-                className="w-16 h-16 mx-auto text-gray-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+                className="animate-spin h-6 w-6 text-blue-500"
                 xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
               >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1}
-                  d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                ></path>
               </svg>
-              <h3 className="mt-4 text-lg font-medium text-gray-300">
+              <span className="text-slate-600 font-medium">
                 Loading Vaccination Records...
-              </h3>
+              </span>
             </div>
+            <p className="mt-2 text-sm text-gray-500">
+              Please wait a moment.
+            </p>
+          </div>
           ) : vaccinations.length > 0 ? (
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">

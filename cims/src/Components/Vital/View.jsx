@@ -9,11 +9,13 @@ const View = () => {
   const [filteredVitals, setFilteredVitals] = useState([]);
   const [selectedComplaint, setSelectedComplaint] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const { user } = useAuth();
   const navigate = useNavigate();
 
   const fetchVitals = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(
         `https://cim-system-gvok.vercel.app/api/vital/${id}/${user.role}`,
@@ -27,6 +29,8 @@ const View = () => {
       }
     } catch (error) {
       console.error("Error fetching vital:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -60,7 +64,38 @@ const View = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-          {filteredVitals.length > 0 ? (
+          {loading ? (
+            <div className="bg-white min-h-screen text-center py-16">
+            <div className="flex justify-center items-center space-x-3">
+              <svg
+                className="animate-spin h-6 w-6 text-blue-500"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                ></path>
+              </svg>
+              <span className="text-slate-600 font-medium">
+                Loading Vitals...
+              </span>
+            </div>
+            <p className="mt-2 text-sm text-gray-500">
+              Please wait a moment.
+            </p>
+          </div>
+          ) : filteredVitals.length > 0 ? (
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-100">
@@ -99,7 +134,7 @@ const View = () => {
                       BMI
                     </th>
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                      {user.role === "healthWorker" && (<>Edit</>)}
+                      {user.role === "healthWorker" && <>Edit</>}
                     </th>
                   </tr>
                 </thead>
@@ -123,27 +158,17 @@ const View = () => {
                           View
                         </button>
                       </td>
-                      <td className="px-4 py-4 whitespace-nowrap">
-                        {vital.bp}
-                      </td>
-                      <td className="px-4 py-4 whitespace-nowrap">
-                        {vital.hr}
-                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap">{vital.bp}</td>
+                      <td className="px-4 py-4 whitespace-nowrap">{vital.hr}</td>
                       <td className="px-4 py-4 whitespace-nowrap">
                         {vital.o2sat}
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap">
                         {vital.temp}
                       </td>
-                      <td className="px-4 py-4 whitespace-nowrap">
-                        {vital.rr}
-                      </td>
-                      <td className="px-4 py-4 whitespace-nowrap">
-                        {vital.wt}
-                      </td>
-                      <td className="px-4 py-4 whitespace-nowrap">
-                        {vital.ht}
-                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap">{vital.rr}</td>
+                      <td className="px-4 py-4 whitespace-nowrap">{vital.wt}</td>
+                      <td className="px-4 py-4 whitespace-nowrap">{vital.ht}</td>
                       <td className="px-4 py-4 whitespace-nowrap">
                         {vital.bmi}
                       </td>
@@ -185,7 +210,7 @@ const View = () => {
       </div>
 
       {showModal && (
-        <div className="fixed inset-0 bg-transparent bg-opacity-40 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center">
           <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative">
             <button
               onClick={closeModal}
