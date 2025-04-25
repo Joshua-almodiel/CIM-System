@@ -29,7 +29,7 @@ const Summary = () => {
     const fetchStats = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/parent/stats/${user._id}`,
+          `https://cim-system-gvok.vercel.app/api/parent/stats/${user._id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

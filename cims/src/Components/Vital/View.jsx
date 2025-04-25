@@ -16,7 +16,7 @@ const View = () => {
   const fetchVitals = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/vital/${id}/${user.role}`,
+        `https://cim-system-gvok.vercel.app/api/vital/${id}/${user.role}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }

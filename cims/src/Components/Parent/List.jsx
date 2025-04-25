@@ -13,7 +13,7 @@ const List = () => {
   useEffect(() => {
     const fetchParents = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/parent", {
+        const response = await axios.get("https://cim-system-gvok.vercel.app/api/parent", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

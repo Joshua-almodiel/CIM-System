@@ -20,7 +20,7 @@ const AddVaccination = () => {
     const fetchFamilyNumbers = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/parent/family-numbers",
+          "https://cim-system-gvok.vercel.app/api/parent/family-numbers",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -57,7 +57,7 @@ const AddVaccination = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/vaccination/add`,
+        `https://cim-system-gvok.vercel.app/api/vaccination/add`,
         vaccination,
         {
           headers: {

@@ -21,7 +21,7 @@ const DetailsVaccination = () => {
     const fetchVaccinations = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/vaccination/detail/${id}`,
+          `https://cim-system-gvok.vercel.app/api/vaccination/detail/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -43,7 +43,7 @@ const DetailsVaccination = () => {
   const changeStatus = async (id, status) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/vaccination/${id}`,
+        `https://cim-system-gvok.vercel.app/api/vaccination/${id}`,
         { status },
         {
           headers: {

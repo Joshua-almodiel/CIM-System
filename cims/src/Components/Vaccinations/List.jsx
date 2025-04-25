@@ -17,7 +17,7 @@ const List = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:5000/api/vaccination/${id}/${user.role}`,
+        `https://cim-system-gvok.vercel.app/api/vaccination/${id}/${user.role}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -1,14 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import {
-  FaTachometerAlt,   // Dashboard
-  FaChild,            // Child Records
-  FaSyringe,          // Vaccination Schedule
-  FaBell,             // Notifications
-  FaChartPie,         // Reports & Analytics
-  FaUserNurse,        // Health Worker
-  FaTools,            // Settings
-  FaSignOutAlt        // Logout
+  FaTachometerAlt, 
+  FaChild, 
+  FaSyringe,  
+  FaBell, 
+  FaChartPie, 
+  FaUserNurse,  
+  FaTools, 
+  FaSignOutAlt 
 } from "react-icons/fa";
 import { useAuth } from "../../Context/AuthContext.jsx";
 

@@ -27,7 +27,7 @@ const Edit = () => {
           return;
         }
 
-        const res = await axios.get(`http://localhost:5000/api/vital/${id}`, {
+        const res = await axios.get(`https://cim-system-gvok.vercel.app/api/vital/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         
@@ -68,7 +68,7 @@ const Edit = () => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/vital/single/${id}`,
+        `https://cim-system-gvok.vercel.app/api/vital/single/${id}`,
         vital,
         {
           headers: {

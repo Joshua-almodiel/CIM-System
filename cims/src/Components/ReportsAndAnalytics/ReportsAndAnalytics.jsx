@@ -27,7 +27,7 @@ const ReportsAndAnalytics = () => {
     const fetchStats = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/reportanalytic/stats",
+          "https://cim-system-gvok.vercel.app/api/reportanalytic/stats",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

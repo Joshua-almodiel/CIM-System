@@ -15,7 +15,7 @@ const AddHealthWorker = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://cim-system-gvok.vercel.app/api/auth/register",
         {
           name,
           email,

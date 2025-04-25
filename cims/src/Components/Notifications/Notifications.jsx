@@ -14,7 +14,7 @@ const Notifications = () => {
     const fetchEmails = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/auth/emails",
+          "https://cim-system-gvok.vercel.app/api/auth/emails",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

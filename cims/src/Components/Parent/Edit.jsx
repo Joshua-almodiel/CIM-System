@@ -110,7 +110,7 @@ const Edit = () => {
     const fetchParents = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/parent/${id}`,
+          `https://cim-system-gvok.vercel.app/api/parent/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -156,7 +156,7 @@ const Edit = () => {
     console.log(parent);
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/parent/${id}`,
+        `https://cim-system-gvok.vercel.app/api/parent/${id}`,
         parent,
         {
           headers: {

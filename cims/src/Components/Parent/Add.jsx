@@ -119,7 +119,7 @@ const Add = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/parent/add",
+        "https://cim-system-gvok.vercel.app/api/parent/add",
         formData,
         {
           headers: {

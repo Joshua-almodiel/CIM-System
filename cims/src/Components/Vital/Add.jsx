@@ -22,7 +22,7 @@ const Add = () => {
   useEffect(() => {
     const fetchParents = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/parent", {
+        const response = await axios.get("https://cim-system-gvok.vercel.app/api/parent", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -47,7 +47,7 @@ const Add = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/vital/add",
+        "https://cim-system-gvok.vercel.app/api/vital/add",
         vital,
         {
           headers: {

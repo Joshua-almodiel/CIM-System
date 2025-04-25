@@ -34,7 +34,7 @@ const HealthWorkerOverview = () => {
     const fetchStats = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/dashboard/stats",
+          "https://cim-system-gvok.vercel.app/api/dashboard/stats",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
