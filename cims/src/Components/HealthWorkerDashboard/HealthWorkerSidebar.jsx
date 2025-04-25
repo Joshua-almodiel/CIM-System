@@ -22,7 +22,7 @@ const HealthWorkerSidebar = () => {
           𝘊𝘩𝘪𝘭𝘥 𝘐𝘮𝘮𝘶𝘯𝘪𝘻𝘢𝘵𝘪𝘰𝘯<br />𝘔𝘰𝘯𝘪𝘵𝘰𝘳𝘪𝘯𝘨 𝘚𝘺𝘴𝘵𝘦𝘮
         </h3>
         <img
-          src="/images/Logocims.png"
+          src="/Logocims.png"
           alt="Health Logo"
           className="mx-auto w-98 h-40 object-contain"
         />
