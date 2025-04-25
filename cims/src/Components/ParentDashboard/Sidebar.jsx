@@ -24,7 +24,7 @@ const Sidebar = () => {
           𝘔𝘰𝘯𝘪𝘵𝘰𝘳𝘪𝘯𝘨 𝘚𝘺𝘴𝘵𝘦𝘮
         </h3>
         <img
-          src="/public/Logocims.png"
+          src="/Logocims.png"
           alt="Health Logo"
           className="mx-auto w-98 h-40 object-contain"
         />
