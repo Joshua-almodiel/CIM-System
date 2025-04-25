@@ -50,7 +50,7 @@ const Notifications = () => {
     setStatus("");
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/notifications/send-email",
+        "https://cim-system-gvok.vercel.app/api/notifications/send-email",
         { email, subject, date, message },
         {
           headers: {
