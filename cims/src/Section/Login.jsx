@@ -52,7 +52,7 @@ function Login() {
 
         <form onSubmit={handleLogin} className="space-y-5">
           <div>
-            <label className="block text-sm mb-1">Email</label>
+            <label className="block text-sm text-black mb-1">Email</label>
             <div className="flex items-center bg-gray-300 border border-gray-300 rounded-lg px-3">
               <FaEnvelope className="text-[#147190] mr-2" />
               <input
@@ -66,7 +66,7 @@ function Login() {
           </div>
 
           <div>
-            <label className="block text-sm mb-1">Password</label>
+            <label className="block text-sm text-black mb-1">Password</label>
             <div className="flex items-center bg-gray-300 border border-gray-300 rounded-lg px-3">
               <FaLock className="text-[#147190] mr-2" />
               <input
